@@ -28,7 +28,7 @@
     </Node>
     <Node ToolID="3">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54.00002" y="199.3001" width="2409.201" height="1950.8" />
+        <Position x="54.00002" y="199.3001" width="2409.201" height="1950.799" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -46,7 +46,7 @@
       <ChildNodes>
         <Node ToolID="6">
           <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-            <Position x="79.00002" y="243.3001" width="2359.201" height="1881.8" />
+            <Position x="79.00002" y="243.3001" width="2359.201" height="1881.799" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -903,7 +903,7 @@
                 </Node>
                 <Node ToolID="60">
                   <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-                    <Position x="470.1665" y="898.5128" />
+                    <Position x="470.1664" y="898.5128" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -938,17 +938,18 @@
                   </Properties>
                   <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
                 </Node>
-                <Node ToolID="70">
+                <Node ToolID="77">
                   <GuiSettings>
-                    <Position x="555.8333" y="898.8656" />
+                    <Position x="583.0001" y="900.0225" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
-                      <Value name="Drop Down (19)">financials?period=annual</Value>
-                      <Value name="ControlParams" />
+                      <Value name="Drop Down (19)">financials?period=quarter</Value>
+                      <Value name="ControlParams"><![CDATA[Control Parameter (10)=Stock
+]]></Value>
                     </Configuration>
                     <Annotation DisplayMode="0">
-                      <Name>IEX Stocks (66)</Name>
+                      <Name>IEX Stocks (72)</Name>
                       <DefaultAnnotationText />
                       <Left value="False" />
                     </Annotation>
@@ -956,13 +957,13 @@
                       <Implicit />
                     </Dependencies>
                   </Properties>
-                  <EngineSettings Macro="IEX_stocks.yxmc" />
+                  <EngineSettings Macro="C:\Users\jburkhow\Google Drive\Documents\GitHub\rule_one\Macros\IEX_stocks.yxmc" />
                 </Node>
               </ChildNodes>
             </Node>
             <Node ToolID="9">
               <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                <Position x="1451" y="288.2996" width="191" height="175.1999" />
+                <Position x="1451" y="288.2997" width="191" height="175.1999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -980,7 +981,7 @@
               <ChildNodes>
                 <Node ToolID="13">
                   <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-                    <Position x="1476" y="332.2996" width="141" height="31.00012" />
+                    <Position x="1476" y="332.2997" width="141" height="31.00012" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -1000,7 +1001,7 @@
                 </Node>
                 <Node ToolID="40">
                   <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-                    <Position x="1481.401" y="379.4995" />
+                    <Position x="1481.401" y="379.4996" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -1311,10 +1312,10 @@
   <Connections>
     <Connection>
       <Origin ToolID="60" Connection="Output" />
-      <Destination ToolID="70" Connection="Control" />
+      <Destination ToolID="77" Connection="Control" />
     </Connection>
     <Connection>
-      <Origin ToolID="70" Connection="Output12" />
+      <Origin ToolID="77" Connection="Output12" />
       <Destination ToolID="63" Connection="Input" />
     </Connection>
   </Connections>
