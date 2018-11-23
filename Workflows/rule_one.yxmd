@@ -885,6 +885,9 @@
                           <OrderChanged value="False" />
                           <CommaDecimal value="False" />
                           <SelectFields>
+                            <SelectField field="Ticker" selected="True" />
+                            <SelectField field="reportDate" selected="True" />
+                            <SelectField field="operatingIncome" selected="True" />
                             <SelectField field="Stock" selected="True" />
                             <SelectField field="returnOnCapital" selected="True" />
                             <SelectField field="returnOnEquity" selected="True" />
@@ -938,13 +941,13 @@
                   </Properties>
                   <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
                 </Node>
-                <Node ToolID="77">
+                <Node ToolID="79">
                   <GuiSettings>
                     <Position x="583.0001" y="900.0225" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
-                      <Value name="Drop Down (19)">financials?period=quarter</Value>
+                      <Value name="Drop Down (19)">financials?period=annual</Value>
                       <Value name="ControlParams"><![CDATA[Control Parameter (10)=Stock
 ]]></Value>
                     </Configuration>
@@ -953,11 +956,13 @@
                       <DefaultAnnotationText />
                       <Left value="False" />
                     </Annotation>
-                    <Dependencies>
-                      <Implicit />
-                    </Dependencies>
+                    <MetaInfo connection="Output12">
+                      <RecordInfo>
+                        <Field description="Formula: IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
+                      </RecordInfo>
+                    </MetaInfo>
                   </Properties>
-                  <EngineSettings Macro="C:\Users\jburkhow\Google Drive\Documents\GitHub\rule_one\Macros\IEX_stocks.yxmc" />
+                  <EngineSettings Macro="..\Macros\IEX_stocks.yxmc" />
                 </Node>
               </ChildNodes>
             </Node>
@@ -1312,10 +1317,10 @@
   <Connections>
     <Connection>
       <Origin ToolID="60" Connection="Output" />
-      <Destination ToolID="77" Connection="Control" />
+      <Destination ToolID="79" Connection="Control" />
     </Connection>
     <Connection>
-      <Origin ToolID="77" Connection="Output12" />
+      <Origin ToolID="79" Connection="Output12" />
       <Destination ToolID="63" Connection="Input" />
     </Connection>
   </Connections>

@@ -17,7 +17,7 @@
             <r>
               <c>https://api.iextrading.com/1.0/stock/</c>
               <c>amzn</c>
-              <c>financials</c>
+              <c>company</c>
             </r>
           </Data>
         </Configuration>
@@ -30,7 +30,7 @@
           <RecordInfo>
             <Field name="Core URL" size="37" source="TextInput:" type="String" />
             <Field name="Stock" size="4" source="TextInput:" type="String" />
-            <Field name="Parameter" size="10" source="TextInput:" type="String" />
+            <Field name="Parameter" size="7" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -82,7 +82,7 @@
           <RecordInfo>
             <Field name="Core URL" size="37" source="TextInput:" type="String" />
             <Field name="Stock" size="5" source="TextInput:" type="String" />
-            <Field name="Parameter" size="10" source="TextInput:" type="String" />
+            <Field name="Parameter" size="7" source="TextInput:" type="String" />
             <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
             <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
             <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
@@ -110,7 +110,7 @@
           <RecordInfo>
             <Field name="Core URL" size="37" source="TextInput:" type="String" />
             <Field name="Stock" size="5" source="TextInput:" type="String" />
-            <Field name="Parameter" size="10" source="TextInput:" type="String" />
+            <Field name="Parameter" size="7" source="TextInput:" type="String" />
             <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
             <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
@@ -145,7 +145,7 @@
           <RecordInfo>
             <Field name="Core URL" size="37" source="TextInput:" type="String" />
             <Field name="Stock" size="5" source="TextInput:" type="String" />
-            <Field name="Parameter" size="10" source="TextInput:" type="String" />
+            <Field name="Parameter" size="7" source="TextInput:" type="String" />
             <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
             <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
@@ -182,7 +182,7 @@
           <RecordInfo>
             <Field name="Core URL" size="37" source="TextInput:" type="String" />
             <Field name="Stock" size="5" source="TextInput:" type="String" />
-            <Field name="Parameter" size="10" source="TextInput:" type="String" />
+            <Field name="Parameter" size="7" source="TextInput:" type="String" />
             <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
             <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
@@ -221,7 +221,7 @@
           <RecordInfo>
             <Field name="Core URL" size="37" source="TextInput:" type="String" />
             <Field name="Stock" size="5" source="TextInput:" type="String" />
-            <Field name="Parameter" size="10" source="TextInput:" type="String" />
+            <Field name="Parameter" size="7" source="TextInput:" type="String" />
             <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
           </RecordInfo>
         </MetaInfo>
@@ -289,7 +289,7 @@
           <RecordInfo>
             <Field name="Core URL" size="37" source="TextInput:" type="String" />
             <Field name="Stock" size="5" source="TextInput:" type="String" />
-            <Field name="Parameter" size="10" source="TextInput:" type="String" />
+            <Field name="Parameter" size="7" source="TextInput:" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -334,19 +334,42 @@
           <CreateField_Size>4</CreateField_Size>
           <OtherRows>Empty</OtherRows>
           <NumRows value="1" />
-          <Expression>IF (ISEMPTY([Group By])) THEN [JSON_Name2] ELSE [Group By] ENDIF</Expression>
+          <Expression>IF 
+	[JSON_Name1]="symbol" 
+THEN 
+	[Row-1:Group By] 
+ELSE 
+	IF 
+		ISEMPTY([Group By]) 
+	THEN 
+		IF 
+			ISEMPTY([JSON_Name2]) 
+		THEN 
+			[Stock] 
+		ELSE 
+			[JSON_Name2] 
+		ENDIF 
+	ELSE 
+		[Group By] 
+	ENDIF
+ENDIF</Expression>
           <GroupByFields />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>IF (ISEMPTY([Group By])) THEN [JSON_Name2] ELSE [Group By] ENDIF</DefaultAnnotationText>
+          <DefaultAnnotationText>IF 
+	[JSON_Name1]="symbol" 
+THEN 
+	[Row-1:Group By] 
+ELSE 
+	I...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Core URL" size="37" source="TextInput:" type="String" />
             <Field name="Stock" size="5" source="TextInput:" type="String" />
-            <Field name="Parameter" size="10" source="TextInput:" type="String" />
+            <Field name="Parameter" size="7" source="TextInput:" type="String" />
             <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
             <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
             <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
@@ -359,7 +382,7 @@
             <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
             <Field name="Value" size="64" source="Formula: COALESCE([JSON_ValueString],ToString(COALESCE([JSON_ValueInt],[JSON_ValueFloat],[JSON_ValueBool]),2)) " type="String" />
             <Field name="Header" size="1073741823" source="Formula: Switch([Parameter],[JSON_Name],&#xA; &quot;stats&quot;,[JSON_Name1],&#xA; &quot;financials&quot;,[JSON_Name3],&#xA; &quot;financials?period=quarter&quot;,[JSON_Name3],&#xA;    &quot;financials?period=annual&quot;,[JSON_Name3],&#xA;    &quot;stats&quot;,[JSON_Name1],&#xA;    &quot;company&quot;,[JSON_Name1],&#xA;    &quot;delayed-quote&quot;,[JSON_Name1],&#xA;    &quot;earnings&quot;,[JSON_Name1],&#xA;    &quot;effective-spread&quot;,[JSON_Name1],&#xA;    &quot;largest-trades&quot;,[JSON_Name1],&#xA;    &quot;logo&quot;,[JSON_Name1],&#xA;    &quot;news&quot;,[JSON_Name1],&#xA;    &quot;ohlc&quot;,[JSON_Name1],&#xA;    &quot;peers&quot;,[JSON_Name1],&#xA;    &quot;previous&quot;,[JSON_Name1],&#xA;    &quot;price&quot;,[JSON_Name1],&#xA;    &quot;quote&quot;,[JSON_Name1],&#xA;    &quot;chart/dynamic&quot;,[JSON_Name1],&#xA;    &quot;volume-by-venue&quot;,[JSON_Name1])&#xA;" type="V_WString" />
-            <Field description="Formula: IF (ISEMPTY([Group By])) THEN [JSON_Name2] ELSE [Group By] ENDIF" name="Group By" size="64" source="Formula: IF (ISEMPTY([Group By])) THEN [JSON_Name2] ELSE [Group By] ENDIF" type="String" />
+            <Field description="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" name="Group By" size="64" source="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" type="String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
@@ -367,7 +390,7 @@
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
-        <Position x="1380" y="240" />
+        <Position x="1772" y="240" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -384,7 +407,7 @@
     </Node>
     <Node ToolID="40">
       <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-        <Position x="984" y="240" />
+        <Position x="1079" y="240" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -406,28 +429,17 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field description="Formula: IF (ISEMPTY([Group By])) THEN [JSON_Name2] ELSE [Group By] ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
-            <Field name="cashChange" size="2048" source="CrossTab:Header:Header:cashChange:Concat:" type="V_String" />
-            <Field name="cashFlow" size="2048" source="CrossTab:Header:Header:cashFlow:Concat:" type="V_String" />
-            <Field name="costOfRevenue" size="2048" source="CrossTab:Header:Header:costOfRevenue:Concat:" type="V_String" />
-            <Field name="currentAssets" size="2048" source="CrossTab:Header:Header:currentAssets:Concat:" type="V_String" />
-            <Field name="currentCash" size="2048" source="CrossTab:Header:Header:currentCash:Concat:" type="V_String" />
-            <Field name="currentDebt" size="2048" source="CrossTab:Header:Header:currentDebt:Concat:" type="V_String" />
-            <Field name="grossProfit" size="2048" source="CrossTab:Header:Header:grossProfit:Concat:" type="V_String" />
-            <Field name="netIncome" size="2048" source="CrossTab:Header:Header:netIncome:Concat:" type="V_String" />
-            <Field name="operatingExpense" size="2048" source="CrossTab:Header:Header:operatingExpense:Concat:" type="V_String" />
-            <Field name="operatingGainsLosses" size="2048" source="CrossTab:Header:Header:operatingGainsLosses:Concat:" type="V_String" />
-            <Field name="operatingIncome" size="2048" source="CrossTab:Header:Header:operatingIncome:Concat:" type="V_String" />
-            <Field name="operatingRevenue" size="2048" source="CrossTab:Header:Header:operatingRevenue:Concat:" type="V_String" />
-            <Field name="reportDate" size="2048" source="CrossTab:Header:Header:reportDate:Concat:" type="V_String" />
-            <Field name="researchAndDevelopment" size="2048" source="CrossTab:Header:Header:researchAndDevelopment:Concat:" type="V_String" />
-            <Field name="shareholderEquity" size="2048" source="CrossTab:Header:Header:shareholderEquity:Concat:" type="V_String" />
-            <Field name="totalAssets" size="2048" source="CrossTab:Header:Header:totalAssets:Concat:" type="V_String" />
-            <Field name="totalCash" size="2048" source="CrossTab:Header:Header:totalCash:Concat:" type="V_String" />
-            <Field name="totalDebt" size="2048" source="CrossTab:Header:Header:totalDebt:Concat:" type="V_String" />
-            <Field name="totalLiabilities" size="2048" source="CrossTab:Header:Header:totalLiabilities:Concat:" type="V_String" />
-            <Field name="totalRevenue" size="2048" source="CrossTab:Header:Header:totalRevenue:Concat:" type="V_String" />
-            <Field name="_Null_" size="2048" source="CrossTab:Header:Header:[Null]:Concat:" type="V_String" />
+            <Field description="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="CEO" size="2048" source="CrossTab:Header:Header:CEO:Concat:" type="V_String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat:" type="V_String" />
+            <Field name="description" size="2048" source="CrossTab:Header:Header:description:Concat:" type="V_String" />
+            <Field name="exchange" size="2048" source="CrossTab:Header:Header:exchange:Concat:" type="V_String" />
+            <Field name="industry" size="2048" source="CrossTab:Header:Header:industry:Concat:" type="V_String" />
+            <Field name="issueType" size="2048" source="CrossTab:Header:Header:issueType:Concat:" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+            <Field name="symbol" size="2048" source="CrossTab:Header:Header:symbol:Concat:" type="V_String" />
+            <Field name="tags" size="2048" source="CrossTab:Header:Header:tags:Concat:" type="V_String" />
+            <Field name="website" size="2048" source="CrossTab:Header:Header:website:Concat:" type="V_String" />
           </RecordInfo>
           <SortInfo>
             <Field field="Group By" order="Asc" />
@@ -438,7 +450,7 @@
     </Node>
     <Node ToolID="41">
       <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-        <Position x="1083" y="241" />
+        <Position x="1376" y="241" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -449,143 +461,40 @@
           <CreateField_Size>5</CreateField_Size>
           <OtherRows>Empty</OtherRows>
           <NumRows value="1" />
-          <Expression>IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF</Expression>
+          <Expression>IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF</Expression>
           <GroupByFields />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_N...</DefaultAnnotationText>
+          <DefaultAnnotationText>IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field description="Formula: IF (ISEMPTY([Group By])) THEN [JSON_Name2] ELSE [Group By] ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
-            <Field name="cashChange" size="2048" source="CrossTab:Header:Header:cashChange:Concat:" type="V_String" />
-            <Field name="cashFlow" size="2048" source="CrossTab:Header:Header:cashFlow:Concat:" type="V_String" />
-            <Field name="costOfRevenue" size="2048" source="CrossTab:Header:Header:costOfRevenue:Concat:" type="V_String" />
-            <Field name="currentAssets" size="2048" source="CrossTab:Header:Header:currentAssets:Concat:" type="V_String" />
-            <Field name="currentCash" size="2048" source="CrossTab:Header:Header:currentCash:Concat:" type="V_String" />
-            <Field name="currentDebt" size="2048" source="CrossTab:Header:Header:currentDebt:Concat:" type="V_String" />
-            <Field name="grossProfit" size="2048" source="CrossTab:Header:Header:grossProfit:Concat:" type="V_String" />
-            <Field name="netIncome" size="2048" source="CrossTab:Header:Header:netIncome:Concat:" type="V_String" />
-            <Field name="operatingExpense" size="2048" source="CrossTab:Header:Header:operatingExpense:Concat:" type="V_String" />
-            <Field name="operatingGainsLosses" size="2048" source="CrossTab:Header:Header:operatingGainsLosses:Concat:" type="V_String" />
-            <Field name="operatingIncome" size="2048" source="CrossTab:Header:Header:operatingIncome:Concat:" type="V_String" />
-            <Field name="operatingRevenue" size="2048" source="CrossTab:Header:Header:operatingRevenue:Concat:" type="V_String" />
-            <Field name="reportDate" size="2048" source="CrossTab:Header:Header:reportDate:Concat:" type="V_String" />
-            <Field name="researchAndDevelopment" size="2048" source="CrossTab:Header:Header:researchAndDevelopment:Concat:" type="V_String" />
-            <Field name="shareholderEquity" size="2048" source="CrossTab:Header:Header:shareholderEquity:Concat:" type="V_String" />
-            <Field name="totalAssets" size="2048" source="CrossTab:Header:Header:totalAssets:Concat:" type="V_String" />
-            <Field name="totalCash" size="2048" source="CrossTab:Header:Header:totalCash:Concat:" type="V_String" />
-            <Field name="totalDebt" size="2048" source="CrossTab:Header:Header:totalDebt:Concat:" type="V_String" />
-            <Field name="totalLiabilities" size="2048" source="CrossTab:Header:Header:totalLiabilities:Concat:" type="V_String" />
-            <Field name="totalRevenue" size="2048" source="CrossTab:Header:Header:totalRevenue:Concat:" type="V_String" />
-            <Field name="_Null_" size="2048" source="CrossTab:Header:Header:[Null]:Concat:" type="V_String" />
-            <Field description="Formula: IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF" type="String" />
+            <Field name="_Null_" source="TextInput:" type="Bool" />
+            <Field name="symbol" size="2048" source="(Multiple Sources)" type="V_String" />
+            <Field description="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="CEO" size="2048" source="CrossTab:Header:Header:CEO:Concat:" type="V_String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat:" type="V_String" />
+            <Field name="description" size="2048" source="CrossTab:Header:Header:description:Concat:" type="V_String" />
+            <Field name="exchange" size="2048" source="CrossTab:Header:Header:exchange:Concat:" type="V_String" />
+            <Field name="industry" size="2048" source="CrossTab:Header:Header:industry:Concat:" type="V_String" />
+            <Field name="issueType" size="2048" source="CrossTab:Header:Header:issueType:Concat:" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+            <Field name="tags" size="2048" source="CrossTab:Header:Header:tags:Concat:" type="V_String" />
+            <Field name="website" size="2048" source="CrossTab:Header:Header:website:Concat:" type="V_String" />
+            <Field description="Formula: IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF" type="String" />
           </RecordInfo>
-          <SortInfo>
-            <Field field="Group By" order="Asc" />
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
           </SortInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
     </Node>
-    <Node ToolID="42">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1182" y="242" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>!IsNull([Group By])</Expression>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Operator>IsNotNull</Operator>
-            <Field>Group By</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2018-11-23 14:40:24</PeriodDate>
-              <PeriodType>
-              </PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>
-              </Operand>
-              <StartDate>2018-11-23 14:40:24</StartDate>
-              <EndDate>2018-11-23 14:40:24</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>!IsNull([Group By])</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-        <MetaInfo connection="True">
-          <RecordInfo>
-            <Field description="Formula: IF (ISEMPTY([Group By])) THEN [JSON_Name2] ELSE [Group By] ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
-            <Field name="cashChange" size="2048" source="CrossTab:Header:Header:cashChange:Concat:" type="V_String" />
-            <Field name="cashFlow" size="2048" source="CrossTab:Header:Header:cashFlow:Concat:" type="V_String" />
-            <Field name="costOfRevenue" size="2048" source="CrossTab:Header:Header:costOfRevenue:Concat:" type="V_String" />
-            <Field name="currentAssets" size="2048" source="CrossTab:Header:Header:currentAssets:Concat:" type="V_String" />
-            <Field name="currentCash" size="2048" source="CrossTab:Header:Header:currentCash:Concat:" type="V_String" />
-            <Field name="currentDebt" size="2048" source="CrossTab:Header:Header:currentDebt:Concat:" type="V_String" />
-            <Field name="grossProfit" size="2048" source="CrossTab:Header:Header:grossProfit:Concat:" type="V_String" />
-            <Field name="netIncome" size="2048" source="CrossTab:Header:Header:netIncome:Concat:" type="V_String" />
-            <Field name="operatingExpense" size="2048" source="CrossTab:Header:Header:operatingExpense:Concat:" type="V_String" />
-            <Field name="operatingGainsLosses" size="2048" source="CrossTab:Header:Header:operatingGainsLosses:Concat:" type="V_String" />
-            <Field name="operatingIncome" size="2048" source="CrossTab:Header:Header:operatingIncome:Concat:" type="V_String" />
-            <Field name="operatingRevenue" size="2048" source="CrossTab:Header:Header:operatingRevenue:Concat:" type="V_String" />
-            <Field name="reportDate" size="2048" source="CrossTab:Header:Header:reportDate:Concat:" type="V_String" />
-            <Field name="researchAndDevelopment" size="2048" source="CrossTab:Header:Header:researchAndDevelopment:Concat:" type="V_String" />
-            <Field name="shareholderEquity" size="2048" source="CrossTab:Header:Header:shareholderEquity:Concat:" type="V_String" />
-            <Field name="totalAssets" size="2048" source="CrossTab:Header:Header:totalAssets:Concat:" type="V_String" />
-            <Field name="totalCash" size="2048" source="CrossTab:Header:Header:totalCash:Concat:" type="V_String" />
-            <Field name="totalDebt" size="2048" source="CrossTab:Header:Header:totalDebt:Concat:" type="V_String" />
-            <Field name="totalLiabilities" size="2048" source="CrossTab:Header:Header:totalLiabilities:Concat:" type="V_String" />
-            <Field name="totalRevenue" size="2048" source="CrossTab:Header:Header:totalRevenue:Concat:" type="V_String" />
-            <Field name="_Null_" size="2048" source="CrossTab:Header:Header:[Null]:Concat:" type="V_String" />
-            <Field description="Formula: IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF" type="String" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="Group By" order="Asc" />
-          </SortInfo>
-        </MetaInfo>
-        <MetaInfo connection="False">
-          <RecordInfo>
-            <Field description="Formula: IF (ISEMPTY([Group By])) THEN [JSON_Name2] ELSE [Group By] ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
-            <Field name="cashChange" size="2048" source="CrossTab:Header:Header:cashChange:Concat:" type="V_String" />
-            <Field name="cashFlow" size="2048" source="CrossTab:Header:Header:cashFlow:Concat:" type="V_String" />
-            <Field name="costOfRevenue" size="2048" source="CrossTab:Header:Header:costOfRevenue:Concat:" type="V_String" />
-            <Field name="currentAssets" size="2048" source="CrossTab:Header:Header:currentAssets:Concat:" type="V_String" />
-            <Field name="currentCash" size="2048" source="CrossTab:Header:Header:currentCash:Concat:" type="V_String" />
-            <Field name="currentDebt" size="2048" source="CrossTab:Header:Header:currentDebt:Concat:" type="V_String" />
-            <Field name="grossProfit" size="2048" source="CrossTab:Header:Header:grossProfit:Concat:" type="V_String" />
-            <Field name="netIncome" size="2048" source="CrossTab:Header:Header:netIncome:Concat:" type="V_String" />
-            <Field name="operatingExpense" size="2048" source="CrossTab:Header:Header:operatingExpense:Concat:" type="V_String" />
-            <Field name="operatingGainsLosses" size="2048" source="CrossTab:Header:Header:operatingGainsLosses:Concat:" type="V_String" />
-            <Field name="operatingIncome" size="2048" source="CrossTab:Header:Header:operatingIncome:Concat:" type="V_String" />
-            <Field name="operatingRevenue" size="2048" source="CrossTab:Header:Header:operatingRevenue:Concat:" type="V_String" />
-            <Field name="reportDate" size="2048" source="CrossTab:Header:Header:reportDate:Concat:" type="V_String" />
-            <Field name="researchAndDevelopment" size="2048" source="CrossTab:Header:Header:researchAndDevelopment:Concat:" type="V_String" />
-            <Field name="shareholderEquity" size="2048" source="CrossTab:Header:Header:shareholderEquity:Concat:" type="V_String" />
-            <Field name="totalAssets" size="2048" source="CrossTab:Header:Header:totalAssets:Concat:" type="V_String" />
-            <Field name="totalCash" size="2048" source="CrossTab:Header:Header:totalCash:Concat:" type="V_String" />
-            <Field name="totalDebt" size="2048" source="CrossTab:Header:Header:totalDebt:Concat:" type="V_String" />
-            <Field name="totalLiabilities" size="2048" source="CrossTab:Header:Header:totalLiabilities:Concat:" type="V_String" />
-            <Field name="totalRevenue" size="2048" source="CrossTab:Header:Header:totalRevenue:Concat:" type="V_String" />
-            <Field name="_Null_" size="2048" source="CrossTab:Header:Header:[Null]:Concat:" type="V_String" />
-            <Field description="Formula: IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF" type="String" />
-          </RecordInfo>
-          <SortInfo>
-            <Field field="Group By" order="Asc" />
-          </SortInfo>
-        </MetaInfo>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
     <Node ToolID="43">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="1281" y="239" />
+        <Position x="1673" y="239" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -593,7 +502,7 @@
           <CommaDecimal value="False" />
           <SelectFields>
             <SelectField field="Ticker" selected="True" />
-            <SelectField field="Symbol" selected="True" />
+            <SelectField field="Symbol" selected="False" />
             <SelectField field="reportDate" selected="True" />
             <SelectField field="Group By" selected="False" />
             <SelectField field="cashChange" selected="True" />
@@ -616,6 +525,134 @@
             <SelectField field="totalLiabilities" selected="True" />
             <SelectField field="totalRevenue" selected="True" />
             <SelectField field="_Null_" selected="False" />
+            <SelectField field="beta" selected="True" />
+            <SelectField field="cash" selected="True" />
+            <SelectField field="companyName" selected="True" />
+            <SelectField field="consensusEPS" selected="True" />
+            <SelectField field="day5ChangePercent" selected="True" />
+            <SelectField field="day30ChangePercent" selected="True" />
+            <SelectField field="day50MovingAvg" selected="True" />
+            <SelectField field="day200MovingAvg" selected="True" />
+            <SelectField field="debt" selected="True" />
+            <SelectField field="dividendRate" selected="True" />
+            <SelectField field="dividendYield" selected="True" />
+            <SelectField field="EBITDA" selected="True" />
+            <SelectField field="EPSSurpriseDollar" selected="True" />
+            <SelectField field="EPSSurprisePercent" selected="True" />
+            <SelectField field="exDividendDate" selected="True" />
+            <SelectField field="float" selected="True" />
+            <SelectField field="insiderPercent" selected="True" />
+            <SelectField field="institutionPercent" selected="True" />
+            <SelectField field="latestEPS" selected="True" />
+            <SelectField field="latestEPSDate" selected="True" />
+            <SelectField field="marketcap" selected="True" />
+            <SelectField field="month1ChangePercent" selected="True" />
+            <SelectField field="month3ChangePercent" selected="True" />
+            <SelectField field="month6ChangePercent" selected="True" />
+            <SelectField field="numberOfEstimates" selected="True" />
+            <SelectField field="peRatioHigh" selected="True" />
+            <SelectField field="peRatioLow" selected="True" />
+            <SelectField field="priceToBook" selected="True" />
+            <SelectField field="priceToSales" selected="True" />
+            <SelectField field="profitMargin" selected="True" />
+            <SelectField field="returnOnAssets" selected="True" />
+            <SelectField field="returnOnCapital" selected="True" />
+            <SelectField field="returnOnEquity" selected="True" />
+            <SelectField field="revenue" selected="True" />
+            <SelectField field="revenuePerEmployee" selected="True" />
+            <SelectField field="revenuePerShare" selected="True" />
+            <SelectField field="sharesOutstanding" selected="True" />
+            <SelectField field="shortDate" selected="True" />
+            <SelectField field="shortInterest" selected="True" />
+            <SelectField field="shortRatio" selected="True" />
+            <SelectField field="ttmEPS" selected="True" />
+            <SelectField field="week52change" selected="True" />
+            <SelectField field="week52high" selected="True" />
+            <SelectField field="week52low" selected="True" />
+            <SelectField field="year1ChangePercent" selected="True" />
+            <SelectField field="year2ChangePercent" selected="True" />
+            <SelectField field="year5ChangePercent" selected="True" />
+            <SelectField field="ytdChangePercent" selected="True" />
+            <SelectField field="financials_0_cashChange" selected="True" />
+            <SelectField field="financials_0_cashFlow" selected="True" />
+            <SelectField field="financials_0_costOfRevenue" selected="True" />
+            <SelectField field="financials_0_currentAssets" selected="True" />
+            <SelectField field="financials_0_currentCash" selected="True" />
+            <SelectField field="financials_0_currentDebt" selected="True" />
+            <SelectField field="financials_0_grossProfit" selected="True" />
+            <SelectField field="financials_0_netIncome" selected="True" />
+            <SelectField field="financials_0_operatingExpense" selected="True" />
+            <SelectField field="financials_0_operatingGainsLosses" selected="True" />
+            <SelectField field="financials_0_operatingIncome" selected="True" />
+            <SelectField field="financials_0_operatingRevenue" selected="True" />
+            <SelectField field="financials_0_reportDate" selected="True" />
+            <SelectField field="financials_0_researchAndDevelopment" selected="True" />
+            <SelectField field="financials_0_shareholderEquity" selected="True" />
+            <SelectField field="financials_0_totalAssets" selected="True" />
+            <SelectField field="financials_0_totalCash" selected="True" />
+            <SelectField field="financials_0_totalDebt" selected="True" />
+            <SelectField field="financials_0_totalLiabilities" selected="True" />
+            <SelectField field="financials_0_totalRevenue" selected="True" />
+            <SelectField field="financials_1_cashChange" selected="True" />
+            <SelectField field="financials_1_cashFlow" selected="True" />
+            <SelectField field="financials_1_costOfRevenue" selected="True" />
+            <SelectField field="financials_1_currentAssets" selected="True" />
+            <SelectField field="financials_1_currentCash" selected="True" />
+            <SelectField field="financials_1_currentDebt" selected="True" />
+            <SelectField field="financials_1_grossProfit" selected="True" />
+            <SelectField field="financials_1_netIncome" selected="True" />
+            <SelectField field="financials_1_operatingExpense" selected="True" />
+            <SelectField field="financials_1_operatingGainsLosses" selected="True" />
+            <SelectField field="financials_1_operatingIncome" selected="True" />
+            <SelectField field="financials_1_operatingRevenue" selected="True" />
+            <SelectField field="financials_1_reportDate" selected="True" />
+            <SelectField field="financials_1_researchAndDevelopment" selected="True" />
+            <SelectField field="financials_1_shareholderEquity" selected="True" />
+            <SelectField field="financials_1_totalAssets" selected="True" />
+            <SelectField field="financials_1_totalCash" selected="True" />
+            <SelectField field="financials_1_totalDebt" selected="True" />
+            <SelectField field="financials_1_totalLiabilities" selected="True" />
+            <SelectField field="financials_1_totalRevenue" selected="True" />
+            <SelectField field="financials_2_cashChange" selected="True" />
+            <SelectField field="financials_2_cashFlow" selected="True" />
+            <SelectField field="financials_2_costOfRevenue" selected="True" />
+            <SelectField field="financials_2_currentAssets" selected="True" />
+            <SelectField field="financials_2_currentCash" selected="True" />
+            <SelectField field="financials_2_currentDebt" selected="True" />
+            <SelectField field="financials_2_grossProfit" selected="True" />
+            <SelectField field="financials_2_netIncome" selected="True" />
+            <SelectField field="financials_2_operatingExpense" selected="True" />
+            <SelectField field="financials_2_operatingGainsLosses" selected="True" />
+            <SelectField field="financials_2_operatingIncome" selected="True" />
+            <SelectField field="financials_2_operatingRevenue" selected="True" />
+            <SelectField field="financials_2_reportDate" selected="True" />
+            <SelectField field="financials_2_researchAndDevelopment" selected="True" />
+            <SelectField field="financials_2_shareholderEquity" selected="True" />
+            <SelectField field="financials_2_totalAssets" selected="True" />
+            <SelectField field="financials_2_totalCash" selected="True" />
+            <SelectField field="financials_2_totalDebt" selected="True" />
+            <SelectField field="financials_2_totalLiabilities" selected="True" />
+            <SelectField field="financials_2_totalRevenue" selected="True" />
+            <SelectField field="financials_3_cashChange" selected="True" />
+            <SelectField field="financials_3_cashFlow" selected="True" />
+            <SelectField field="financials_3_costOfRevenue" selected="True" />
+            <SelectField field="financials_3_currentAssets" selected="True" />
+            <SelectField field="financials_3_currentCash" selected="True" />
+            <SelectField field="financials_3_currentDebt" selected="True" />
+            <SelectField field="financials_3_grossProfit" selected="True" />
+            <SelectField field="financials_3_netIncome" selected="True" />
+            <SelectField field="financials_3_operatingExpense" selected="True" />
+            <SelectField field="financials_3_operatingGainsLosses" selected="True" />
+            <SelectField field="financials_3_operatingIncome" selected="True" />
+            <SelectField field="financials_3_operatingRevenue" selected="True" />
+            <SelectField field="financials_3_reportDate" selected="True" />
+            <SelectField field="financials_3_researchAndDevelopment" selected="True" />
+            <SelectField field="financials_3_shareholderEquity" selected="True" />
+            <SelectField field="financials_3_totalAssets" selected="True" />
+            <SelectField field="financials_3_totalCash" selected="True" />
+            <SelectField field="financials_3_totalDebt" selected="True" />
+            <SelectField field="financials_3_totalLiabilities" selected="True" />
+            <SelectField field="financials_3_totalRevenue" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -626,42 +663,216 @@
         </Annotation>
         <MetaInfo connection="Output">
           <RecordInfo>
-            <Field description="Formula: IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Row-1:_Null_]) THEN [Row-1:Ticker] ELSE [Row-1:_Null_] ENDIF" type="String" />
-            <Field name="reportDate" size="2048" source="CrossTab:Header:Header:reportDate:Concat:" type="V_String" />
-            <Field name="cashChange" size="2048" source="CrossTab:Header:Header:cashChange:Concat:" type="V_String" />
-            <Field name="cashFlow" size="2048" source="CrossTab:Header:Header:cashFlow:Concat:" type="V_String" />
-            <Field name="costOfRevenue" size="2048" source="CrossTab:Header:Header:costOfRevenue:Concat:" type="V_String" />
-            <Field name="currentAssets" size="2048" source="CrossTab:Header:Header:currentAssets:Concat:" type="V_String" />
-            <Field name="currentCash" size="2048" source="CrossTab:Header:Header:currentCash:Concat:" type="V_String" />
-            <Field name="currentDebt" size="2048" source="CrossTab:Header:Header:currentDebt:Concat:" type="V_String" />
-            <Field name="grossProfit" size="2048" source="CrossTab:Header:Header:grossProfit:Concat:" type="V_String" />
-            <Field name="netIncome" size="2048" source="CrossTab:Header:Header:netIncome:Concat:" type="V_String" />
-            <Field name="operatingExpense" size="2048" source="CrossTab:Header:Header:operatingExpense:Concat:" type="V_String" />
-            <Field name="operatingGainsLosses" size="2048" source="CrossTab:Header:Header:operatingGainsLosses:Concat:" type="V_String" />
-            <Field name="operatingIncome" size="2048" source="CrossTab:Header:Header:operatingIncome:Concat:" type="V_String" />
-            <Field name="operatingRevenue" size="2048" source="CrossTab:Header:Header:operatingRevenue:Concat:" type="V_String" />
-            <Field name="researchAndDevelopment" size="2048" source="CrossTab:Header:Header:researchAndDevelopment:Concat:" type="V_String" />
-            <Field name="shareholderEquity" size="2048" source="CrossTab:Header:Header:shareholderEquity:Concat:" type="V_String" />
-            <Field name="totalAssets" size="2048" source="CrossTab:Header:Header:totalAssets:Concat:" type="V_String" />
-            <Field name="totalCash" size="2048" source="CrossTab:Header:Header:totalCash:Concat:" type="V_String" />
-            <Field name="totalDebt" size="2048" source="CrossTab:Header:Header:totalDebt:Concat:" type="V_String" />
-            <Field name="totalLiabilities" size="2048" source="CrossTab:Header:Header:totalLiabilities:Concat:" type="V_String" />
-            <Field name="totalRevenue" size="2048" source="CrossTab:Header:Header:totalRevenue:Concat:" type="V_String" />
+            <Field description="Formula: IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" type="String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat:" type="V_String" />
+            <Field name="CEO" size="2048" source="CrossTab:Header:Header:CEO:Concat:" type="V_String" />
+            <Field name="description" size="2048" source="CrossTab:Header:Header:description:Concat:" type="V_String" />
+            <Field name="exchange" size="2048" source="CrossTab:Header:Header:exchange:Concat:" type="V_String" />
+            <Field name="industry" size="2048" source="CrossTab:Header:Header:industry:Concat:" type="V_String" />
+            <Field name="issueType" size="2048" source="CrossTab:Header:Header:issueType:Concat:" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+            <Field name="tags" size="2048" source="CrossTab:Header:Header:tags:Concat:" type="V_String" />
+            <Field name="website" size="2048" source="CrossTab:Header:Header:website:Concat:" type="V_String" />
           </RecordInfo>
         </MetaInfo>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
+    <Node ToolID="45">
+      <GuiSettings>
+        <Position x="1178" y="237" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Fields">_Null_
+symbol</Value>
+          <Value name="FieldType">Bool</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_Null_" source="TextInput:" type="Bool" />
+            <Field name="symbol" size="2048" source="(Multiple Sources)" type="V_String" />
+            <Field description="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="CEO" size="2048" source="CrossTab:Header:Header:CEO:Concat:" type="V_String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat:" type="V_String" />
+            <Field name="description" size="2048" source="CrossTab:Header:Header:description:Concat:" type="V_String" />
+            <Field name="exchange" size="2048" source="CrossTab:Header:Header:exchange:Concat:" type="V_String" />
+            <Field name="industry" size="2048" source="CrossTab:Header:Header:industry:Concat:" type="V_String" />
+            <Field name="issueType" size="2048" source="CrossTab:Header:Header:issueType:Concat:" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+            <Field name="tags" size="2048" source="CrossTab:Header:Header:tags:Concat:" type="V_String" />
+            <Field name="website" size="2048" source="CrossTab:Header:Header:website:Concat:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="CReW_EnsureFields.yxmc" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1472" y="238" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" field="Ticker" size="5" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Ticker = IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] E...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_Null_" source="TextInput:" type="Bool" />
+            <Field name="symbol" size="2048" source="(Multiple Sources)" type="V_String" />
+            <Field description="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="CEO" size="2048" source="CrossTab:Header:Header:CEO:Concat:" type="V_String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat:" type="V_String" />
+            <Field name="description" size="2048" source="CrossTab:Header:Header:description:Concat:" type="V_String" />
+            <Field name="exchange" size="2048" source="CrossTab:Header:Header:exchange:Concat:" type="V_String" />
+            <Field name="industry" size="2048" source="CrossTab:Header:Header:industry:Concat:" type="V_String" />
+            <Field name="issueType" size="2048" source="CrossTab:Header:Header:issueType:Concat:" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+            <Field name="tags" size="2048" source="CrossTab:Header:Header:tags:Concat:" type="V_String" />
+            <Field name="website" size="2048" source="CrossTab:Header:Header:website:Concat:" type="V_String" />
+            <Field description="Formula: IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" type="String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="1277" y="238" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>_Null_ - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_Null_" source="TextInput:" type="Bool" />
+            <Field name="symbol" size="2048" source="(Multiple Sources)" type="V_String" />
+            <Field description="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="CEO" size="2048" source="CrossTab:Header:Header:CEO:Concat:" type="V_String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat:" type="V_String" />
+            <Field name="description" size="2048" source="CrossTab:Header:Header:description:Concat:" type="V_String" />
+            <Field name="exchange" size="2048" source="CrossTab:Header:Header:exchange:Concat:" type="V_String" />
+            <Field name="industry" size="2048" source="CrossTab:Header:Header:industry:Concat:" type="V_String" />
+            <Field name="issueType" size="2048" source="CrossTab:Header:Header:issueType:Concat:" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+            <Field name="tags" size="2048" source="CrossTab:Header:Header:tags:Concat:" type="V_String" />
+            <Field name="website" size="2048" source="CrossTab:Header:Header:website:Concat:" type="V_String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1571" y="241" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsNull([Group By]) &amp;&amp; !IsEmpty([Group By])</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>IsNotNull</Operator>
+            <Field>Group By</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-11-23 14:40:24</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2018-11-23 14:40:24</StartDate>
+              <EndDate>2018-11-23 14:40:24</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsNull([Group By]) &amp;&amp; !IsEmpty([Group By])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="_Null_" source="TextInput:" type="Bool" />
+            <Field name="symbol" size="2048" source="(Multiple Sources)" type="V_String" />
+            <Field description="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="CEO" size="2048" source="CrossTab:Header:Header:CEO:Concat:" type="V_String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat:" type="V_String" />
+            <Field name="description" size="2048" source="CrossTab:Header:Header:description:Concat:" type="V_String" />
+            <Field name="exchange" size="2048" source="CrossTab:Header:Header:exchange:Concat:" type="V_String" />
+            <Field name="industry" size="2048" source="CrossTab:Header:Header:industry:Concat:" type="V_String" />
+            <Field name="issueType" size="2048" source="CrossTab:Header:Header:issueType:Concat:" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+            <Field name="tags" size="2048" source="CrossTab:Header:Header:tags:Concat:" type="V_String" />
+            <Field name="website" size="2048" source="CrossTab:Header:Header:website:Concat:" type="V_String" />
+            <Field description="Formula: IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" type="String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="_Null_" source="TextInput:" type="Bool" />
+            <Field name="symbol" size="2048" source="(Multiple Sources)" type="V_String" />
+            <Field description="Formula: IF &#xA;	[JSON_Name1]=&quot;symbol&quot; &#xA;THEN &#xA;	[Row-1:Group By] &#xA;ELSE &#xA;	IF &#xA;		ISEMPTY([Group By]) &#xA;	THEN &#xA;		IF &#xA;			ISEMPTY([JSON_Name2]) &#xA;		THEN &#xA;			[Stock] &#xA;		ELSE &#xA;			[JSON_Name2] &#xA;		ENDIF &#xA;	ELSE &#xA;		[Group By] &#xA;	ENDIF&#xA;ENDIF" name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="CEO" size="2048" source="CrossTab:Header:Header:CEO:Concat:" type="V_String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat:" type="V_String" />
+            <Field name="description" size="2048" source="CrossTab:Header:Header:description:Concat:" type="V_String" />
+            <Field name="exchange" size="2048" source="CrossTab:Header:Header:exchange:Concat:" type="V_String" />
+            <Field name="industry" size="2048" source="CrossTab:Header:Header:industry:Concat:" type="V_String" />
+            <Field name="issueType" size="2048" source="CrossTab:Header:Header:issueType:Concat:" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+            <Field name="tags" size="2048" source="CrossTab:Header:Header:tags:Concat:" type="V_String" />
+            <Field name="website" size="2048" source="CrossTab:Header:Header:website:Concat:" type="V_String" />
+            <Field description="Formula: IF ISEMPTY([_Null_]) THEN [Row-1:Ticker] ELSE [_Null_] ENDIF" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" type="String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
     <Node ToolID="44">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="90" y="345" width="136.4582" height="19" />
+        <Position x="90" y="345" width="136.4582" height="128" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <Caption>Container 44</Caption>
           <Style TextColor="#314c4a" FillColor="#ffffff" BorderColor="#314c4a" Transparency="25" Margin="25" />
-          <Disabled value="True" />
-          <Folded value="True" />
+          <Disabled value="False" />
+          <Folded value="False" />
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -676,7 +887,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <NumRows value="16" />
+              <NumRows value="17" />
               <Fields>
                 <Field name="2" />
               </Fields>
@@ -728,6 +939,9 @@
                 </r>
                 <r>
                   <c>volume-by-venue</c>
+                </r>
+                <r>
+                  <c>stats</c>
                 </r>
               </Data>
             </Configuration>
@@ -843,19 +1057,31 @@
     </Connection>
     <Connection>
       <Origin ToolID="40" Connection="Output" />
-      <Destination ToolID="41" Connection="Input" />
+      <Destination ToolID="45" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="41" Connection="Output" />
-      <Destination ToolID="42" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="42" Connection="True" />
-      <Destination ToolID="43" Connection="Input" />
+      <Destination ToolID="46" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="43" Connection="Output" />
       <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="45" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="True" />
+      <Destination ToolID="43" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -1010,6 +1236,7 @@ Volume by venue:volume-by-venue
       <Wiz_OpenOutputTools>
         <Tool ToolId="12" Selected="True" />
         <Tool ToolId="13" Selected="True" />
+        <Tool ToolId="45" Selected="True" />
       </Wiz_OpenOutputTools>
       <Wiz_OutputMessage />
       <Wiz_NoOutputFilesMessage />
