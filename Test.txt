@@ -1,0 +1,4 @@
+Ticker,Income_Statement
+AMZN,https://finance.yahoo.com/quote/AMZN/financials?p=AMZN
+YHOO,https://finance.yahoo.com/quote/YHOO/financials?p=YHOO
+GOOG,https://finance.yahoo.com/quote/GOOG/financials?p=GOOG

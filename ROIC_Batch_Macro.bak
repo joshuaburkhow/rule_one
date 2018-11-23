@@ -1,0 +1,585 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="55" y="232" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="Core URL" />
+            <Field name="Stock" />
+            <Field name="Parameter" />
+          </Fields>
+          <Data>
+            <r>
+              <c>https://api.iextrading.com/1.0/stock/</c>
+              <c>ayx</c>
+              <c>stats</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="3" source="TextInput:" type="String" />
+            <Field name="Parameter" size="5" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="352" y="232" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>url</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="False" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="Core URL" selected="False" />
+              <Field name="Stock" selected="False" />
+              <Field name="Parameter" selected="False" />
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="Core URL" selected="False" />
+              <Field name="Stock" selected="False" />
+              <Field name="Parameter" selected="False" />
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="5" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="451" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="5" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="550" y="234" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>JSON_Name</Field>
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>JSON_Name</RootName>
+          <Delimeters value="." />
+          <NumFields value="3" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="5" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="649" y="232" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="COALESCE([JSON_ValueString],ToString(COALESCE([JSON_ValueInt],[JSON_ValueFloat],[JSON_ValueBool]),2))	" field="Value" size="64" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Value = COALESCE([JSON_ValueString],ToString(COALESCE([JSON_ValueInt],[JSON_Valu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="5" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field name="Value" size="64" source="Formula: COALESCE([JSON_ValueString],ToString(COALESCE([JSON_ValueInt],[JSON_ValueFloat],[JSON_ValueBool]),2)) " type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="748" y="232" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="Stock" />
+          </GroupFields>
+          <HeaderField field="JSON_Name1" />
+          <DataField field="Value" />
+          <Methods>
+            <Method method="Concat" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Stock" size="5" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="beta" size="2048" source="CrossTab:Header:JSON_Name1:beta:Concat:" type="V_String" />
+            <Field name="cash" size="2048" source="CrossTab:Header:JSON_Name1:cash:Concat:" type="V_String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:JSON_Name1:companyName:Concat:" type="V_String" />
+            <Field name="consensusEPS" size="2048" source="CrossTab:Header:JSON_Name1:consensusEPS:Concat:" type="V_String" />
+            <Field name="day5ChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:day5ChangePercent:Concat:" type="V_String" />
+            <Field name="day30ChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:day30ChangePercent:Concat:" type="V_String" />
+            <Field name="day50MovingAvg" size="2048" source="CrossTab:Header:JSON_Name1:day50MovingAvg:Concat:" type="V_String" />
+            <Field name="day200MovingAvg" size="2048" source="CrossTab:Header:JSON_Name1:day200MovingAvg:Concat:" type="V_String" />
+            <Field name="debt" size="2048" source="CrossTab:Header:JSON_Name1:debt:Concat:" type="V_String" />
+            <Field name="dividendRate" size="2048" source="CrossTab:Header:JSON_Name1:dividendRate:Concat:" type="V_String" />
+            <Field name="dividendYield" size="2048" source="CrossTab:Header:JSON_Name1:dividendYield:Concat:" type="V_String" />
+            <Field name="EBITDA" size="2048" source="CrossTab:Header:JSON_Name1:EBITDA:Concat:" type="V_String" />
+            <Field name="EPSSurpriseDollar" size="2048" source="CrossTab:Header:JSON_Name1:EPSSurpriseDollar:Concat:" type="V_String" />
+            <Field name="EPSSurprisePercent" size="2048" source="CrossTab:Header:JSON_Name1:EPSSurprisePercent:Concat:" type="V_String" />
+            <Field name="exDividendDate" size="2048" source="CrossTab:Header:JSON_Name1:exDividendDate:Concat:" type="V_String" />
+            <Field name="float" size="2048" source="CrossTab:Header:JSON_Name1:float:Concat:" type="V_String" />
+            <Field name="grossProfit" size="2048" source="CrossTab:Header:JSON_Name1:grossProfit:Concat:" type="V_String" />
+            <Field name="insiderPercent" size="2048" source="CrossTab:Header:JSON_Name1:insiderPercent:Concat:" type="V_String" />
+            <Field name="institutionPercent" size="2048" source="CrossTab:Header:JSON_Name1:institutionPercent:Concat:" type="V_String" />
+            <Field name="latestEPS" size="2048" source="CrossTab:Header:JSON_Name1:latestEPS:Concat:" type="V_String" />
+            <Field name="latestEPSDate" size="2048" source="CrossTab:Header:JSON_Name1:latestEPSDate:Concat:" type="V_String" />
+            <Field name="marketcap" size="2048" source="CrossTab:Header:JSON_Name1:marketcap:Concat:" type="V_String" />
+            <Field name="month1ChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:month1ChangePercent:Concat:" type="V_String" />
+            <Field name="month3ChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:month3ChangePercent:Concat:" type="V_String" />
+            <Field name="month6ChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:month6ChangePercent:Concat:" type="V_String" />
+            <Field name="numberOfEstimates" size="2048" source="CrossTab:Header:JSON_Name1:numberOfEstimates:Concat:" type="V_String" />
+            <Field name="peRatioHigh" size="2048" source="CrossTab:Header:JSON_Name1:peRatioHigh:Concat:" type="V_String" />
+            <Field name="peRatioLow" size="2048" source="CrossTab:Header:JSON_Name1:peRatioLow:Concat:" type="V_String" />
+            <Field name="priceToBook" size="2048" source="CrossTab:Header:JSON_Name1:priceToBook:Concat:" type="V_String" />
+            <Field name="priceToSales" size="2048" source="CrossTab:Header:JSON_Name1:priceToSales:Concat:" type="V_String" />
+            <Field name="profitMargin" size="2048" source="CrossTab:Header:JSON_Name1:profitMargin:Concat:" type="V_String" />
+            <Field name="returnOnAssets" size="2048" source="CrossTab:Header:JSON_Name1:returnOnAssets:Concat:" type="V_String" />
+            <Field name="returnOnCapital" size="2048" source="CrossTab:Header:JSON_Name1:returnOnCapital:Concat:" type="V_String" />
+            <Field name="returnOnEquity" size="2048" source="CrossTab:Header:JSON_Name1:returnOnEquity:Concat:" type="V_String" />
+            <Field name="revenue" size="2048" source="CrossTab:Header:JSON_Name1:revenue:Concat:" type="V_String" />
+            <Field name="revenuePerEmployee" size="2048" source="CrossTab:Header:JSON_Name1:revenuePerEmployee:Concat:" type="V_String" />
+            <Field name="revenuePerShare" size="2048" source="CrossTab:Header:JSON_Name1:revenuePerShare:Concat:" type="V_String" />
+            <Field name="sharesOutstanding" size="2048" source="CrossTab:Header:JSON_Name1:sharesOutstanding:Concat:" type="V_String" />
+            <Field name="shortDate" size="2048" source="CrossTab:Header:JSON_Name1:shortDate:Concat:" type="V_String" />
+            <Field name="shortInterest" size="2048" source="CrossTab:Header:JSON_Name1:shortInterest:Concat:" type="V_String" />
+            <Field name="shortRatio" size="2048" source="CrossTab:Header:JSON_Name1:shortRatio:Concat:" type="V_String" />
+            <Field name="symbol" size="2048" source="CrossTab:Header:JSON_Name1:symbol:Concat:" type="V_String" />
+            <Field name="ttmEPS" size="2048" source="CrossTab:Header:JSON_Name1:ttmEPS:Concat:" type="V_String" />
+            <Field name="week52change" size="2048" source="CrossTab:Header:JSON_Name1:week52change:Concat:" type="V_String" />
+            <Field name="week52high" size="2048" source="CrossTab:Header:JSON_Name1:week52high:Concat:" type="V_String" />
+            <Field name="week52low" size="2048" source="CrossTab:Header:JSON_Name1:week52low:Concat:" type="V_String" />
+            <Field name="year1ChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:year1ChangePercent:Concat:" type="V_String" />
+            <Field name="year2ChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:year2ChangePercent:Concat:" type="V_String" />
+            <Field name="year5ChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:year5ChangePercent:Concat:" type="V_String" />
+            <Field name="ytdChangePercent" size="2048" source="CrossTab:Header:JSON_Name1:ytdChangePercent:Concat:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Stock" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="253" y="230" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Core URL]+[Stock]+&quot;/&quot;+[Parameter]" field="url" size="256" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[url = [Core URL]+[Stock]+"/"+[Parameter]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="5" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="54" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="55" y="147.5" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="847" y="233" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output12</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="847" y="147" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File FileFormat="19" MaxRecords="">stock.yxdb</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <NoSpatialIndex>False</NoSpatialIndex>
+            <SaveSource>True</SaveSource>
+          </FormatSpecificOptions>
+          <MultiFile value="True" />
+          <MultiFileType>Suffix</MultiFileType>
+          <MultiFileField>Stock</MultiFileField>
+          <KeepField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>stock.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="154" y="229" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Stock" selected="True" size="5" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="5" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="10" Connection="Question" />
+      <Destination ToolID="11" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="11" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (10)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (12)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>ROIC_Batch_Macro</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="11" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>aapl</ReplaceText>
+              <Destination>1/Data/r/c[2]</Destination>
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (9)</Name>
+          <ToolId value="9" />
+          <Questions>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Stock Symbol</Description>
+              <Name>Control Parameter (10)</Name>
+              <ToolId value="10" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (12)</Description>
+              <Name>Macro Output (12)</Name>
+              <ToolId value="12" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="True" />
+      <MacroImageStd value="39" />
+      <MacroInputs />
+      <MacroOutputs />
+      <BatchMacro>
+        <OutputMode>AllSame</OutputMode>
+        <ControlParams>
+          <ControlParam>
+            <Name>Control Parameter (10)</Name>
+            <Description>Stock Symbol</Description>
+          </ControlParam>
+        </ControlParams>
+      </BatchMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
