@@ -1,0 +1,106 @@
+Period Ending,12/31/2016,12/31/2015,12/31/2014
+"https://finance.yahoo.com/quote/AMZN/balance-sheet?p=AMZN,https://finance.yahoo.com/quote/AMZN/cash-flow?p=AMZN,https://finance.yahoo.com/quote/AMZN/key-statistics?p=AMZN",,,
+Cash And Cash Equivalents,"19,334,000","15,890,000","14,557,000"
+Short Term Investments,"6,647,000","3,918,000","2,859,000"
+Net Receivables,"8,339,000","5,654,000","5,612,000"
+Inventory,"11,461,000","10,243,000","8,299,000"
+Other Current Assets,-,-,-
+Total Current Assets,"45,781,000","35,705,000","31,327,000"
+Long Term Investments,-,-,-
+Property Plant and Equipment,"29,114,000","21,838,000","16,967,000"
+Goodwill,"3,784,000","3,759,000","3,319,000"
+Intangible Assets,-,-,-
+Accumulated Amortization,-,-,-
+Other Assets,"4,723,000","3,445,000","2,892,000"
+Deferred Long Term Asset Charges,-,-,-
+Total Assets,"83,402,000","64,747,000","54,505,000"
+Accounts Payable,"39,048,000","30,769,000","26,266,000"
+Short/Current Long Term Debt,-,-,-
+Other Current Liabilities,"4,768,000","3,118,000","1,823,000"
+Total Current Liabilities,"43,816,000","33,887,000","28,089,000"
+Long Term Debt,"7,694,000","8,227,000","8,265,000"
+Other Liabilities,"12,607,000","9,249,000","7,410,000"
+Deferred Long Term Liability Charges,-,-,-
+Minority Interest,-,-,-
+Negative Goodwill,-,-,-
+Total Liabilities,"64,117,000","51,363,000","43,764,000"
+Misc. Stocks Options Warrants,-,-,-
+Redeemable Preferred Stock,-,-,-
+Preferred Stock,-,-,-
+Common Stock,"5,000","5,000","5,000"
+Retained Earnings,"4,916,000","2,545,000","1,949,000"
+Treasury Stock,"-1,837,000","-1,837,000","-1,837,000"
+Capital Surplus,"17,186,000","13,394,000","11,135,000"
+Other Stockholder Equity,"-985,000","-723,000","-511,000"
+Total Stockholder Equity,"19,285,000","13,384,000","10,741,000"
+Net Tangible Assets,"15,501,000","9,625,000","7,422,000"
+"https://finance.yahoo.com/quote/BEAT/balance-sheet?p=BEAT,https://finance.yahoo.com/quote/BEAT/cash-flow?p=BEAT,https://finance.yahoo.com/quote/BEAT/key-statistics?p=BEAT",,,
+Cash And Cash Equivalents,"23,052","18,986","20,007"
+Short Term Investments,-,-,-
+Net Receivables,"26,855","24,176","24,546"
+Inventory,"5,176","2,378","2,566"
+Other Current Assets,"4,477","1,505","2,081"
+Total Current Assets,"59,560","47,045","49,200"
+Long Term Investments,-,-,-
+Property Plant and Equipment,"25,823","25,554","21,703"
+Goodwill,"41,068","29,831","29,596"
+Intangible Assets,"33,472","19,981","22,720"
+Accumulated Amortization,-,-,-
+Other Assets,"2,425","1,732","1,153"
+Deferred Long Term Asset Charges,"36,636","36,636","36,636"
+Total Assets,"198,984","124,143","124,372"
+Accounts Payable,"26,123","19,726","31,655"
+Short/Current Long Term Debt,"1,412","1,537","1,418"
+Other Current Liabilities,"3,972","2,625","2,248"
+Total Current Liabilities,"31,507","23,888","35,321"
+Long Term Debt,"24,037","22,045","23,323"
+Other Liabilities,"4,526","1,051","1,051"
+Deferred Long Term Liability Charges,-,"1,233","2,052"
+Minority Interest,-,-,-
+Negative Goodwill,-,-,-
+Total Liabilities,"60,070","48,217","60,696"
+Misc. Stocks Options Warrants,-,-,-
+Redeemable Preferred Stock,-,-,-
+Preferred Stock,-,-,-
+Common Stock,28,27,27
+Retained Earnings,"-142,722","-196,159","-203,587"
+Treasury Stock,-,-,-
+Capital Surplus,"281,642","272,070","267,236"
+Other Stockholder Equity,-34,-12,-12
+Total Stockholder Equity,"138,914","75,926","63,676"
+Net Tangible Assets,"64,374","26,114","11,360"
+"https://finance.yahoo.com/quote/BSTC/balance-sheet?p=BSTC,https://finance.yahoo.com/quote/BSTC/cash-flow?p=BSTC,https://finance.yahoo.com/quote/BSTC/key-statistics?p=BSTC",,,
+Cash And Cash Equivalents,"4,763.364","5,137.875","9,810.816"
+Short Term Investments,"44,254.862","28,347.542","10,900.436"
+Net Receivables,"4,305.503","3,464.763","3,608.754"
+Inventory,-,-,-
+Other Current Assets,"2,076.238","1,401.791",828.804
+Total Current Assets,"55,399.967","38,351.971","25,148.81"
+Long Term Investments,"3,771.38","3,596.541","1,250"
+Property Plant and Equipment,-,-,-
+Goodwill,-,-,-
+Intangible Assets,258.355,275.206,295.03
+Accumulated Amortization,-,-,-
+Other Assets,-,-,-
+Deferred Long Term Asset Charges,"5,266.578","3,474.395","4,332.984"
+Total Assets,"64,696.28","45,698.113","31,026.824"
+Accounts Payable,738.649,611.009,543.696
+Short/Current Long Term Debt,-,-,-
+Other Current Liabilities,"1,257.986",227.516,127.516
+Total Current Liabilities,"1,996.635",838.525,671.212
+Long Term Debt,-,-,-
+Other Liabilities,-,-,-
+Deferred Long Term Liability Charges,"6,417.702",49.379,98.757
+Minority Interest,-,-,-
+Negative Goodwill,-,-,-
+Total Liabilities,"8,414.337",887.904,769.969
+Misc. Stocks Options Warrants,-,-,-
+Redeemable Preferred Stock,-,-,-
+Preferred Stock,-,-,-
+Common Stock,7.555,7.29,7.062
+Retained Earnings,"30,610.849","19,238.61","9,620.978"
+Treasury Stock,"-7,281.701","-6,233.109","-4,430.643"
+Capital Surplus,"32,945.24","31,797.418","25,059.458"
+Other Stockholder Equity,-,-,-
+Total Stockholder Equity,"56,281.943","44,810.209","30,256.855"
+Net Tangible Assets,"56,023.588","44,535.003","29,961.825"

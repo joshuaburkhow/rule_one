@@ -1,0 +1,9 @@
+ROIC = 
+	NET OPERATING PROFIT AFTER TAX (NOPAT) 
+		OPERATING INCOME [Financials>operatingIncome]
+		x
+		(1- TAX RATE)
+	/ 
+	EQUITY 
+	+ 
+	DEBT
