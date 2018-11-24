@@ -860,7 +860,7 @@
                 </Node>
                 <Node ToolID="62">
                   <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                    <Position x="667.6116" y="818.3851" width="256.9694" height="50" />
+                    <Position x="667.6116" y="818.385" width="256.9694" height="50" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -916,11 +916,11 @@
                 </Node>
                 <Node ToolID="83">
                   <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-                    <Position x="683.3001" y="900.0225" />
+                    <Position x="683.3002" y="900.0225" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
-                      <TempFile>C:\ProgramData\Alteryx\Engine\Engine_22564_7b21676ac7644fa4bbdd0e3ee3f0cbab_\Engine_5140_03d7a2b1569448e18949ebe110ef286b_.yxdb</TempFile>
+                      <TempFile>C:\ProgramData\Alteryx\Engine\Engine_12584_3576779343a54fb4830547ed8e5e25ac_\Engine_5140_c188f61b356e49cfb2641cd34e24deb2_.yxdb</TempFile>
                       <TempFileDataProfiling />
                       <Layout>
                         <ViewMode>Single</ViewMode>
@@ -942,13 +942,13 @@
                   </Properties>
                   <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
                 </Node>
-                <Node ToolID="87">
+                <Node ToolID="97">
                   <GuiSettings>
                     <Position x="583.0001" y="900.0225" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
-                      <Value name="Drop Down (19)">financials?period=quarter</Value>
+                      <Value name="Drop Down (19)">volume-by-venue</Value>
                       <Value name="ControlParams"><![CDATA[Control Parameter (10)=Stock
 ]]></Value>
                     </Configuration>
@@ -959,27 +959,13 @@
                     </Annotation>
                     <MetaInfo connection="Output12">
                       <RecordInfo>
-                        <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro) (BatchMacro)" type="String" />
-                        <Field name="reportDate" size="2048" source="CrossTab:Header:Header:reportDate:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="cashChange" size="2048" source="CrossTab:Header:Header:cashChange:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="cashFlow" size="2048" source="CrossTab:Header:Header:cashFlow:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="costOfRevenue" size="2048" source="CrossTab:Header:Header:costOfRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="currentAssets" size="2048" source="CrossTab:Header:Header:currentAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="currentCash" size="2048" source="CrossTab:Header:Header:currentCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="currentDebt" size="2048" source="CrossTab:Header:Header:currentDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="grossProfit" size="2048" source="CrossTab:Header:Header:grossProfit:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="netIncome" size="2048" source="CrossTab:Header:Header:netIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="operatingExpense" size="2048" source="CrossTab:Header:Header:operatingExpense:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="operatingGainsLosses" size="2048" source="CrossTab:Header:Header:operatingGainsLosses:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="operatingIncome" size="2048" source="CrossTab:Header:Header:operatingIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="operatingRevenue" size="2048" source="CrossTab:Header:Header:operatingRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="researchAndDevelopment" size="2048" source="CrossTab:Header:Header:researchAndDevelopment:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="shareholderEquity" size="2048" source="CrossTab:Header:Header:shareholderEquity:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="totalAssets" size="2048" source="CrossTab:Header:Header:totalAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="totalCash" size="2048" source="CrossTab:Header:Header:totalCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="totalDebt" size="2048" source="CrossTab:Header:Header:totalDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="totalLiabilities" size="2048" source="CrossTab:Header:Header:totalLiabilities:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="totalRevenue" size="2048" source="CrossTab:Header:Header:totalRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
+                        <Field name="venue" size="2048" source="CrossTab:Header:Header:venue:Concat: (BatchMacro)" type="V_String" />
+                        <Field name="venueName" size="2048" source="CrossTab:Header:Header:venueName:Concat: (BatchMacro)" type="V_String" />
+                        <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat: (BatchMacro)" type="V_String" />
+                        <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat: (BatchMacro)" type="V_String" />
+                        <Field name="avgMarketPercent" size="2048" source="CrossTab:Header:Header:avgMarketPercent:Concat: (BatchMacro)" type="V_String" />
+                        <Field name="marketPercent" size="2048" source="CrossTab:Header:Header:marketPercent:Concat: (BatchMacro)" type="V_String" />
                       </RecordInfo>
                     </MetaInfo>
                   </Properties>
@@ -1338,10 +1324,10 @@
   <Connections>
     <Connection>
       <Origin ToolID="60" Connection="Output" />
-      <Destination ToolID="87" Connection="Control" />
+      <Destination ToolID="97" Connection="Control" />
     </Connection>
     <Connection>
-      <Origin ToolID="87" Connection="Output12" />
+      <Origin ToolID="97" Connection="Output12" />
       <Destination ToolID="83" Connection="Input" />
     </Connection>
   </Connections>
