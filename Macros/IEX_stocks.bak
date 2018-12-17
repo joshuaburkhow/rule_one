@@ -1,0 +1,1472 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="164" y="241" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="Core URL" />
+            <Field name="Stock" />
+            <Field name="Parameter" />
+          </Fields>
+          <Data>
+            <r>
+              <c>https://api.iextrading.com/1.0/stock/</c>
+              <c>amzn</c>
+              <c>chart/dynamic</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="4" source="TextInput:" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="461" y="241" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>url</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="False" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="Core URL" selected="False" />
+              <Field name="Stock" selected="False" />
+              <Field name="Parameter" selected="False" />
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="Core URL" selected="False" />
+              <Field name="Stock" selected="False" />
+              <Field name="Parameter" selected="False" />
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="560" y="243" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="659" y="243" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>JSON_Name</Field>
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>JSON_Name</RootName>
+          <Delimeters value="." />
+          <NumFields value="3" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1017.2" y="239.8" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="COALESCE([JSON_ValueString],ToString(COALESCE([JSON_ValueInt],[JSON_ValueFloat],[JSON_ValueBool]),2))	" field="Value" size="64" type="String" />
+            <FormulaField expression="Switch([Parameter],[JSON_Name],&#xA;	&quot;stats&quot;,[JSON_Name1],&#xA;	&quot;financials&quot;,[JSON_Name3],&#xA;	&quot;financials?period=quarter&quot;,[JSON_Name3],&#xA;    &quot;financials?period=annual&quot;,[JSON_Name3],&#xA;    &quot;stats&quot;,[JSON_Name1],&#xA;    &quot;company&quot;,[JSON_Name1],&#xA;    &quot;delayed-quote&quot;,[JSON_Name1],&#xA;    &quot;earnings&quot;,[JSON_Name3],&#xA;    &quot;effective-spread&quot;,[JSON_Name2],&#xA;    &quot;largest-trades&quot;,[JSON_Name1],&#xA;    &quot;logo&quot;,[JSON_Name1],&#xA;    &quot;news&quot;,[JSON_Name2],&#xA;    &quot;ohlc&quot;,[JSON_Name1],&#xA;    &quot;peers&quot;,[Parameter],&#xA;    &quot;previous&quot;,[JSON_Name1],&#xA;    &quot;price&quot;,[Parameter],&#xA;    &quot;quote&quot;,[JSON_Name1],&#xA;    &quot;chart/dynamic&quot;,[JSON_Name3],&#xA;    &quot;volume-by-venue&quot;,[JSON_Name1])&#xA;" field="Header" size="1073741823" type="V_WString" />
+            <FormulaField expression="Switch([Parameter],[Stock],&#xA;	&quot;financials&quot;,[JSON_Name2],&#xA;	&quot;financials?period=quarter&quot;,[JSON_Name2],&#xA;    &quot;financials?period=annual&quot;,[JSON_Name2],&#xA;    &quot;stats&quot;,[Stock],&#xA;    &quot;company&quot;,[Stock],&#xA;    &quot;delayed-quote&quot;,[Stock],&#xA;    &quot;earnings&quot;,[JSON_Name2],&#xA;    &quot;effective-spread&quot;,[JSON_Name1],&#xA;    &quot;largest-trades&quot;,[Stock],&#xA;    &quot;logo&quot;,[Stock],&#xA;    &quot;news&quot;,[JSON_Name1],&#xA;    &quot;ohlc&quot;,[Stock],&#xA;    &quot;peers&quot;,[Stock],&#xA;    &quot;previous&quot;,[Stock],&#xA;    &quot;price&quot;,[Stock],&#xA;    &quot;quote&quot;,[Stock],&#xA;    &quot;chart/dynamic&quot;,[JSON_Name2],&#xA;    &quot;volume-by-venue&quot;,[Stock])&#xA;" field="Group By" size="64" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Value = COALESCE([JSON_ValueString],ToString(COALESCE([JSON_ValueInt],[JSON_Valu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="Formula: Uppercase([Stock])" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field name="Value" size="64" source="Formula: COALESCE([JSON_ValueString],ToString(COALESCE([JSON_ValueInt],[JSON_ValueFloat],[JSON_ValueBool]),2)) " type="String" />
+            <Field name="Header" size="1073741823" source="Formula: Switch([Parameter],[JSON_Name],&#xA; &quot;stats&quot;,[JSON_Name1],&#xA; &quot;financials&quot;,[JSON_Name3],&#xA; &quot;financials?period=quarter&quot;,[JSON_Name3],&#xA;    &quot;financials?period=annual&quot;,[JSON_Name3],&#xA;    &quot;stats&quot;,[JSON_Name1],&#xA;    &quot;company&quot;,[JSON_Name1],&#xA;    &quot;delayed-quote&quot;,[JSON_Name1],&#xA;    &quot;earnings&quot;,[JSON_Name3],&#xA;    &quot;effective-spread&quot;,[JSON_Name2],&#xA;    &quot;largest-trades&quot;,[JSON_Name1],&#xA;    &quot;logo&quot;,[JSON_Name1],&#xA;    &quot;news&quot;,[JSON_Name2],&#xA;    &quot;ohlc&quot;,[JSON_Name1],&#xA;    &quot;peers&quot;,[Parameter],&#xA;    &quot;previous&quot;,[JSON_Name1],&#xA;    &quot;price&quot;,[Parameter],&#xA;    &quot;quote&quot;,[JSON_Name1],&#xA;    &quot;chart/dynamic&quot;,[JSON_Name3],&#xA;    &quot;volume-by-venue&quot;,[JSON_Name1])&#xA;" type="V_WString" />
+            <Field name="Group By" size="64" source="Formula: Switch([Parameter],[Stock],&#xA; &quot;financials&quot;,[JSON_Name2],&#xA; &quot;financials?period=quarter&quot;,[JSON_Name2],&#xA;    &quot;financials?period=annual&quot;,[JSON_Name2],&#xA;    &quot;stats&quot;,[Stock],&#xA;    &quot;company&quot;,[Stock],&#xA;    &quot;delayed-quote&quot;,[Stock],&#xA;    &quot;earnings&quot;,[JSON_Name2],&#xA;    &quot;effective-spread&quot;,[JSON_Name1],&#xA;    &quot;largest-trades&quot;,[Stock],&#xA;    &quot;logo&quot;,[Stock],&#xA;    &quot;news&quot;,[JSON_Name1],&#xA;    &quot;ohlc&quot;,[Stock],&#xA;    &quot;peers&quot;,[Stock],&#xA;    &quot;previous&quot;,[Stock],&#xA;    &quot;price&quot;,[Stock],&#xA;    &quot;quote&quot;,[Stock],&#xA;    &quot;chart/dynamic&quot;,[JSON_Name2],&#xA;    &quot;volume-by-venue&quot;,[Stock])&#xA;" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="362" y="239" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[Core URL]+[Stock]+&quot;/&quot;+[Parameter]" field="url" size="256" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[url = [Core URL]+[Stock]+"/"+[Parameter]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.ControlParam.ControlParam">
+        <Position x="54" y="62" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="68" y="159.5" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="263" y="238" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Stock" selected="True" size="5" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="TextInput:" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.DropDownListBox.DropDown">
+        <Position x="213" y="54" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Action.Action">
+        <Position x="223.5" y="158.5" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="2045" y="242" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output12</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="1154" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="Group By" />
+          </GroupFields>
+          <HeaderField field="Header" />
+          <DataField field="Value" />
+          <Methods>
+            <Method method="Concat" />
+            <Separator>,</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+            <Field name="_Null_" size="2048" source="CrossTab:Header:Header:[Null]:Concat:" type="V_String" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Group By" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1649" y="243" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Group By</UpdateField_Name>
+          <CreateField_Name>Ticker</CreateField_Name>
+          <CreateField_Type>String</CreateField_Type>
+          <CreateField_Size>5</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>COALESCE([_Null_],[Row-1:Ticker])</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>COALESCE([_Null_],[Row-1:Ticker])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_Null_" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="symbol" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: COALESCE([_Null_],[Row-1:Ticker])" type="String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1946" y="241" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="Ticker" selected="True" />
+            <SelectField field="Symbol" selected="False" />
+            <SelectField field="reportDate" selected="True" />
+            <SelectField field="EPSReportDate" selected="True" />
+            <SelectField field="Group By" selected="False" />
+            <SelectField field="cashChange" selected="True" />
+            <SelectField field="cashFlow" selected="True" />
+            <SelectField field="costOfRevenue" selected="True" />
+            <SelectField field="currentAssets" selected="True" />
+            <SelectField field="currentCash" selected="True" />
+            <SelectField field="currentDebt" selected="True" />
+            <SelectField field="grossProfit" selected="True" />
+            <SelectField field="netIncome" selected="True" />
+            <SelectField field="operatingExpense" selected="True" />
+            <SelectField field="operatingGainsLosses" selected="True" />
+            <SelectField field="operatingIncome" selected="True" />
+            <SelectField field="operatingRevenue" selected="True" />
+            <SelectField field="researchAndDevelopment" selected="True" />
+            <SelectField field="shareholderEquity" selected="True" />
+            <SelectField field="totalAssets" selected="True" />
+            <SelectField field="totalCash" selected="True" />
+            <SelectField field="totalDebt" selected="True" />
+            <SelectField field="totalLiabilities" selected="True" />
+            <SelectField field="totalRevenue" selected="True" />
+            <SelectField field="_Null_" selected="False" />
+            <SelectField field="beta" selected="True" />
+            <SelectField field="cash" selected="True" />
+            <SelectField field="companyName" selected="True" />
+            <SelectField field="consensusEPS" selected="True" />
+            <SelectField field="day5ChangePercent" selected="True" />
+            <SelectField field="day30ChangePercent" selected="True" />
+            <SelectField field="day50MovingAvg" selected="True" />
+            <SelectField field="day200MovingAvg" selected="True" />
+            <SelectField field="debt" selected="True" />
+            <SelectField field="dividendRate" selected="True" />
+            <SelectField field="dividendYield" selected="True" />
+            <SelectField field="EBITDA" selected="True" />
+            <SelectField field="EPSSurpriseDollar" selected="True" />
+            <SelectField field="EPSSurprisePercent" selected="True" />
+            <SelectField field="exDividendDate" selected="True" />
+            <SelectField field="float" selected="True" />
+            <SelectField field="insiderPercent" selected="True" />
+            <SelectField field="institutionPercent" selected="True" />
+            <SelectField field="latestEPS" selected="True" />
+            <SelectField field="latestEPSDate" selected="True" />
+            <SelectField field="marketcap" selected="True" />
+            <SelectField field="month1ChangePercent" selected="True" />
+            <SelectField field="month3ChangePercent" selected="True" />
+            <SelectField field="month6ChangePercent" selected="True" />
+            <SelectField field="numberOfEstimates" selected="True" />
+            <SelectField field="peRatioHigh" selected="True" />
+            <SelectField field="peRatioLow" selected="True" />
+            <SelectField field="priceToBook" selected="True" />
+            <SelectField field="priceToSales" selected="True" />
+            <SelectField field="profitMargin" selected="True" />
+            <SelectField field="returnOnAssets" selected="True" />
+            <SelectField field="returnOnCapital" selected="True" />
+            <SelectField field="returnOnEquity" selected="True" />
+            <SelectField field="revenue" selected="True" />
+            <SelectField field="revenuePerEmployee" selected="True" />
+            <SelectField field="revenuePerShare" selected="True" />
+            <SelectField field="sharesOutstanding" selected="True" />
+            <SelectField field="shortDate" selected="True" />
+            <SelectField field="shortInterest" selected="True" />
+            <SelectField field="shortRatio" selected="True" />
+            <SelectField field="ttmEPS" selected="True" />
+            <SelectField field="week52change" selected="True" />
+            <SelectField field="week52high" selected="True" />
+            <SelectField field="week52low" selected="True" />
+            <SelectField field="year1ChangePercent" selected="True" />
+            <SelectField field="year2ChangePercent" selected="True" />
+            <SelectField field="year5ChangePercent" selected="True" />
+            <SelectField field="ytdChangePercent" selected="True" />
+            <SelectField field="financials_0_cashChange" selected="True" />
+            <SelectField field="financials_0_cashFlow" selected="True" />
+            <SelectField field="financials_0_costOfRevenue" selected="True" />
+            <SelectField field="financials_0_currentAssets" selected="True" />
+            <SelectField field="financials_0_currentCash" selected="True" />
+            <SelectField field="financials_0_currentDebt" selected="True" />
+            <SelectField field="financials_0_grossProfit" selected="True" />
+            <SelectField field="financials_0_netIncome" selected="True" />
+            <SelectField field="financials_0_operatingExpense" selected="True" />
+            <SelectField field="financials_0_operatingGainsLosses" selected="True" />
+            <SelectField field="financials_0_operatingIncome" selected="True" />
+            <SelectField field="financials_0_operatingRevenue" selected="True" />
+            <SelectField field="financials_0_reportDate" selected="True" />
+            <SelectField field="financials_0_researchAndDevelopment" selected="True" />
+            <SelectField field="financials_0_shareholderEquity" selected="True" />
+            <SelectField field="financials_0_totalAssets" selected="True" />
+            <SelectField field="financials_0_totalCash" selected="True" />
+            <SelectField field="financials_0_totalDebt" selected="True" />
+            <SelectField field="financials_0_totalLiabilities" selected="True" />
+            <SelectField field="financials_0_totalRevenue" selected="True" />
+            <SelectField field="financials_1_cashChange" selected="True" />
+            <SelectField field="financials_1_cashFlow" selected="True" />
+            <SelectField field="financials_1_costOfRevenue" selected="True" />
+            <SelectField field="financials_1_currentAssets" selected="True" />
+            <SelectField field="financials_1_currentCash" selected="True" />
+            <SelectField field="financials_1_currentDebt" selected="True" />
+            <SelectField field="financials_1_grossProfit" selected="True" />
+            <SelectField field="financials_1_netIncome" selected="True" />
+            <SelectField field="financials_1_operatingExpense" selected="True" />
+            <SelectField field="financials_1_operatingGainsLosses" selected="True" />
+            <SelectField field="financials_1_operatingIncome" selected="True" />
+            <SelectField field="financials_1_operatingRevenue" selected="True" />
+            <SelectField field="financials_1_reportDate" selected="True" />
+            <SelectField field="financials_1_researchAndDevelopment" selected="True" />
+            <SelectField field="financials_1_shareholderEquity" selected="True" />
+            <SelectField field="financials_1_totalAssets" selected="True" />
+            <SelectField field="financials_1_totalCash" selected="True" />
+            <SelectField field="financials_1_totalDebt" selected="True" />
+            <SelectField field="financials_1_totalLiabilities" selected="True" />
+            <SelectField field="financials_1_totalRevenue" selected="True" />
+            <SelectField field="financials_2_cashChange" selected="True" />
+            <SelectField field="financials_2_cashFlow" selected="True" />
+            <SelectField field="financials_2_costOfRevenue" selected="True" />
+            <SelectField field="financials_2_currentAssets" selected="True" />
+            <SelectField field="financials_2_currentCash" selected="True" />
+            <SelectField field="financials_2_currentDebt" selected="True" />
+            <SelectField field="financials_2_grossProfit" selected="True" />
+            <SelectField field="financials_2_netIncome" selected="True" />
+            <SelectField field="financials_2_operatingExpense" selected="True" />
+            <SelectField field="financials_2_operatingGainsLosses" selected="True" />
+            <SelectField field="financials_2_operatingIncome" selected="True" />
+            <SelectField field="financials_2_operatingRevenue" selected="True" />
+            <SelectField field="financials_2_reportDate" selected="True" />
+            <SelectField field="financials_2_researchAndDevelopment" selected="True" />
+            <SelectField field="financials_2_shareholderEquity" selected="True" />
+            <SelectField field="financials_2_totalAssets" selected="True" />
+            <SelectField field="financials_2_totalCash" selected="True" />
+            <SelectField field="financials_2_totalDebt" selected="True" />
+            <SelectField field="financials_2_totalLiabilities" selected="True" />
+            <SelectField field="financials_2_totalRevenue" selected="True" />
+            <SelectField field="financials_3_cashChange" selected="True" />
+            <SelectField field="financials_3_cashFlow" selected="True" />
+            <SelectField field="financials_3_costOfRevenue" selected="True" />
+            <SelectField field="financials_3_currentAssets" selected="True" />
+            <SelectField field="financials_3_currentCash" selected="True" />
+            <SelectField field="financials_3_currentDebt" selected="True" />
+            <SelectField field="financials_3_grossProfit" selected="True" />
+            <SelectField field="financials_3_netIncome" selected="True" />
+            <SelectField field="financials_3_operatingExpense" selected="True" />
+            <SelectField field="financials_3_operatingGainsLosses" selected="True" />
+            <SelectField field="financials_3_operatingIncome" selected="True" />
+            <SelectField field="financials_3_operatingRevenue" selected="True" />
+            <SelectField field="financials_3_reportDate" selected="True" />
+            <SelectField field="financials_3_researchAndDevelopment" selected="True" />
+            <SelectField field="financials_3_shareholderEquity" selected="True" />
+            <SelectField field="financials_3_totalAssets" selected="True" />
+            <SelectField field="financials_3_totalCash" selected="True" />
+            <SelectField field="financials_3_totalDebt" selected="True" />
+            <SelectField field="financials_3_totalLiabilities" selected="True" />
+            <SelectField field="financials_3_totalRevenue" selected="True" />
+            <SelectField field="CEO" selected="True" />
+            <SelectField field="description" selected="True" />
+            <SelectField field="exchange" selected="True" />
+            <SelectField field="industry" selected="True" />
+            <SelectField field="issueType" selected="True" />
+            <SelectField field="sector" selected="True" />
+            <SelectField field="website" selected="True" />
+            <SelectField field="0" selected="True" />
+            <SelectField field="1" selected="True" />
+            <SelectField field="2" selected="True" />
+            <SelectField field="3" selected="True" />
+            <SelectField field="4" selected="True" />
+            <SelectField field="5" selected="True" />
+            <SelectField field="6" selected="True" />
+            <SelectField field="7" selected="True" />
+            <SelectField field="8" selected="True" />
+            <SelectField field="9" selected="True" />
+            <SelectField field="10" selected="True" />
+            <SelectField field="11" selected="True" />
+            <SelectField field="12" selected="True" />
+            <SelectField field="effectiveQuoted" selected="True" />
+            <SelectField field="effectiveSpread" selected="True" />
+            <SelectField field="priceImprovement" selected="True" />
+            <SelectField field="venue" selected="True" />
+            <SelectField field="venueName" selected="True" />
+            <SelectField field="volume" selected="True" />
+            <SelectField field="Source_symbol" selected="True" />
+            <SelectField field="delayedPrice" selected="True" />
+            <SelectField field="delayedPriceTime" selected="True" />
+            <SelectField field="delayedSize" selected="True" />
+            <SelectField field="high" selected="True" />
+            <SelectField field="low" selected="True" />
+            <SelectField field="processedTime" selected="True" />
+            <SelectField field="actualEPS" selected="True" />
+            <SelectField field="announceTime" selected="True" />
+            <SelectField field="estimatedChangePercent" selected="True" />
+            <SelectField field="estimatedEPS" selected="True" />
+            <SelectField field="fiscalEndDate" selected="True" />
+            <SelectField field="fiscalPeriod" selected="True" />
+            <SelectField field="symbolId" selected="True" />
+            <SelectField field="yearAgo" selected="True" />
+            <SelectField field="yearAgoChangePercent" selected="True" />
+            <SelectField field="datetime" selected="True" />
+            <SelectField field="headline" selected="True" />
+            <SelectField field="image" selected="True" />
+            <SelectField field="related" selected="True" />
+            <SelectField field="source" selected="True" />
+            <SelectField field="summary" selected="True" />
+            <SelectField field="url" selected="True" />
+            <SelectField field="change" selected="True" />
+            <SelectField field="changeOverTime" selected="True" />
+            <SelectField field="changePercent" selected="True" />
+            <SelectField field="close" selected="True" />
+            <SelectField field="date" selected="True" />
+            <SelectField field="label" selected="True" />
+            <SelectField field="open" selected="True" />
+            <SelectField field="unadjustedVolume" selected="True" />
+            <SelectField field="vwap" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings>
+        <Position x="1352" y="238" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Fields">_Null_
+symbol</Value>
+          <Value name="FieldType">Int64</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Ensure Fields (45)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_Null_" size="2048" source="(Multiple Sources)" type="V_String" />
+            <Field name="symbol" size="20" source="(Multiple Sources)" type="V_String" />
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="CReW_EnsureFields.yxmc" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1748" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" field="Ticker" size="5" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Ticker = IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] E...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_Null_" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="symbol" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" type="String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="1550" y="240" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>_Null_ - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_Null_" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="symbol" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1847" y="243" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsNull([Group By]) &amp;&amp; !IsEmpty([Group By])</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>IsNotNull</Operator>
+            <Field>Group By</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-11-23 14:40:24</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2018-11-23 14:40:24</StartDate>
+              <EndDate>2018-11-23 14:40:24</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsNull([Group By]) &amp;&amp; !IsEmpty([Group By])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="_Null_" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="symbol" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" type="String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="_Null_" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="symbol" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF" type="String" />
+          </RecordInfo>
+          <SortInfo locale="0">
+            <Field field="_Null_" order="Descending" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="857" y="244" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!Contains([JSON_Name1],"tags")</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>NotContains</Operator>
+            <Field>JSON_Name1</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-11-23 17:56:06</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>tags</Operand>
+              <StartDate>2018-11-23 17:56:06</StartDate>
+              <EndDate>2018-11-23 17:56:06</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!Contains([JSON_Name1],"tags")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="Formula: Uppercase([Stock])" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="Formula: Uppercase([Stock])" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1451" y="238" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="_Null_" selected="True" type="String" size="21" />
+            <SelectField field="symbol" selected="True" type="String" size="21" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="_Null_" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="symbol" size="21" source="(Multiple Sources)" type="String" />
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="956" y="153" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Stock" action="First" rename="symbol" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="symbol" size="5" source="Formula: Uppercase([Stock])" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="1253" y="231" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Allow</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Source_symbol" selected="True" rename="Source_symbol" input="Source_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="symbol" size="5" source="Formula: Uppercase([Stock])" type="String" />
+            <Field name="Group By" size="64" source="CrossTab:Group:Concat:" type="String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat:" type="V_String" />
+            <Field name="changeOverTime" size="2048" source="CrossTab:Header:Header:changeOverTime:Concat:" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat:" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat:" type="V_String" />
+            <Field name="date" size="2048" source="CrossTab:Header:Header:date:Concat:" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat:" type="V_String" />
+            <Field name="label" size="2048" source="CrossTab:Header:Header:label:Concat:" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat:" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat:" type="V_String" />
+            <Field name="unadjustedVolume" size="2048" source="CrossTab:Header:Header:unadjustedVolume:Concat:" type="V_String" />
+            <Field name="volume" size="2048" source="CrossTab:Header:Header:volume:Concat:" type="V_String" />
+            <Field name="vwap" size="2048" source="CrossTab:Header:Header:vwap:Concat:" type="V_String" />
+            <Field name="_Null_" size="2048" source="CrossTab:Header:Header:[Null]:Concat:" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="758" y="242" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Uppercase([Stock])" field="Stock" size="5" type="String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Stock = Uppercase([Stock])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Core URL" size="37" source="TextInput:" type="String" />
+            <Field name="Stock" size="5" source="Formula: Uppercase([Stock])" type="String" />
+            <Field name="Parameter" size="13" source="TextInput:" type="String" />
+            <Field name="url" size="256" source="Formula: [Core URL]+[Stock]+&quot;/&quot;+[Parameter]" type="String" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="JSON_Name" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueString" size="1073741823" source="JSONParse: " type="V_WString" />
+            <Field name="JSON_ValueInt" source="JSONParse: " type="Int64" />
+            <Field name="JSON_ValueFloat" source="JSONParse: " type="Double" />
+            <Field name="JSON_ValueBool" source="JSONParse: " type="Bool" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name1" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name2" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+            <Field description="TextToColumns: Parsed from JSON_Name" name="JSON_Name3" size="1073741823" source="TextToColumns: Parsed from JSON_Name" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="90" y="345" width="136.4582" height="128" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 44</Caption>
+          <Style TextColor="#314c4a" FillColor="#ffffff" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="23">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="115" y="389" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="17" />
+              <Fields>
+                <Field name="2" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>financials?period=quarter</c>
+                </r>
+                <r>
+                  <c>financials?period=annual</c>
+                </r>
+                <r>
+                  <c>company</c>
+                </r>
+                <r>
+                  <c>delayed-quote</c>
+                </r>
+                <r>
+                  <c>earnings</c>
+                </r>
+                <r>
+                  <c>effective-spread</c>
+                </r>
+                <r>
+                  <c>largest-trades</c>
+                </r>
+                <r>
+                  <c>logo</c>
+                </r>
+                <r>
+                  <c>news</c>
+                </r>
+                <r>
+                  <c>ohlc</c>
+                </r>
+                <r>
+                  <c>peers</c>
+                </r>
+                <r>
+                  <c>previous</c>
+                </r>
+                <r>
+                  <c>price</c>
+                </r>
+                <r>
+                  <c>quote</c>
+                </r>
+                <r>
+                  <c>chart/dynamic</c>
+                </r>
+                <r>
+                  <c>volume-by-venue</c>
+                </r>
+                <r>
+                  <c>stats</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="2" size="25" source="TextInput:" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1030" y="65" width="145.9059" height="19" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Testing Output</Caption>
+          <Style TextColor="#314c4a" FillColor="#ffffff" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="13">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+            <Position x="1055" y="109" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <File FileFormat="19" MaxRecords="">stock.yxdb</File>
+              <Passwords />
+              <FormatSpecificOptions>
+                <NoSpatialIndex>False</NoSpatialIndex>
+                <SaveSource>True</SaveSource>
+              </FormatSpecificOptions>
+              <MultiFile value="True" />
+              <MultiFileType>Suffix</MultiFileType>
+              <MultiFileField>Stock</MultiFileField>
+              <KeepField value="True" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>stock.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="10" Connection="Question" />
+      <Destination ToolID="11" Connection="Question" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="11" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="20" Connection="Action" />
+      <Destination ToolID="1" Connection="Action" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="19" Connection="Question" />
+      <Destination ToolID="20" Connection="Question" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="53" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="53" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="46" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="Output" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="41" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="True" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="True" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="True" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>ControlParam.Control Parameter (10)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Drop Down (19)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="False" />
+      <Name>IEX Stocks</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName>Stocks</CategoryName>
+      <SearchTags>Stock,IEX</SearchTags>
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="False" />
+    </Events>
+    <RuntimeProperties>
+      <Actions>
+        <NoCondition>
+          <Type>NoCondition</Type>
+          <Description>(Always Run)</Description>
+          <True>
+            <Action>
+              <Type>UpdateValue</Type>
+              <Description />
+              <ToolId value="11" />
+              <Mode>Simple</Mode>
+              <Variable />
+              <Replace value="True" />
+              <ReplaceText>amzn</ReplaceText>
+              <Destination>1/Data/r/c[2]</Destination>
+            </Action>
+            <Action>
+              <Type>Dynamic</Type>
+              <Description />
+              <ToolId value="20" />
+              <Expression>{{INPUT}}</Expression>
+              <Destination>1/Data/r[1]/c[3]</Destination>
+              <Mapping>Update Cell</Mapping>
+              <Mode>Expression</Mode>
+              <DynamicConfiguration>row	1
+column	3</DynamicConfiguration>
+              <DefaultConfiguration value="False" />
+            </Action>
+          </True>
+        </NoCondition>
+      </Actions>
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (9)</Name>
+          <ToolId value="9" />
+          <Questions>
+            <Question>
+              <Type>ControlParam</Type>
+              <Description>Stock Symbol</Description>
+              <Name>Control Parameter (10)</Name>
+              <ToolId value="10" />
+            </Question>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (12)</Description>
+              <Name>Macro Output (12)</Name>
+              <ToolId value="12" />
+            </Question>
+            <Question>
+              <Type>ListBox</Type>
+              <Description>Select the data you want to request:</Description>
+              <Name>Drop Down (19)</Name>
+              <ToolId value="19" />
+              <Multiple value="False" />
+              <Default />
+              <Mode>Manual</Mode>
+              <Manual_Values><![CDATA[Quarterly Financials:financials?period=quarter
+Annual Financials:financials?period=annual
+Key Statistics:stats
+Company:company
+Delayed Quote:delayed-quote
+Earnings:earnings
+Effective Spread:effective-spread
+Company Logo:logo
+News:news
+OHLC:ohlc
+Similar Companies:peers
+Previous Day:previous
+Price:price
+Quote:quote
+Charts:chart/dynamic
+Volume by venue:volume-by-venue
+]]></Manual_Values>
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="True" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <BatchMacro>
+        <OutputMode>AllSame</OutputMode>
+        <ControlParams>
+          <ControlParam>
+            <Name>Control Parameter (10)</Name>
+            <Description>Stock Symbol</Description>
+          </ControlParam>
+        </ControlParams>
+      </BatchMacro>
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="12" Selected="True" />
+        <Tool ToolId="50" Selected="True" />
+        <Tool ToolId="13" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>

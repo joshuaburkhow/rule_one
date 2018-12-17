@@ -214,7 +214,7 @@
             </Node>
             <Node ToolID="8">
               <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                <Position x="445" y="289.8997" width="955.5358" height="1810.2" />
+                <Position x="445" y="289.8997" width="955.5359" height="1810.2" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -252,7 +252,7 @@
                 </Node>
                 <Node ToolID="19">
                   <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-                    <Position x="544.2004" y="394.8997" width="363" height="285" />
+                    <Position x="544.2003" y="394.8997" width="363" height="285" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -273,7 +273,7 @@
                 </Node>
                 <Node ToolID="21">
                   <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                    <Position x="480.8012" y="1531.5" width="166.5309" height="143.5002" />
+                    <Position x="480.8012" y="1531.5" width="166.5309" height="143.5" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -395,7 +395,7 @@
                 </Node>
                 <Node ToolID="24">
                   <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                    <Position x="474.8012" y="1328.7" width="261.8141" height="144.3002" />
+                    <Position x="474.8012" y="1328.7" width="261.8141" height="144.3" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -474,7 +474,7 @@
                 </Node>
                 <Node ToolID="23">
                   <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                    <Position x="480.8008" y="1747.5" width="286.0539" height="143.5002" />
+                    <Position x="480.8007" y="1747.5" width="286.0539" height="143.5" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -492,7 +492,7 @@
                   <ChildNodes>
                     <Node ToolID="36">
                       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-                        <Position x="505.8008" y="1791.5" />
+                        <Position x="505.8007" y="1791.5" />
                       </GuiSettings>
                       <Properties>
                         <Configuration>
@@ -573,7 +573,7 @@
                 </Node>
                 <Node ToolID="30">
                   <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                    <Position x="494.6016" y="1910.299" width="278.7998" height="164.8005" />
+                    <Position x="494.6016" y="1910.299" width="278.7998" height="164.8007" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -613,7 +613,7 @@
                 </Node>
                 <Node ToolID="38">
                   <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                    <Position x="949.736" y="335.6051" width="425.7998" height="842.9999" />
+                    <Position x="949.736" y="335.6051" width="425.7999" height="842.9999" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -860,7 +860,7 @@
                 </Node>
                 <Node ToolID="62">
                   <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                    <Position x="665.2117" y="857.9853" width="256.9694" height="128" />
+                    <Position x="667.6116" y="818.3851" width="256.9694" height="50" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -875,35 +875,11 @@
                       <Left value="False" />
                     </Annotation>
                   </Properties>
-                  <ChildNodes>
-                    <Node ToolID="63">
-                      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-                        <Position x="690.2117" y="901.9853" />
-                      </GuiSettings>
-                      <Properties>
-                        <Configuration>
-                          <OrderChanged value="False" />
-                          <CommaDecimal value="False" />
-                          <SelectFields>
-                            <SelectField field="Stock" selected="True" />
-                            <SelectField field="returnOnCapital" selected="True" />
-                            <SelectField field="returnOnEquity" selected="True" />
-                            <SelectField field="*Unknown" selected="False" />
-                          </SelectFields>
-                        </Configuration>
-                        <Annotation DisplayMode="0">
-                          <Name />
-                          <DefaultAnnotationText />
-                          <Left value="False" />
-                        </Annotation>
-                      </Properties>
-                      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
-                    </Node>
-                  </ChildNodes>
+                  <ChildNodes />
                 </Node>
                 <Node ToolID="60">
                   <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-                    <Position x="470.1666" y="898.5129" />
+                    <Position x="470.1664" y="898.5128" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -938,115 +914,82 @@
                   </Properties>
                   <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
                 </Node>
-                <Node ToolID="69">
-                  <GuiSettings>
-                    <Position x="555.8333" y="898.8656" />
+                <Node ToolID="83">
+                  <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+                    <Position x="683.3001" y="900.0225" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
-                      <Value name="Drop Down (19)">financials?period=annual</Value>
+                      <TempFile>C:\ProgramData\Alteryx\Engine\Engine_22564_7b21676ac7644fa4bbdd0e3ee3f0cbab_\Engine_5140_03d7a2b1569448e18949ebe110ef286b_.yxdb</TempFile>
+                      <TempFileDataProfiling />
+                      <Layout>
+                        <ViewMode>Single</ViewMode>
+                        <ViewSize value="100" />
+                        <View1>
+                          <DefaultTab>Profile</DefaultTab>
+                          <Hints>
+                            <Table />
+                          </Hints>
+                        </View1>
+                        <View2 />
+                      </Layout>
+                    </Configuration>
+                    <Annotation DisplayMode="0">
+                      <Name />
+                      <DefaultAnnotationText />
+                      <Left value="False" />
+                    </Annotation>
+                  </Properties>
+                  <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+                </Node>
+                <Node ToolID="87">
+                  <GuiSettings>
+                    <Position x="583.0001" y="900.0225" />
+                  </GuiSettings>
+                  <Properties>
+                    <Configuration>
+                      <Value name="Drop Down (19)">financials?period=quarter</Value>
                       <Value name="ControlParams"><![CDATA[Control Parameter (10)=Stock
 ]]></Value>
                     </Configuration>
                     <Annotation DisplayMode="0">
-                      <Name>IEX Stocks (66)</Name>
+                      <Name>IEX Stocks (72)</Name>
                       <DefaultAnnotationText />
                       <Left value="False" />
                     </Annotation>
                     <MetaInfo connection="Output12">
                       <RecordInfo>
-                        <Field name="Stock" size="5" source="CrossTab:Group:Concat: (BatchMacro) (BatchMacro)" type="String" />
-                        <Field name="financials_0_cashChange" size="2048" source="CrossTab:Header:Header:financials.0.cashChange:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_cashFlow" size="2048" source="CrossTab:Header:Header:financials.0.cashFlow:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_costOfRevenue" size="2048" source="CrossTab:Header:Header:financials.0.costOfRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_currentAssets" size="2048" source="CrossTab:Header:Header:financials.0.currentAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_currentCash" size="2048" source="CrossTab:Header:Header:financials.0.currentCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_currentDebt" size="2048" source="CrossTab:Header:Header:financials.0.currentDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_grossProfit" size="2048" source="CrossTab:Header:Header:financials.0.grossProfit:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_netIncome" size="2048" source="CrossTab:Header:Header:financials.0.netIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_operatingExpense" size="2048" source="CrossTab:Header:Header:financials.0.operatingExpense:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_operatingGainsLosses" size="2048" source="CrossTab:Header:Header:financials.0.operatingGainsLosses:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_operatingIncome" size="2048" source="CrossTab:Header:Header:financials.0.operatingIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_operatingRevenue" size="2048" source="CrossTab:Header:Header:financials.0.operatingRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_reportDate" size="2048" source="CrossTab:Header:Header:financials.0.reportDate:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_researchAndDevelopment" size="2048" source="CrossTab:Header:Header:financials.0.researchAndDevelopment:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_shareholderEquity" size="2048" source="CrossTab:Header:Header:financials.0.shareholderEquity:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_totalAssets" size="2048" source="CrossTab:Header:Header:financials.0.totalAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_totalCash" size="2048" source="CrossTab:Header:Header:financials.0.totalCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_totalDebt" size="2048" source="CrossTab:Header:Header:financials.0.totalDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_totalLiabilities" size="2048" source="CrossTab:Header:Header:financials.0.totalLiabilities:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_0_totalRevenue" size="2048" source="CrossTab:Header:Header:financials.0.totalRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_cashChange" size="2048" source="CrossTab:Header:Header:financials.1.cashChange:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_cashFlow" size="2048" source="CrossTab:Header:Header:financials.1.cashFlow:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_costOfRevenue" size="2048" source="CrossTab:Header:Header:financials.1.costOfRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_currentAssets" size="2048" source="CrossTab:Header:Header:financials.1.currentAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_currentCash" size="2048" source="CrossTab:Header:Header:financials.1.currentCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_currentDebt" size="2048" source="CrossTab:Header:Header:financials.1.currentDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_grossProfit" size="2048" source="CrossTab:Header:Header:financials.1.grossProfit:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_netIncome" size="2048" source="CrossTab:Header:Header:financials.1.netIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_operatingExpense" size="2048" source="CrossTab:Header:Header:financials.1.operatingExpense:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_operatingGainsLosses" size="2048" source="CrossTab:Header:Header:financials.1.operatingGainsLosses:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_operatingIncome" size="2048" source="CrossTab:Header:Header:financials.1.operatingIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_operatingRevenue" size="2048" source="CrossTab:Header:Header:financials.1.operatingRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_reportDate" size="2048" source="CrossTab:Header:Header:financials.1.reportDate:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_researchAndDevelopment" size="2048" source="CrossTab:Header:Header:financials.1.researchAndDevelopment:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_shareholderEquity" size="2048" source="CrossTab:Header:Header:financials.1.shareholderEquity:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_totalAssets" size="2048" source="CrossTab:Header:Header:financials.1.totalAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_totalCash" size="2048" source="CrossTab:Header:Header:financials.1.totalCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_totalDebt" size="2048" source="CrossTab:Header:Header:financials.1.totalDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_totalLiabilities" size="2048" source="CrossTab:Header:Header:financials.1.totalLiabilities:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_1_totalRevenue" size="2048" source="CrossTab:Header:Header:financials.1.totalRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_cashChange" size="2048" source="CrossTab:Header:Header:financials.2.cashChange:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_cashFlow" size="2048" source="CrossTab:Header:Header:financials.2.cashFlow:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_costOfRevenue" size="2048" source="CrossTab:Header:Header:financials.2.costOfRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_currentAssets" size="2048" source="CrossTab:Header:Header:financials.2.currentAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_currentCash" size="2048" source="CrossTab:Header:Header:financials.2.currentCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_currentDebt" size="2048" source="CrossTab:Header:Header:financials.2.currentDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_grossProfit" size="2048" source="CrossTab:Header:Header:financials.2.grossProfit:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_netIncome" size="2048" source="CrossTab:Header:Header:financials.2.netIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_operatingExpense" size="2048" source="CrossTab:Header:Header:financials.2.operatingExpense:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_operatingGainsLosses" size="2048" source="CrossTab:Header:Header:financials.2.operatingGainsLosses:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_operatingIncome" size="2048" source="CrossTab:Header:Header:financials.2.operatingIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_operatingRevenue" size="2048" source="CrossTab:Header:Header:financials.2.operatingRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_reportDate" size="2048" source="CrossTab:Header:Header:financials.2.reportDate:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_researchAndDevelopment" size="2048" source="CrossTab:Header:Header:financials.2.researchAndDevelopment:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_shareholderEquity" size="2048" source="CrossTab:Header:Header:financials.2.shareholderEquity:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_totalAssets" size="2048" source="CrossTab:Header:Header:financials.2.totalAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_totalCash" size="2048" source="CrossTab:Header:Header:financials.2.totalCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_totalDebt" size="2048" source="CrossTab:Header:Header:financials.2.totalDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_totalLiabilities" size="2048" source="CrossTab:Header:Header:financials.2.totalLiabilities:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_2_totalRevenue" size="2048" source="CrossTab:Header:Header:financials.2.totalRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_cashChange" size="2048" source="CrossTab:Header:Header:financials.3.cashChange:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_cashFlow" size="2048" source="CrossTab:Header:Header:financials.3.cashFlow:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_costOfRevenue" size="2048" source="CrossTab:Header:Header:financials.3.costOfRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_currentAssets" size="2048" source="CrossTab:Header:Header:financials.3.currentAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_currentCash" size="2048" source="CrossTab:Header:Header:financials.3.currentCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_currentDebt" size="2048" source="CrossTab:Header:Header:financials.3.currentDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_grossProfit" size="2048" source="CrossTab:Header:Header:financials.3.grossProfit:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_netIncome" size="2048" source="CrossTab:Header:Header:financials.3.netIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_operatingExpense" size="2048" source="CrossTab:Header:Header:financials.3.operatingExpense:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_operatingGainsLosses" size="2048" source="CrossTab:Header:Header:financials.3.operatingGainsLosses:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_operatingIncome" size="2048" source="CrossTab:Header:Header:financials.3.operatingIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_operatingRevenue" size="2048" source="CrossTab:Header:Header:financials.3.operatingRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_reportDate" size="2048" source="CrossTab:Header:Header:financials.3.reportDate:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_researchAndDevelopment" size="2048" source="CrossTab:Header:Header:financials.3.researchAndDevelopment:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_shareholderEquity" size="2048" source="CrossTab:Header:Header:financials.3.shareholderEquity:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_totalAssets" size="2048" source="CrossTab:Header:Header:financials.3.totalAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_totalCash" size="2048" source="CrossTab:Header:Header:financials.3.totalCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_totalDebt" size="2048" source="CrossTab:Header:Header:financials.3.totalDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_totalLiabilities" size="2048" source="CrossTab:Header:Header:financials.3.totalLiabilities:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="financials_3_totalRevenue" size="2048" source="CrossTab:Header:Header:financials.3.totalRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
-                        <Field name="symbol" size="2048" source="CrossTab:Header:Header:symbol:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro) (BatchMacro)" type="String" />
+                        <Field name="reportDate" size="2048" source="CrossTab:Header:Header:reportDate:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="cashChange" size="2048" source="CrossTab:Header:Header:cashChange:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="cashFlow" size="2048" source="CrossTab:Header:Header:cashFlow:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="costOfRevenue" size="2048" source="CrossTab:Header:Header:costOfRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="currentAssets" size="2048" source="CrossTab:Header:Header:currentAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="currentCash" size="2048" source="CrossTab:Header:Header:currentCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="currentDebt" size="2048" source="CrossTab:Header:Header:currentDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="grossProfit" size="2048" source="CrossTab:Header:Header:grossProfit:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="netIncome" size="2048" source="CrossTab:Header:Header:netIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="operatingExpense" size="2048" source="CrossTab:Header:Header:operatingExpense:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="operatingGainsLosses" size="2048" source="CrossTab:Header:Header:operatingGainsLosses:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="operatingIncome" size="2048" source="CrossTab:Header:Header:operatingIncome:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="operatingRevenue" size="2048" source="CrossTab:Header:Header:operatingRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="researchAndDevelopment" size="2048" source="CrossTab:Header:Header:researchAndDevelopment:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="shareholderEquity" size="2048" source="CrossTab:Header:Header:shareholderEquity:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="totalAssets" size="2048" source="CrossTab:Header:Header:totalAssets:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="totalCash" size="2048" source="CrossTab:Header:Header:totalCash:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="totalDebt" size="2048" source="CrossTab:Header:Header:totalDebt:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="totalLiabilities" size="2048" source="CrossTab:Header:Header:totalLiabilities:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
+                        <Field name="totalRevenue" size="2048" source="CrossTab:Header:Header:totalRevenue:Concat: (BatchMacro) (BatchMacro)" type="V_String" />
                       </RecordInfo>
                     </MetaInfo>
                   </Properties>
-                  <EngineSettings Macro="IEX_stocks.yxmc" />
+                  <EngineSettings Macro="..\Macros\IEX_stocks.yxmc" />
                 </Node>
               </ChildNodes>
             </Node>
             <Node ToolID="9">
               <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                <Position x="1451" y="288.2996" width="191" height="175.1999" />
+                <Position x="1451" y="288.2997" width="191" height="175.1999" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1064,7 +1007,7 @@
               <ChildNodes>
                 <Node ToolID="13">
                   <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-                    <Position x="1476" y="332.2996" width="141" height="31.00012" />
+                    <Position x="1476" y="332.2997" width="141" height="31.00012" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -1084,7 +1027,7 @@
                 </Node>
                 <Node ToolID="40">
                   <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-                    <Position x="1481.401" y="379.4995" />
+                    <Position x="1481.401" y="379.4996" />
                   </GuiSettings>
                   <Properties>
                     <Configuration>
@@ -1126,7 +1069,7 @@
             </Node>
             <Node ToolID="10">
               <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-                <Position x="1735.2" y="287.3001" width="678.0009" height="394.1996" />
+                <Position x="1735.2" y="287.3001" width="678.0007" height="394.1996" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1197,7 +1140,7 @@
             </Node>
             <Node ToolID="49">
               <GuiSettings Plugin="AlteryxGuiToolkit.TextBox.TextBox">
-                <Position x="174.0001" y="830.2996" width="100" height="40" />
+                <Position x="174.0001" y="830.2997" width="100" height="40" />
               </GuiSettings>
               <Properties>
                 <Configuration>
@@ -1395,11 +1338,11 @@
   <Connections>
     <Connection>
       <Origin ToolID="60" Connection="Output" />
-      <Destination ToolID="69" Connection="Control" />
+      <Destination ToolID="87" Connection="Control" />
     </Connection>
     <Connection>
-      <Origin ToolID="69" Connection="Output12" />
-      <Destination ToolID="63" Connection="Input" />
+      <Origin ToolID="87" Connection="Output12" />
+      <Destination ToolID="83" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -1420,7 +1363,7 @@
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>
       <NameIsFileName value="True" />
-      <Name>Rule1_Workflow</Name>
+      <Name>rule_one</Name>
       <Description />
       <RootToolName />
       <ToolVersion />
