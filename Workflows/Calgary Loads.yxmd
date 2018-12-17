@@ -1,0 +1,592 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Directory.Directory">
+        <Position x="54" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Directory>E:\SEC Data\</Directory>
+          <FileSpec>num*.*</FileSpec>
+          <IncludeSubDirs value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>dir E:\SEC Data\num*.*</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDirectory" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="190" y="123" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[FileName] = "num.tsv"</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>FileName</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-12-16 09:38:15</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>num.tsv</Operand>
+              <StartDate>2018-12-16 09:38:15</StartDate>
+              <EndDate>2018-12-16 09:38:15</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[FileName] = "num.tsv"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="264" y="0" width="136.4582" height="19" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 35</Caption>
+          <Style TextColor="#314c4a" FillColor="#ffffff" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="True" />
+          <Folded value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="7">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
+            <Position x="289" y="120" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FieldName>RecordID</FieldName>
+              <StartValue>1</StartValue>
+              <FieldType>Int32</FieldType>
+              <FieldSize>6</FieldSize>
+              <Position>0</Position>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxRecordID" />
+        </Node>
+        <Node ToolID="25">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Tile.Tile">
+            <Position x="406" y="117" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields orderChanged="False" />
+              <Method>EqualSum</Method>
+              <EqualSum>
+                <Field>RecordID</Field>
+                <SumField>Size</SumField>
+                <NumTiles value="3" />
+              </EqualSum>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Equal Sum:
+Size</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTile" />
+        </Node>
+        <Node ToolID="26">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="545" y="62.99999" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[Tile_Num] = 1</Expression>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>Tile_Num</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-12-16 22:13:35</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>1</Operand>
+                  <StartDate>2018-12-16 22:13:35</StartDate>
+                  <EndDate>2018-12-16 22:13:35</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Tile_Num] = 1</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="27">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="543.0001" y="270" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[Tile_Num] = 3</Expression>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>Tile_Num</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-12-16 22:13:35</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>3</Operand>
+                  <StartDate>2018-12-16 22:13:35</StartDate>
+                  <EndDate>2018-12-16 22:13:35</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Tile_Num] = 3</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="28">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="548" y="165" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[Tile_Num] = 2</Expression>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>Tile_Num</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-12-16 22:13:35</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>2</Operand>
+                  <StartDate>2018-12-16 22:13:35</StartDate>
+                  <EndDate>2018-12-16 22:13:35</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Tile_Num] = 2</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="29">
+          <GuiSettings Plugin="CalgaryLoadersGui.CalgaryLoader.CalgaryLoader">
+            <Position x="803" y="47" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RootFileName>H:\Num_1.cydb</RootFileName>
+              <UseLicenseKey value="False" />
+              <Fields>
+                <Field field="adsh" data="True" index="True" indexType="Auto" />
+                <Field field="tag" data="True" index="True" indexType="Auto" />
+                <Field field="version" data="True" index="True" indexType="Auto" />
+                <Field field="ddate" data="True" index="True" indexType="Auto" />
+                <Field field="qtrs" data="True" index="True" indexType="Auto" />
+                <Field field="uom" data="True" index="True" indexType="Auto" />
+                <Field field="dimh" data="True" index="True" indexType="Auto" />
+                <Field field="iprx" data="True" index="True" indexType="Auto" />
+                <Field field="value" data="True" index="True" indexType="Auto" />
+                <Field field="footnote" data="True" index="True" indexType="Auto" />
+                <Field field="footlen" data="True" index="True" indexType="Auto" />
+                <Field field="dimn" data="True" index="True" indexType="Auto" />
+                <Field field="coreg" data="True" index="True" indexType="Auto" />
+                <Field field="durp" data="True" index="True" indexType="Auto" />
+                <Field field="datp" data="True" index="True" indexType="Auto" />
+                <Field field="dcml" data="True" index="True" indexType="Auto" />
+              </Fields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="CalgaryLoaders.dll" EngineDllEntryPoint="AlteryxCalgaryLoader" />
+        </Node>
+        <Node ToolID="30">
+          <GuiSettings Plugin="CalgaryLoadersGui.CalgaryLoader.CalgaryLoader">
+            <Position x="801" y="161" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RootFileName>H:\Num_2.cydb</RootFileName>
+              <UseLicenseKey value="False" />
+              <Fields>
+                <Field field="adsh" data="True" index="True" indexType="Auto" />
+                <Field field="tag" data="True" index="True" indexType="Auto" />
+                <Field field="version" data="True" index="True" indexType="Auto" />
+                <Field field="ddate" data="True" index="True" indexType="Auto" />
+                <Field field="qtrs" data="True" index="True" indexType="Auto" />
+                <Field field="uom" data="True" index="True" indexType="Auto" />
+                <Field field="dimh" data="True" index="True" indexType="Auto" />
+                <Field field="iprx" data="True" index="True" indexType="Auto" />
+                <Field field="value" data="True" index="True" indexType="Auto" />
+                <Field field="footnote" data="True" index="True" indexType="Auto" />
+                <Field field="footlen" data="True" index="True" indexType="Auto" />
+                <Field field="dimn" data="True" index="True" indexType="Auto" />
+                <Field field="coreg" data="True" index="True" indexType="Auto" />
+                <Field field="durp" data="True" index="True" indexType="Auto" />
+                <Field field="datp" data="True" index="True" indexType="Auto" />
+                <Field field="dcml" data="True" index="True" indexType="Auto" />
+              </Fields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="CalgaryLoaders.dll" EngineDllEntryPoint="AlteryxCalgaryLoader" />
+        </Node>
+        <Node ToolID="31">
+          <GuiSettings Plugin="CalgaryLoadersGui.CalgaryLoader.CalgaryLoader">
+            <Position x="800" y="288" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RootFileName>H:\Num_3.cydb</RootFileName>
+              <UseLicenseKey value="False" />
+              <Fields>
+                <Field field="adsh" data="True" index="True" indexType="Auto" />
+                <Field field="tag" data="True" index="True" indexType="Auto" />
+                <Field field="version" data="True" index="True" indexType="Auto" />
+                <Field field="ddate" data="True" index="True" indexType="Auto" />
+                <Field field="qtrs" data="True" index="True" indexType="Auto" />
+                <Field field="uom" data="True" index="True" indexType="Auto" />
+                <Field field="dimh" data="True" index="True" indexType="Auto" />
+                <Field field="iprx" data="True" index="True" indexType="Auto" />
+                <Field field="value" data="True" index="True" indexType="Auto" />
+                <Field field="footnote" data="True" index="True" indexType="Auto" />
+                <Field field="footlen" data="True" index="True" indexType="Auto" />
+                <Field field="dimn" data="True" index="True" indexType="Auto" />
+                <Field field="coreg" data="True" index="True" indexType="Auto" />
+                <Field field="durp" data="True" index="True" indexType="Auto" />
+                <Field field="datp" data="True" index="True" indexType="Auto" />
+                <Field field="dcml" data="True" index="True" indexType="Auto" />
+              </Fields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="CalgaryLoaders.dll" EngineDllEntryPoint="AlteryxCalgaryLoader" />
+        </Node>
+        <Node ToolID="32">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicInput.DynamicInput">
+            <Position x="673" y="44" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputConfiguration>
+                <Configuration>
+                  <Passwords />
+                  <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">E:\SEC Data\2009q4_notes\num.tsv</File>
+                  <FormatSpecificOptions>
+                    <CodePage>65001</CodePage>
+                    <Delimeter>\t</Delimeter>
+                    <IgnoreErrors>False</IgnoreErrors>
+                    <FieldLen>254</FieldLen>
+                    <AllowShareWrite>False</AllowShareWrite>
+                    <HeaderRow>True</HeaderRow>
+                    <IgnoreQuotes>False</IgnoreQuotes>
+                    <ImportLine>1</ImportLine>
+                  </FormatSpecificOptions>
+                </Configuration>
+              </InputConfiguration>
+              <Mode>ReadList</Mode>
+              <ReadList_Field>FullPath</ReadList_Field>
+              <ReadList_Type>Path</ReadList_Type>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicInput" />
+        </Node>
+        <Node ToolID="33">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicInput.DynamicInput">
+            <Position x="670" y="156" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputConfiguration>
+                <Configuration>
+                  <Passwords />
+                  <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">E:\SEC Data\2009q4_notes\num.tsv</File>
+                  <FormatSpecificOptions>
+                    <CodePage>65001</CodePage>
+                    <Delimeter>\t</Delimeter>
+                    <IgnoreErrors>False</IgnoreErrors>
+                    <FieldLen>254</FieldLen>
+                    <AllowShareWrite>False</AllowShareWrite>
+                    <HeaderRow>True</HeaderRow>
+                    <IgnoreQuotes>False</IgnoreQuotes>
+                    <ImportLine>1</ImportLine>
+                  </FormatSpecificOptions>
+                </Configuration>
+              </InputConfiguration>
+              <Mode>ReadList</Mode>
+              <ReadList_Field>FullPath</ReadList_Field>
+              <ReadList_Type>Path</ReadList_Type>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicInput" />
+        </Node>
+        <Node ToolID="34">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicInput.DynamicInput">
+            <Position x="664" y="260" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <InputConfiguration>
+                <Configuration>
+                  <Passwords />
+                  <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">E:\SEC Data\2009q4_notes\num.tsv</File>
+                  <FormatSpecificOptions>
+                    <CodePage>65001</CodePage>
+                    <Delimeter>\t</Delimeter>
+                    <IgnoreErrors>False</IgnoreErrors>
+                    <FieldLen>254</FieldLen>
+                    <AllowShareWrite>False</AllowShareWrite>
+                    <HeaderRow>True</HeaderRow>
+                    <IgnoreQuotes>False</IgnoreQuotes>
+                    <ImportLine>1</ImportLine>
+                  </FormatSpecificOptions>
+                </Configuration>
+              </InputConfiguration>
+              <Mode>ReadList</Mode>
+              <ReadList_Field>FullPath</ReadList_Field>
+              <ReadList_Type>Path</ReadList_Type>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicInput" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicInput.DynamicInput">
+        <Position x="310" y="110" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <InputConfiguration>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">E:\SEC Data\2009q4_notes\num.tsv</File>
+              <FormatSpecificOptions>
+                <CodePage>28591</CodePage>
+                <Delimeter>\t</Delimeter>
+                <IgnoreErrors>False</IgnoreErrors>
+                <FieldLen>254</FieldLen>
+                <AllowShareWrite>False</AllowShareWrite>
+                <HeaderRow>True</HeaderRow>
+                <IgnoreQuotes>False</IgnoreQuotes>
+                <ImportLine>1</ImportLine>
+              </FormatSpecificOptions>
+            </Configuration>
+          </InputConfiguration>
+          <Mode>ReadList</Mode>
+          <ReadList_Field>FullPath</ReadList_Field>
+          <ReadList_Type>Path</ReadList_Type>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicInput" />
+    </Node>
+    <Node ToolID="37">
+      <GuiSettings Plugin="CalgaryLoadersGui.CalgaryLoader.CalgaryLoader">
+        <Position x="418" y="111" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RootFileName>H:\Num.cydb</RootFileName>
+          <UseLicenseKey value="False" />
+          <Fields>
+            <Field field="adsh" data="True" index="True" indexType="Auto" />
+            <Field field="tag" data="True" index="True" indexType="Auto" />
+            <Field field="version" data="True" index="True" indexType="Auto" />
+            <Field field="ddate" data="True" index="True" indexType="Auto" />
+            <Field field="qtrs" data="True" index="True" indexType="Auto" />
+            <Field field="uom" data="True" index="True" indexType="Auto" />
+            <Field field="dimh" data="True" index="True" indexType="Auto" />
+            <Field field="iprx" data="True" index="True" indexType="Auto" />
+            <Field field="value" data="True" index="True" indexType="Auto" />
+            <Field field="footnote" data="True" index="True" indexType="Auto" />
+            <Field field="footlen" data="True" index="True" indexType="Auto" />
+            <Field field="dimn" data="True" index="True" indexType="Auto" />
+            <Field field="coreg" data="True" index="True" indexType="Auto" />
+            <Field field="durp" data="True" index="True" indexType="Auto" />
+            <Field field="datp" data="True" index="True" indexType="Auto" />
+            <Field field="dcml" data="True" index="True" indexType="Auto" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="CalgaryLoaders.dll" EngineDllEntryPoint="AlteryxCalgaryLoader" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="True" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="True" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="True" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="27" Connection="True" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="True" />
+      <Destination ToolID="33" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="34" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="36" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="False" max="40000" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="False">H:\</TempFiles>
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="True" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="True" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Calgary Loads</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

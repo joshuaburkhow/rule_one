@@ -1,0 +1,220 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="336.8" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="adsh" selected="True" />
+            <Field field="stmt" selected="True" />
+            <Field field="rfile" selected="True" />
+            <Field field="tag" selected="True" />
+            <Field field="version" selected="True" />
+            <Field field="prole" selected="True" />
+            <Field field="plabel" selected="True" />
+            <Field field="FileName" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="adsh" size="20" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="String" />
+            <Field name="report" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="Int16" />
+            <Field name="line" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="Int16" />
+            <Field name="stmt" size="2" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="String" />
+            <Field name="inpth" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="Byte" />
+            <Field name="rfile" size="1" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="String" />
+            <Field name="tag" size="253" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="V_String" />
+            <Field name="version" size="20" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="V_String" />
+            <Field name="prole" size="24" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="V_String" />
+            <Field name="plabel" size="254" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="V_String" />
+            <Field name="negating" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="Byte" />
+            <Field name="FileName" size="7" source="Directory:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="234" y="57.8004" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">E:\SEC Data\Unified\pre.tsv_file.yxdb</File>
+          <FormatSpecificOptions />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>pre.tsv_file.yxdb</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="adsh" size="20" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="String" />
+            <Field name="report" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="Int16" />
+            <Field name="line" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="Int16" />
+            <Field name="stmt" size="2" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="String" />
+            <Field name="inpth" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="Byte" />
+            <Field name="rfile" size="1" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="String" />
+            <Field name="tag" size="253" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="V_String" />
+            <Field name="version" size="20" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="V_String" />
+            <Field name="prole" size="24" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="V_String" />
+            <Field name="plabel" size="254" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="V_String" />
+            <Field name="negating" source="File: E:\SEC Data\2009q1_notes\pre.tsv" type="Byte" />
+            <Field name="FileName" size="7" source="Directory:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="3">
+      <GuiSettings Plugin="CalgaryLoadersGui.CalgaryLoader.CalgaryLoader">
+        <Position x="548.8" y="21" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RootFileName>H:\pre.tsv_file_1.cydb</RootFileName>
+          <UseLicenseKey value="False" />
+          <Fields>
+            <Field field="adsh" data="True" index="True" indexType="Auto" />
+            <Field field="report" data="True" index="True" indexType="Low Selectivity" />
+            <Field field="line" data="True" index="True" indexType="Low Selectivity" />
+            <Field field="stmt" data="True" index="True" indexType="Auto" />
+            <Field field="inpth" data="True" index="True" indexType="Low Selectivity" />
+            <Field field="rfile" data="True" index="True" indexType="Auto" />
+            <Field field="tag" data="True" index="True" indexType="Auto" />
+            <Field field="version" data="True" index="True" indexType="Auto" />
+            <Field field="prole" data="True" index="True" indexType="Auto" />
+            <Field field="plabel" data="True" index="True" indexType="Auto" />
+            <Field field="negating" data="True" index="True" indexType="Low Selectivity" />
+            <Field field="FileName" data="True" index="True" indexType="Auto" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="CalgaryLoaders.dll" EngineDllEntryPoint="AlteryxCalgaryLoader" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="CalgaryLoadersGui.CalgaryLoader.CalgaryLoader">
+        <Position x="550" y="141" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RootFileName>H:\pre.tsv_file_2.cydb</RootFileName>
+          <UseLicenseKey value="False" />
+          <Fields>
+            <Field field="adsh" data="True" index="True" indexType="Auto" />
+            <Field field="report" data="True" index="True" indexType="Low Selectivity" />
+            <Field field="line" data="True" index="True" indexType="Low Selectivity" />
+            <Field field="stmt" data="True" index="True" indexType="Auto" />
+            <Field field="inpth" data="True" index="True" indexType="Low Selectivity" />
+            <Field field="rfile" data="True" index="True" indexType="Auto" />
+            <Field field="tag" data="True" index="True" indexType="Auto" />
+            <Field field="version" data="True" index="True" indexType="Auto" />
+            <Field field="prole" data="True" index="True" indexType="Auto" />
+            <Field field="plabel" data="True" index="True" indexType="Auto" />
+            <Field field="negating" data="True" index="True" indexType="Low Selectivity" />
+            <Field field="FileName" data="True" index="True" indexType="Auto" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="CalgaryLoaders.dll" EngineDllEntryPoint="AlteryxCalgaryLoader" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings>
+        <Position x="435.8" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="estimation pct">50</Value>
+          <Value name="validation pct">50</Value>
+          <Value name="rand seed">1</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Predictive Tools\Create_Samples.yxmc" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Estimation" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Validation" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="False" max="32000" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="False">H:\</TempFiles>
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="True" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Calgary Loads 2</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

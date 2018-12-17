@@ -1,0 +1,1412 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="92">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1979" y="101.3804" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Statement] = "IS"</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Statement</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-12-07 22:15:27</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>IS</Operand>
+              <StartDate>2018-12-07 22:15:27</StartDate>
+              <EndDate>2018-12-07 22:15:27</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Statement] = "IS"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="93">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="2182" y="90.38036" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields />
+          <HeaderField field="Header" />
+          <DataField field="IS" />
+          <Methods />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="94">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="2081" y="88.38036" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToString([Line #]) + &quot; &quot; + [Localname]" field="Header" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Header = ToString([Line #]) + " " + [Localname]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="96">
+      <GuiSettings>
+        <Position x="1329" y="98.38036" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="tempFileID">temp1</Value>
+          <Value name="runmodeWrite">False</Value>
+          <Value name="deleteAfterSession">False</Value>
+          <Value name="deleteAfterDays">False</Value>
+          <Value name="autoDeleteDays">7</Value>
+          <Value name="deleteNever">True</Value>
+          <Value name="runmodeRead">True</Value>
+          <Value name="runmodeBypass">False</Value>
+          <Value name="cacheLocationAppdata">True</Value>
+          <Value name="cacheLocationWorkflow">False</Value>
+          <Value name="cacheLocationUserSpecified">False</Value>
+          <Value name="cacheFolderPath" />
+          <Value name="suppressCleanupSelected">False</Value>
+          <Value name="suppressReadModeError">False</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="CacheDatasetV2.yxmc" />
+    </Node>
+    <Node ToolID="89">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="1413.352" y="56.38036" width="517.6479" height="254.6196" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 89</Caption>
+          <Style TextColor="#314c4a" FillColor="#ffffff" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="82">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1438.352" y="105.4404" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Status" selected="False" />
+                <SelectField field="Well-known Seasoned Issuer" selected="False" />
+                <SelectField field="Detail Tagged" selected="False" />
+                <SelectField field="Public Float" selected="False" />
+                <SelectField field="Public Float Measurement Date" selected="False" />
+                <SelectField field="Dimension Hash" selected="False" />
+                <SelectField field="Fact Preference" selected="False" />
+                <SelectField field="Field_59_2" selected="True" rename="Value" type="Double" size="8" />
+                <SelectField field="Field_59" selected="True" rename="Line #" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="83">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1537.352" y="105.4404" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="Registrant" order="Ascending" />
+                <Field field="Report Period" order="Ascending" />
+                <Field field="Statement" order="Ascending" />
+                <Field field="Line #" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Registrant - Ascending
+Report Period - Ascending
+Statement - Ascending
+Line # - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+        <Node ToolID="84">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="1733.352" y="101.3804" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="Registrant" />
+                <Field field="Report Period" />
+                <Field field="Fiscal Year" />
+                <Field field="Fiscal Period" />
+                <Field field="Localname" />
+                <Field field="Statement" />
+                <Field field="Line #" />
+              </GroupFields>
+              <HeaderField field="Statement" />
+              <DataField field="Value" />
+              <Methods>
+                <Method method="Sum" />
+              </Methods>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Registrant" size="63" source="CrossTab:Group:Sum:" type="V_String" />
+                <Field name="Report Period" source="CrossTab:Group:Sum:" type="Int32" />
+                <Field name="Fiscal Year" source="CrossTab:Group:Sum:" type="Int16" />
+                <Field name="Fiscal Period" size="2" source="CrossTab:Group:Sum:" type="String" />
+                <Field name="Localname" size="200" source="CrossTab:Group:Sum:" type="V_String" />
+                <Field name="Statement" size="2" source="CrossTab:Group:Sum:" type="String" />
+                <Field name="Line #" source="CrossTab:Group:Sum:" type="Int16" />
+                <Field name="BS" source="CrossTab:Header:Statement:BS:Sum:" type="Double" />
+                <Field name="CF" source="CrossTab:Header:Statement:CF:Sum:" type="Double" />
+                <Field name="IS" source="CrossTab:Header:Statement:IS:Sum:" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Registrant" order="Asc" />
+                <Field field="Report Period" order="Asc" />
+                <Field field="Fiscal Year" order="Asc" />
+                <Field field="Fiscal Period" order="Asc" />
+                <Field field="Localname" order="Asc" />
+                <Field field="Statement" order="Asc" />
+                <Field field="Line #" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="87">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1612" y="101.3804" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>!Contains([Localname],"shares")</Expression>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>NotContains</Operator>
+                <Field>Localname</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-12-07 20:47:53</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>shares</Operand>
+                  <StartDate>2018-12-07 20:47:53</StartDate>
+                  <EndDate>2018-12-07 20:47:53</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!Contains([Localname],"shares")</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="91">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+            <Position x="1834.352" y="100.3804" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SortInfo locale="0">
+                <Field field="Statement" order="Ascending" />
+                <Field field="Line #" order="Ascending" />
+              </SortInfo>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Statement - Ascending
+Line # - Ascending</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+        </Node>
+      </ChildNodes>
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="246" y="54.00002" width="1068" height="496" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 60</Caption>
+          <Style TextColor="#314c4a" FillColor="#ffffff" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="73">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="1082.413" y="98.00034" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Central Index Key" selected="False" />
+                <SelectField field="Standard Industrial Classification Code" selected="False" />
+                <SelectField field="Business Address Country" selected="False" />
+                <SelectField field="Business Address State or Province" selected="False" />
+                <SelectField field="Business Address City" selected="False" />
+                <SelectField field="Business Address Zip or Postal Code" selected="False" />
+                <SelectField field="Business Address Street 1" selected="False" />
+                <SelectField field="Business Address Street 2" selected="False" />
+                <SelectField field="Business Address Phone" selected="False" />
+                <SelectField field="Mailing Address Country" selected="False" />
+                <SelectField field="Mailing Address State or Province" selected="False" />
+                <SelectField field="Mailing Address City" selected="False" />
+                <SelectField field="Mailing Address Zip or Postal Code" selected="False" />
+                <SelectField field="Mailing Address Street1" selected="False" />
+                <SelectField field="Mailing Address Street2" selected="False" />
+                <SelectField field="Country of Incorporation" selected="False" />
+                <SelectField field="State or Province of Incorporation" selected="False" />
+                <SelectField field="EIN" selected="False" />
+                <SelectField field="Former Name" selected="False" />
+                <SelectField field="Date of Name Change" selected="False" />
+                <SelectField field="FY End Date" selected="False" />
+                <SelectField field="Date Filed" selected="False" />
+                <SelectField field="Acceptance Datetime" selected="False" />
+                <SelectField field="Previous Report Flag" selected="False" />
+                <SelectField field="Instance Filename" selected="False" />
+                <SelectField field="Number of Coregistrants" selected="False" />
+                <SelectField field="Additional Coregistrant CIKs" selected="False" />
+                <SelectField field="Public Float Axis" selected="False" />
+                <SelectField field="Public Float Members" selected="False" />
+                <SelectField field="Footnote Text" selected="False" />
+                <SelectField field="Footnote Length" selected="False" />
+                <SelectField field="Number of Dimensions" selected="False" />
+                <SelectField field="Coregistrant" selected="False" />
+                <SelectField field="Duration Preference" selected="False" />
+                <SelectField field="Date Preference" selected="False" />
+                <SelectField field="Decimals" selected="False" />
+                <SelectField field="Right_adsh" selected="False" />
+                <SelectField field="Field_63_3" selected="True" rename="Value" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="47">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="612.6398" y="98.00042" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="adsh" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="adsh" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Left_adsh" selected="False" rename="sub_adsh" input="Left_" />
+                    <SelectField field="Right_adsh" selected="False" rename="num_adsh" input="Right_" />
+                    <SelectField field="Right_report" selected="False" rename="ren_report" input="Right_" />
+                    <SelectField field="Right_Right_tag" selected="False" input="Right_" />
+                    <SelectField field="Right_Right_version" selected="False" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="78">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+            <Position x="766" y="258.0903" />
+          </GuiSettings>
+          <Properties>
+            <Configuration joinByRecordPos="False">
+              <JoinInfo connection="Left">
+                <Field field="adsh" />
+                <Field field="tag" />
+              </JoinInfo>
+              <JoinInfo connection="Right">
+                <Field field="adsh" />
+                <Field field="tag" />
+              </JoinInfo>
+              <SelectConfiguration>
+                <Configuration outputConnection="Join">
+                  <OrderChanged value="False" />
+                  <CommaDecimal value="False" />
+                  <SelectFields>
+                    <SelectField field="Right_adsh" selected="True" rename="Right_adsh" input="Right_" />
+                    <SelectField field="Right_tag" selected="True" rename="Right_tag" input="Right_" />
+                    <SelectField field="Right_version" selected="True" rename="Right_version" input="Right_" />
+                    <SelectField field="*Unknown" selected="True" />
+                  </SelectFields>
+                </Configuration>
+              </SelectConfiguration>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+        </Node>
+        <Node ToolID="77">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+            <Position x="469" y="311.7601" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Fields>
+                <Field field="adsh" selected="True" />
+                <Field field="stmt" selected="True" />
+                <Field field="rfile" selected="True" />
+                <Field field="tag" selected="True" />
+                <Field field="version" selected="True" />
+                <Field field="prole" selected="True" />
+                <Field field="plabel" selected="True" />
+                <Field field="FileName" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </Fields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+        </Node>
+        <Node ToolID="70">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+            <Position x="1000" y="98.00029" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RenameMode>RightInputRows</RenameMode>
+              <Fields orderChanged="False">
+                <Field name="sub_adsh" selected="False" />
+                <Field name="cik" selected="False" />
+                <Field name="name" selected="False" />
+                <Field name="sic" selected="False" />
+                <Field name="countryba" selected="False" />
+                <Field name="stprba" selected="False" />
+                <Field name="cityba" selected="False" />
+                <Field name="zipba" selected="False" />
+                <Field name="bas1" selected="False" />
+                <Field name="bas2" selected="False" />
+                <Field name="baph" selected="False" />
+                <Field name="countryma" selected="False" />
+                <Field name="stprma" selected="False" />
+                <Field name="cityma" selected="False" />
+                <Field name="zipma" selected="False" />
+                <Field name="mas1" selected="False" />
+                <Field name="mas2" selected="False" />
+                <Field name="countryinc" selected="False" />
+                <Field name="stprinc" selected="False" />
+                <Field name="ein" selected="False" />
+                <Field name="former" selected="False" />
+                <Field name="changed" selected="False" />
+                <Field name="afs" selected="False" />
+                <Field name="wksi" selected="False" />
+                <Field name="fye" selected="False" />
+                <Field name="form" selected="False" />
+                <Field name="period" selected="False" />
+                <Field name="fy" selected="False" />
+                <Field name="fp" selected="False" />
+                <Field name="filed" selected="False" />
+                <Field name="accepted" selected="False" />
+                <Field name="prevrpt" selected="False" />
+                <Field name="detail" selected="False" />
+                <Field name="instance" selected="False" />
+                <Field name="nciks" selected="False" />
+                <Field name="aciks" selected="False" />
+                <Field name="pubfloatusd" selected="False" />
+                <Field name="floatdate" selected="False" />
+                <Field name="floataxis" selected="False" />
+                <Field name="floatmems" selected="False" />
+                <Field name="num_adsh" selected="False" />
+                <Field name="tag" selected="False" />
+                <Field name="version" selected="False" />
+                <Field name="ddate" selected="False" />
+                <Field name="qtrs" selected="False" />
+                <Field name="uom" selected="False" />
+                <Field name="dimh" selected="False" />
+                <Field name="iprx" selected="False" />
+                <Field name="value" selected="False" />
+                <Field name="footnote" selected="False" />
+                <Field name="footlen" selected="False" />
+                <Field name="dimn" selected="False" />
+                <Field name="coreg" selected="False" />
+                <Field name="durp" selected="False" />
+                <Field name="datp" selected="False" />
+                <Field name="dcml" selected="False" />
+                <Field name="Right_adsh" selected="False" />
+                <Field name="ren_report" selected="False" />
+                <Field name="line" selected="False" />
+                <Field name="stmt" selected="False" />
+                <Field name="inpth" selected="False" />
+                <Field name="rfile" selected="False" />
+                <Field name="Right_tag" selected="False" />
+                <Field name="Right_version" selected="False" />
+                <Field name="prole" selected="False" />
+                <Field name="plabel" selected="False" />
+                <Field name="negating" selected="False" />
+                <Field name="*Unknown" selected="False" />
+              </Fields>
+              <Expression />
+              <NamesFromRows>
+                <OnError>Warn</OnError>
+                <InputMode>Mapped</InputMode>
+                <OldName>name</OldName>
+                <NewName>titles1</NewName>
+              </NamesFromRows>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="Central Index Key" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Int32" />
+                <Field name="Registrant" size="63" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Standard Industrial Classification Code" size="4" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Business Address Country" size="2" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Business Address State or Province" size="2" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Business Address City" size="30" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Business Address Zip or Postal Code" size="10" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Business Address Street 1" size="40" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Business Address Street 2" size="40" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Business Address Phone" size="12" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Mailing Address Country" size="2" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Mailing Address State or Province" size="2" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Mailing Address City" size="30" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Mailing Address Zip or Postal Code" size="10" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Mailing Address Street1" size="40" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Mailing Address Street2" size="40" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Country of Incorporation" size="2" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="State or Province of Incorporation" size="2" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="EIN" size="9" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Former Name" size="86" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Date of Name Change" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Int32" />
+                <Field name="Status" size="5" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Well-known Seasoned Issuer" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Byte" />
+                <Field name="FY End Date" size="4" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Submission Type" size="6" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Report Period" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Int32" />
+                <Field name="Fiscal Year" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Int16" />
+                <Field name="Fiscal Period" size="2" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Date Filed" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Int32" />
+                <Field name="Acceptance Datetime" size="21" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Previous Report Flag" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Byte" />
+                <Field name="Detail Tagged" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Byte" />
+                <Field name="Instance Filename" size="27" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Number of Coregistrants" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Byte" />
+                <Field name="Additional Coregistrant CIKs" size="120" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Public Float" size="21" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="V_String" />
+                <Field name="Public Float Measurement Date" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Int32" />
+                <Field name="Public Float Axis" size="12" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="String" />
+                <Field name="Public Float Members" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\sub.tsv" type="Byte" />
+                <Field name="Localname" size="200" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="V_String" />
+                <Field name="Namespace" size="20" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="V_String" />
+                <Field name="Data Date" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="Int32" />
+                <Field name="Quarters" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="Int16" />
+                <Field name="Unit of Measure" size="20" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="V_String" />
+                <Field name="Dimension Hash" size="34" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="V_String" />
+                <Field name="Fact Preference" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="Byte" />
+                <Field name="Field_59_2" size="23" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="V_String" />
+                <Field name="Footnote Text" size="254" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="V_String" />
+                <Field name="Footnote Length" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="Int16" />
+                <Field name="Number of Dimensions" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="Byte" />
+                <Field name="Coregistrant" size="121" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="V_String" />
+                <Field name="Duration Preference" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="Double" />
+                <Field name="Date Preference" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="Double" />
+                <Field name="Decimals" source="File: C:\Users\jburkhow\Google Drive\Downloads\2011q3_notes\num.tsv" type="Int16" />
+                <Field name="Right_adsh" size="20" source="Summarize: GroupBy - adsh" type="String" />
+                <Field name="Statement" size="2" source="Summarize: GroupBy - stmt" type="String" />
+                <Field name="Field_59" source="Summarize: GroupBy - line" type="Int16" />
+                <Field name="Label" size="254" source="Summarize: GroupBy - plabel" type="V_String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+        </Node>
+        <Node ToolID="71">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="892.0001" y="395.9603" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>titles</Field>
+              <ErrorHandling>Ignore</ErrorHandling>
+              <RootName>titles</RootName>
+              <Delimeters value="," />
+              <NumFields value="2" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="69">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+            <Position x="808" y="409.9603" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <UniqueFields>
+                <Field field="name" />
+              </UniqueFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Unique: name</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+        </Node>
+        <Node ToolID="68">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="698.0002" y="405.9603" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="True" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="a2" selected="False" />
+                <SelectField field="a5" selected="False" />
+                <SelectField field="columnReference" selected="False" />
+                <SelectField field="name" selected="True" />
+                <SelectField field="titles" selected="True" />
+                <SelectField field="dc_description" selected="True" />
+                <SelectField field="reference" selected="False" />
+                <SelectField field="required" selected="False" />
+                <SelectField field="*Unknown" selected="False" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+        <Node ToolID="67">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+            <Position x="595" y="407.9602" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <GroupFields>
+                <Field field="a2" />
+                <Field field="a5" />
+              </GroupFields>
+              <HeaderField field="a6" />
+              <DataField field="JSON_ValueString" />
+              <Methods>
+                <Method method="Concat" />
+                <Separator>,</Separator>
+                <FieldSize value="2048" />
+              </Methods>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field description="TextToColumns: Parsed from JSON_Name" name="a2" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field description="TextToColumns: Parsed from JSON_Name" name="a5" size="1073741823" source="CrossTab:Group:Concat:" type="V_WString" />
+                <Field name="columnReference" size="2048" source="CrossTab:Header:a6:columnReference:Concat:" type="V_WString" />
+                <Field name="dc_description" size="2048" source="CrossTab:Header:a6:dc description:Concat:" type="V_WString" />
+                <Field name="name" size="2048" source="CrossTab:Header:a6:name:Concat:" type="V_WString" />
+                <Field name="reference" size="2048" source="CrossTab:Header:a6:reference:Concat:" type="V_WString" />
+                <Field name="required" size="2048" source="CrossTab:Header:a6:required:Concat:" type="V_WString" />
+                <Field name="titles" size="2048" source="CrossTab:Header:a6:titles:Concat:" type="V_WString" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="a2" order="Asc" />
+                <Field field="a5" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+        </Node>
+        <Node ToolID="66">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="487" y="418.9603" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>!Contains([a6],"Datatype") AND !IsNull([a6])</Expression>
+              <Mode>Custom</Mode>
+              <Simple>
+                <Operator>NotContains</Operator>
+                <Field>a6</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-11-30 22:38:14</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>Datatype</Operand>
+                  <StartDate>2018-11-30 22:38:14</StartDate>
+                  <EndDate>2018-11-30 22:38:14</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!Contains([a6],"Datatype") AND !IsNull([a6])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="65">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="387.9998" y="417.9598" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>JSON_Name</Field>
+              <ErrorHandling>Last</ErrorHandling>
+              <RootName>a</RootName>
+              <Delimeters value="." />
+              <NumFields value="7" />
+              <Flags value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="64">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="273" y="418.9603" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="54">E:\SEC Data\2018q3_notes\2018q3_notes-metadata.json</File>
+              <FormatSpecificOptions>
+                <SingleField>False</SingleField>
+                <CodePage>65001</CodePage>
+              </FormatSpecificOptions>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>2018q3_notes-metadata.json</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="JSON_Name" size="1073741823" source="JSON_Input: " type="V_WString" />
+                <Field name="JSON_ValueString" size="1073741823" source="JSON_Input: " type="V_WString" />
+                <Field name="JSON_ValueInt" source="JSON_Input: " type="Int64" />
+                <Field name="JSON_ValueFloat" source="JSON_Input: " type="Double" />
+                <Field name="JSON_ValueBool" source="JSON_Input: " type="Bool" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="19">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+            <Position x="374" y="98.0003" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Fields>
+                <Field field="adsh" selected="True" />
+                <Field field="cik" selected="True" />
+                <Field field="name" selected="True" />
+                <Field field="sic" selected="True" />
+                <Field field="countryba" selected="True" />
+                <Field field="stprba" selected="True" />
+                <Field field="cityba" selected="True" />
+                <Field field="zipba" selected="True" />
+                <Field field="bas1" selected="True" />
+                <Field field="bas2" selected="True" />
+                <Field field="baph" selected="True" />
+                <Field field="countryma" selected="True" />
+                <Field field="stprma" selected="True" />
+                <Field field="cityma" selected="True" />
+                <Field field="zipma" selected="True" />
+                <Field field="mas1" selected="True" />
+                <Field field="mas2" selected="True" />
+                <Field field="countryinc" selected="True" />
+                <Field field="stprinc" selected="True" />
+                <Field field="ein" selected="True" />
+                <Field field="former" selected="True" />
+                <Field field="changed" selected="True" />
+                <Field field="afs" selected="True" />
+                <Field field="wksi" selected="True" />
+                <Field field="fye" selected="True" />
+                <Field field="form" selected="True" />
+                <Field field="period" selected="True" />
+                <Field field="fy" selected="True" />
+                <Field field="fp" selected="True" />
+                <Field field="filed" selected="True" />
+                <Field field="accepted" selected="True" />
+                <Field field="prevrpt" selected="True" />
+                <Field field="detail" selected="True" />
+                <Field field="instance" selected="True" />
+                <Field field="nciks" selected="True" />
+                <Field field="aciks" selected="True" />
+                <Field field="pubfloatusd" selected="True" />
+                <Field field="floatdate" selected="True" />
+                <Field field="floataxis" selected="True" />
+                <Field field="floatmems" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </Fields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="adsh" size="20" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="cik" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="name" size="95" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="sic" size="4" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="countryba" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="stprba" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="cityba" size="30" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="zipba" size="10" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="bas1" size="40" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="bas2" size="40" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="baph" size="12" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="countryma" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="stprma" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="cityma" size="30" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="zipma" size="10" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="mas1" size="40" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="mas2" size="40" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="countryinc" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="stprinc" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="ein" size="9" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="former" size="86" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="changed" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="afs" size="5" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="wksi" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="fye" size="4" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="form" size="8" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="period" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="fy" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int16" />
+                <Field name="fp" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="filed" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="accepted" size="21" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="prevrpt" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="detail" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="instance" size="31" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="nciks" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="aciks" size="120" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="pubfloatusd" size="22" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="floatdate" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="floataxis" size="24" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="floatmems" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="FileName" size="7" source="Directory:" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="276.0002" y="98.00002" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">E:\SEC Data\Unified\sub.tsv_file.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>sub.tsv_file.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="adsh" size="20" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="cik" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="name" size="95" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="sic" size="4" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="countryba" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="stprba" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="cityba" size="30" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="zipba" size="10" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="bas1" size="40" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="bas2" size="40" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="baph" size="12" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="countryma" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="stprma" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="cityma" size="30" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="zipma" size="10" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="mas1" size="40" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="mas2" size="40" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="countryinc" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="stprinc" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="ein" size="9" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="former" size="86" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="changed" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="afs" size="5" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="wksi" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="fye" size="4" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="form" size="8" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="period" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="fy" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int16" />
+                <Field name="fp" size="2" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="filed" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="accepted" size="21" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="String" />
+                <Field name="prevrpt" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="detail" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="instance" size="31" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="nciks" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="aciks" size="120" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="pubfloatusd" size="22" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="floatdate" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Int32" />
+                <Field name="floataxis" size="24" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="V_String" />
+                <Field name="floatmems" source="File: E:\SEC Data\2009q1_notes\sub.tsv" type="Byte" />
+                <Field name="FileName" size="7" source="Directory:" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="44">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+            <Position x="375.9999" y="208.7602" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Fields>
+                <Field field="adsh" selected="True" />
+                <Field field="tag" selected="True" />
+                <Field field="version" selected="True" />
+                <Field field="ddate" selected="True" />
+                <Field field="qtrs" selected="True" />
+                <Field field="uom" selected="True" />
+                <Field field="dimh" selected="True" />
+                <Field field="iprx" selected="True" />
+                <Field field="value" selected="True" />
+                <Field field="footnote" selected="True" />
+                <Field field="footlen" selected="True" />
+                <Field field="dimn" selected="True" />
+                <Field field="coreg" selected="True" />
+                <Field field="durp" selected="True" />
+                <Field field="datp" selected="True" />
+                <Field field="dcml" selected="True" />
+                <Field field="*Unknown" selected="True" />
+              </Fields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="adsh" size="20" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="String" />
+                <Field name="tag" size="243" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="version" size="20" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="ddate" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Int32" />
+                <Field name="qtrs" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Int16" />
+                <Field name="uom" size="20" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="dimh" size="34" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="iprx" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Byte" />
+                <Field name="value" size="26" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="footnote" size="254" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="footlen" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Int16" />
+                <Field name="dimn" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Byte" />
+                <Field name="coreg" size="186" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="durp" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Double" />
+                <Field name="datp" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Double" />
+                <Field name="dcml" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Int16" />
+                <Field name="FileName" size="7" source="Directory:" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+        </Node>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+            <Position x="277.2" y="207.5605" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Passwords />
+              <File OutputFileName="" FileFormat="19" SearchSubDirs="False" RecordLimit="">E:\SEC Data\Unified\num.tsv_file.yxdb</File>
+              <FormatSpecificOptions />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>num.tsv_file.yxdb</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field name="adsh" size="20" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="String" />
+                <Field name="tag" size="243" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="version" size="20" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="ddate" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Int32" />
+                <Field name="qtrs" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Int16" />
+                <Field name="uom" size="20" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="dimh" size="34" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="iprx" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Byte" />
+                <Field name="value" size="26" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="footnote" size="254" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="footlen" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Int16" />
+                <Field name="dimn" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Byte" />
+                <Field name="coreg" size="186" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="V_String" />
+                <Field name="durp" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Double" />
+                <Field name="datp" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Double" />
+                <Field name="dcml" source="File: E:\SEC Data\2009q1_notes\num.tsv" type="Int16" />
+                <Field name="FileName" size="7" source="Directory:" type="String" />
+              </RecordInfo>
+            </MetaInfo>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+        </Node>
+        <Node ToolID="80">
+          <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+            <Position x="568" y="311.7601" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <SummarizeFields>
+                <SummarizeField field="adsh" action="GroupBy" rename="adsh" />
+                <SummarizeField field="stmt" action="GroupBy" rename="stmt" />
+                <SummarizeField field="report" action="GroupBy" rename="report" />
+                <SummarizeField field="line" action="GroupBy" rename="line" />
+                <SummarizeField field="plabel" action="GroupBy" rename="plabel" />
+                <SummarizeField field="tag" action="GroupBy" rename="tag" />
+              </SummarizeFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+        </Node>
+        <Node ToolID="81">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="667" y="311.7601" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>!IsNull([stmt])</Expression>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>IsNotNull</Operator>
+                <Field>stmt</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-11-30 23:44:24</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>
+                  </Operand>
+                  <StartDate>2018-11-30 23:44:24</StartDate>
+                  <EndDate>2018-11-30 23:44:24</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>!IsNull([stmt])</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="86">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+            <Position x="1184.352" y="98.38037" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Expression>[Registrant] = 3M CO</Expression>
+              <Mode>Simple</Mode>
+              <Simple>
+                <Operator>=</Operator>
+                <Field>Registrant</Field>
+                <Operands>
+                  <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+                  <DateType>fixed</DateType>
+                  <PeriodDate>2018-12-07 20:41:47</PeriodDate>
+                  <PeriodType>
+                  </PeriodType>
+                  <PeriodCount>0</PeriodCount>
+                  <Operand>3M CO</Operand>
+                  <StartDate>2018-12-07 20:41:47</StartDate>
+                  <EndDate>2018-12-07 20:41:47</EndDate>
+                </Operands>
+              </Simple>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>[Registrant] = 3M CO</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+        </Node>
+        <Node ToolID="98">
+          <GuiSettings Plugin="CalgaryPluginsGui.CalgaryInput.CalgaryInput">
+            <Position x="271" y="291.0001" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RootFileName>H:\pre.tsv_file_1.cydb</RootFileName>
+              <LinkedTables />
+              <Query />
+              <CountOnly value="False" />
+              <SkipRecords value="0" />
+              <MaxRecords value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="CalgaryPlugins.dll" EngineDllEntryPoint="AlteryxCalgaryInput" />
+        </Node>
+        <Node ToolID="99">
+          <GuiSettings Plugin="CalgaryPluginsGui.CalgaryInput.CalgaryInput">
+            <Position x="272" y="353" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <RootFileName>H:\pre.tsv_file_2.cydb</RootFileName>
+              <LinkedTables />
+              <Query />
+              <CountOnly value="False" />
+              <SkipRecords value="0" />
+              <MaxRecords value="0" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+            <Dependencies>
+              <Implicit />
+            </Dependencies>
+          </Properties>
+          <EngineSettings EngineDll="CalgaryPlugins.dll" EngineDllEntryPoint="AlteryxCalgaryInput" />
+        </Node>
+        <Node ToolID="100">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Union.Union">
+            <Position x="371" y="311.7601" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <AutoResetMode>ByName</AutoResetMode>
+              <MultiMetaInfo>
+                <MetaInfo name="#1">
+                  <RecordInfo>
+                    <Field name="adsh" size="20" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="String" column="1" />
+                    <Field name="report" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="Int16" column="2" />
+                    <Field name="line" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="Int16" column="3" />
+                    <Field name="stmt" size="2" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="String" column="4" />
+                    <Field name="inpth" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="Byte" column="5" />
+                    <Field name="rfile" size="1" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="String" column="6" />
+                    <Field name="tag" size="253" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="V_String" column="7" />
+                    <Field name="version" size="20" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="V_String" column="8" />
+                    <Field name="prole" size="24" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="V_String" column="9" />
+                    <Field name="plabel" size="254" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="V_String" column="10" />
+                    <Field name="negating" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="Byte" column="11" />
+                    <Field name="FileName" size="7" source="Calgary:Field: H:\pre.tsv_file_1.cydb" type="String" column="12" />
+                  </RecordInfo>
+                </MetaInfo>
+                <MetaInfo name="#2">
+                  <RecordInfo>
+                    <Field name="adsh" size="20" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="String" column="1" />
+                    <Field name="report" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="Int16" column="2" />
+                    <Field name="line" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="Int16" column="3" />
+                    <Field name="stmt" size="2" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="String" column="4" />
+                    <Field name="inpth" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="Byte" column="5" />
+                    <Field name="rfile" size="1" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="String" column="6" />
+                    <Field name="tag" size="253" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="V_String" column="7" />
+                    <Field name="version" size="20" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="V_String" column="8" />
+                    <Field name="prole" size="24" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="V_String" column="9" />
+                    <Field name="plabel" size="254" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="V_String" column="10" />
+                    <Field name="negating" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="Byte" column="11" />
+                    <Field name="FileName" size="7" source="Calgary:Field: H:\pre.tsv_file_2.cydb" type="String" column="12" />
+                  </RecordInfo>
+                </MetaInfo>
+              </MultiMetaInfo>
+              <ByName_ErrorMode>Warning</ByName_ErrorMode>
+              <ByName_OutputMode>All</ByName_OutputMode>
+              <Mode>ManualDelayed</Mode>
+              <SetOutputOrder value="False" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnion" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="92" Connection="True" />
+      <Destination ToolID="94" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="94" Connection="Output" />
+      <Destination ToolID="93" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="96" Connection="Output21" />
+      <Destination ToolID="82" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="82" Connection="Output" />
+      <Destination ToolID="83" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="83" Connection="Output" />
+      <Destination ToolID="87" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="84" Connection="Output" />
+      <Destination ToolID="91" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="87" Connection="True" />
+      <Destination ToolID="84" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="91" Connection="Output" />
+      <Destination ToolID="92" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="73" Connection="Output" />
+      <Destination ToolID="86" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Join" />
+      <Destination ToolID="70" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="71" Connection="Output" />
+      <Destination ToolID="70" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="78" Connection="Join" />
+      <Destination ToolID="47" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="47" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="77" Connection="Output" />
+      <Destination ToolID="80" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="70" Connection="Output" />
+      <Destination ToolID="73" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="69" Connection="Unique" />
+      <Destination ToolID="71" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="68" Connection="Output" />
+      <Destination ToolID="69" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="67" Connection="Output" />
+      <Destination ToolID="68" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="66" Connection="True" />
+      <Destination ToolID="67" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="65" Connection="Output" />
+      <Destination ToolID="66" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="65" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="78" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="81" Connection="True" />
+      <Destination ToolID="78" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="80" Connection="Output" />
+      <Destination ToolID="81" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="86" Connection="True" />
+      <Destination ToolID="96" Connection="Input2" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="98" Connection="Output" />
+      <Destination ToolID="100" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="99" Connection="Output" />
+      <Destination ToolID="100" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="100" Connection="Output" />
+      <Destination ToolID="77" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>SEC Data Join</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

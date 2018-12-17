@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
+        <Position x="94.00003" y="76" width="538" height="205" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Caption>Container 9</Caption>
+          <Style TextColor="#314c4a" FillColor="#ffffff" BorderColor="#314c4a" Transparency="25" Margin="25" />
+          <Disabled value="False" />
+          <Folded value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <ChildNodes>
+        <Node ToolID="2">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+            <Position x="119" y="126" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <NumRows value="1" />
+              <Fields>
+                <Field name="URL" />
+                <Field name="File" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>https://www.sec.gov/Archives/edgar/data/1018724/000101872418000005/Financial_Report.xlsx</c>
+                  <c>financialreport</c>
+                </r>
+              </Data>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+        </Node>
+        <Node ToolID="3">
+          <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+            <Position x="229" y="126" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <URLField>URL</URLField>
+              <OutputMode>SpecificFile</OutputMode>
+              <OutputFileNameField>File</OutputFileNameField>
+              <EncodeURLs value="True" />
+              <Headers>
+                <NameValues />
+                <Fields orderChanged="False">
+                  <Field name="URL" selected="False" />
+                  <Field name="File" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </Fields>
+              </Headers>
+              <Payload>
+                <HTTPAction>GET</HTTPAction>
+                <QueryStringBodyMode>Compose</QueryStringBodyMode>
+                <ComposeNameValues />
+                <ComposeFields orderChanged="False">
+                  <Field name="URL" selected="False" />
+                  <Field name="File" selected="False" />
+                  <Field name="*Unknown" selected="False" />
+                </ComposeFields>
+              </Payload>
+              <UserName />
+              <Password />
+              <numConnections>2</numConnections>
+              <Timeout>600</Timeout>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+        </Node>
+        <Node ToolID="4">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+            <Position x="440" y="120" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <FormulaFields>
+                <FormulaField expression="Replace([Field_1], &quot;'&quot;, '&quot;')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], ' class=\&quot;([^&quot;]*)\&quot;', ' ')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], ' id=\&quot;([^&quot;]*)\&quot;', ' ')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], ' colspan=\&quot;([^&quot;]*)\&quot;', ' ')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], ' style=\&quot;([^&quot;]*)\&quot;', ' ')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], ' rel=\&quot;([^&quot;]*)\&quot;', ' ')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="Replace([Field_1], &quot;|&quot;, &quot;^&quot;)" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="Replace([Field_1], &quot;&lt;td&quot;, &quot;|&quot;)" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="Replace([Field_1], &quot;/table&gt;&quot;, &quot;|DELETE&quot;)" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], '^&lt;[ \t]+|[ \t]+&gt;', '&gt;')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], '&gt;[ \s]+&lt;', '&gt;&lt;')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="Replace([Field_1], &quot;&lt;span&gt;&quot;, &quot;&quot;)" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="Replace([Field_1], &quot;&lt;/span&gt;&quot;, &quot;&quot;)" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], '&lt;a\b[^&gt;]*&gt;', '')" field="Field_1" size="1073741823" type="V_WString" />
+                <FormulaField expression="REGEX_Replace([Field_1], '&lt;span\b[^&gt;]*&gt;', '')" field="Field_1" size="1073741823" type="V_WString" />
+              </FormulaFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText>Field_1 = Replace([Field_1], "'", '"')
+Field_1 = REGEX_Replace([Field_1], ' clas...</DefaultAnnotationText>
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+        </Node>
+        <Node ToolID="5">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+            <Position x="548" y="120" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <Field>Field_1</Field>
+              <Delimeters value="|" />
+              <NumFields value="1" />
+              <Flags value="58" />
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+        </Node>
+        <Node ToolID="6">
+          <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+            <Position x="330" y="125" />
+          </GuiSettings>
+          <Properties>
+            <Configuration>
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="URL" selected="False" />
+                <SelectField field="File" selected="False" />
+                <SelectField field="DownloadData" selected="True" rename="Field_1" />
+                <SelectField field="DownloadHeaders" selected="False" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+            <Annotation DisplayMode="0">
+              <Name />
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+        </Node>
+      </ChildNodes>
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="3" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="3" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="False">C:\Users\jburkhow\Google Drive\Documents\GitHub\rule_one\Files</TempFiles>
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Statement Download via Website</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
