@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="3">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="82" y="262" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="23" />
+          <Fields>
+            <Field name="Name" />
+          </Fields>
+          <Data>
+            <r>
+              <c>Accounts Payable</c>
+            </r>
+            <r>
+              <c>Accounts Receivable</c>
+            </r>
+            <r>
+              <c>Accrued expenses</c>
+            </r>
+            <r>
+              <c>Cash</c>
+            </r>
+            <r>
+              <c>Cost of Goods Sold COGS</c>
+            </r>
+            <r>
+              <c>Depreciation Amortization</c>
+            </r>
+            <r>
+              <c>Equity Capital</c>
+            </r>
+            <r>
+              <c>Goodwill</c>
+            </r>
+            <r>
+              <c>Interest</c>
+            </r>
+            <r>
+              <c>Inventory</c>
+            </r>
+            <r>
+              <c>Long term debt</c>
+            </r>
+            <r>
+              <c>Noncontrolling Interests</c>
+            </r>
+            <r>
+              <c>Notes Payable</c>
+            </r>
+            <r>
+              <c>Other long term liabilities</c>
+            </r>
+            <r>
+              <c>Prepaid expenses</c>
+            </r>
+            <r>
+              <c>Property Equipment</c>
+            </r>
+            <r>
+              <c>Rent and Overhead</c>
+            </r>
+            <r>
+              <c>Retained Earnings</c>
+            </r>
+            <r>
+              <c>Revenue</c>
+            </r>
+            <r>
+              <c>Salaries and Benefits</c>
+            </r>
+            <r>
+              <c>Tax rate assumption</c>
+            </r>
+            <r>
+              <c>Taxes</c>
+            </r>
+            <r>
+              <c>Unearned revenue</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+  </Nodes>
+  <Connections />
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Income Statement Headers</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
