@@ -10,7 +10,7 @@
           <RootFileName>E:\SEC Data\Unified\Calgary Files\SEC_Data\SEC_Data.cydb</RootFileName>
           <LinkedTables />
           <Query>&lt;And&gt;
-  &lt;Field name="Registrant" value="Faceb" type="begin" /&gt;
+  &lt;Field name="Registrant" value="Home D" type="begin" /&gt;
   &lt;Field name="Dimension Hash" value="0x00000000" type="value" /&gt;
 &lt;/And&gt;</Query>
           <CountOnly value="False" />
@@ -22,6 +22,9 @@
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="CalgaryPlugins.dll" EngineDllEntryPoint="AlteryxCalgaryInput" />
     </Node>
@@ -150,22 +153,19 @@ Table=`Sheet1$`</DefaultAnnotationText>
             <Field name="Cash" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Cost_of_Goods_Sold_COGS" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Current_Liabilities" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Deferred_revenue_and_deposits" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Depreciation_Amortization" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Earnings_Before_Tax" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Equity_Capital" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Gains_Losses_Not_Affecting_Retained_Earnings" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Goodwill" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
+            <Field name="Gross_Profit" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Interest" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
+            <Field name="Inventory" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
+            <Field name="Noncurrent_Liabilities" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Operating_Earnings" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Other_Assets" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Other_Payable" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Prepaid_expenses" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Property_Equipment" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Rent_and_Overhead" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Retained_Earnings" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Salaries_and_Benefits" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Short_Term_Investments" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
+            <Field name="Revenue" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Taxes" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Total_Assets" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Total_Current_Assets" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
@@ -211,6 +211,7 @@ Table=`Sheet1$`</DefaultAnnotationText>
             <Field name="Property_Equipment" />
             <Field name="Rent_and_Overhead" />
             <Field name="Retained_Earnings" />
+            <Field name="Revenue" />
             <Field name="Salaries_and_Benefits" />
             <Field name="Short_Term_Investments" />
             <Field name="Taxes" />
@@ -236,22 +237,19 @@ Table=`Sheet1$`</DefaultAnnotationText>
             <Field name="Cash" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Cost of Goods Sold COGS" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Current Liabilities" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Deferred revenue and deposits" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Depreciation Amortization" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Earnings Before Tax" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Equity Capital" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Gains Losses Not Affecting Retained Earnings" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Goodwill" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
+            <Field name="Gross Profit" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Interest" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
+            <Field name="Inventory" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
+            <Field name="Noncurrent Liabilities" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Operating Earnings" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Other Assets" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Other Payable" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Prepaid expenses" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Property Equipment" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Rent and Overhead" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Retained Earnings" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Salaries and Benefits" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
-            <Field name="Short Term Investments" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
+            <Field name="Revenue" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Taxes" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Total Assets" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
             <Field name="Total Current Assets" source="Formula: IF [_CurrentFieldName_] IN(&quot;localname&quot;,&quot;Statement&quot;,&quot;line&quot;,&quot;Registrant&quot;,&quot;Status&quot;,&quot;Well-known Seasoned Issuer&quot;,&quot;Submission Type&quot;,&quot;Report Period&quot;,&quot;Fiscal Year&quot;,&quot;Fiscal Period&quot;,&quot;Detail Tagged&quot;,&quot;Public Float&quot;,&quot;Public Float Measurement Date&quot;,&quot;Namespace&quot;,&quot;Data Date&quot;,&quot;Quarters&quot;,&quot;Unit of Measure&quot;,&quot;Dimension Hash&quot;,&quot;Fact Preference&quot;,&quot;value&quot;,&quot;plabel&quot;) THEN   &#xA;       IF IsNull([_CurrentField_]) THEN &#xA;	    IF ( [_CurrentFieldType_] IN ('Byte', 'Int16', 'Int32', 'Int64', 'Float', 'Double', 'FixedDecimal')) THEN&#xA;       	0&#xA;    	    ELSE [_CurrentField_]&#xA;	    ENDIF&#xA;	ELSE [_CurrentField_]&#xA;	ENDIF&#xA;    ELSE [_CurrentField_]&#xA;    ENDIF" type="Double" />
@@ -266,39 +264,13 @@ Table=`Sheet1$`</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
     </Node>
-    <Node ToolID="36">
-      <GuiSettings>
-        <Position x="754" y="229" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Value name="List Box (11)">""</Value>
-          <Value name="Check Box (84)">False</Value>
-          <Value name="Check Box (117)">True</Value>
-          <Value name="Check Box (15)">False</Value>
-          <Value name="Check Box (109)">False</Value>
-          <Value name="Check Box (122)">False</Value>
-          <Value name="Check Box (53)">False</Value>
-          <Value name="Check Box (58)">False</Value>
-          <Value name="Check Box (70)">False</Value>
-          <Value name="Check Box (77)">False</Value>
-          <Value name="Drop Down (81)">upper</Value>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings Macro="Cleanse.yxmc" />
-    </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
         <Position x="380" y="65" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Expression>[Fiscal Year] = 2017  AND [Unit of Measure] != "CNY" AND [Statement] = "BS" AND [Data Date] = 20171231</Expression>
+          <Expression><![CDATA[[Statement] = "BS" AND [Fiscal Year] = 2017 AND [Fiscal Period] = "FY" AND Contains([Localname],"liab") ]]></Expression>
           <Mode>Custom</Mode>
           <Simple>
             <Operator>=</Operator>
@@ -318,76 +290,11 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>[Fiscal Year] = 2017  AND [Unit of Measure] != "CNY" AND [Statement] = "BS" AND ...</DefaultAnnotationText>
+          <DefaultAnnotationText>[Statement] = "BS" AND [Fiscal Year] = 2017 AND [Fiscal Period] = "FY" AND Conta...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="39">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
-        <Position x="1217" y="220" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <ErrorWarn>Warn</ErrorWarn>
-          <KeyFields>
-            <Field field="Registrant" />
-            <Field field="Fiscal Year" />
-          </KeyFields>
-          <DataFields>
-            <Field field="Registrant" selected="False" />
-            <Field field="Fiscal Year" selected="False" />
-            <Field field="Fiscal Period" selected="True" />
-            <Field field="Unit of Measure" selected="True" />
-            <Field field="Accounts Payable" selected="True" />
-            <Field field="Accounts Receivable" selected="True" />
-            <Field field="Accrued expenses" selected="True" />
-            <Field field="Cash" selected="True" />
-            <Field field="Cost of Goods Sold COGS" selected="True" />
-            <Field field="Depreciation Amortization" selected="True" />
-            <Field field="Earnings Before Tax" selected="True" />
-            <Field field="Equity Capital" selected="True" />
-            <Field field="Goodwill" selected="True" />
-            <Field field="Gross Profit" selected="True" />
-            <Field field="Interest" selected="True" />
-            <Field field="Inventory" selected="True" />
-            <Field field="Long term debt" selected="True" />
-            <Field field="Net Earnings" selected="True" />
-            <Field field="Noncontrolling Interests" selected="True" />
-            <Field field="Notes Payable" selected="True" />
-            <Field field="Operating Earnings" selected="True" />
-            <Field field="Other long term liabilities" selected="True" />
-            <Field field="Prepaid expenses" selected="True" />
-            <Field field="Property Equipment" selected="True" />
-            <Field field="Rent and Overhead" selected="True" />
-            <Field field="Retained Earnings" selected="True" />
-            <Field field="Revenue" selected="True" />
-            <Field field="Salaries and Benefits" selected="True" />
-            <Field field="Taxes" selected="True" />
-            <Field field="Total Current Assets" selected="True" />
-            <Field field="Unearned revenue" selected="True" />
-            <Field field="Total Assets" selected="True" />
-            <Field field="Total Current Liabilities" selected="True" />
-            <Field field="Total Liabilities" selected="True" />
-            <Field field="Shareholder's Equity" selected="True" />
-            <Field field="Total Liabilities &amp; Shareholder's Equity" selected="True" />
-            <Field field="Tax Rate" selected="True" />
-            <Field field="NOPAT" selected="True" />
-            <Field field="Book Value of Debt" selected="True" />
-            <Field field="Book Value of Equity" selected="True" />
-            <Field field="Book Value of Invested Capital" selected="True" />
-            <Field field="ROIC" selected="True" />
-            <Field field="*Unknown" selected="True" />
-          </DataFields>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText />
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTranspose" />
     </Node>
     <Node ToolID="41">
       <GuiSettings>
@@ -432,38 +339,6 @@ Table=`Sheet1$`</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
-    </Node>
-    <Node ToolID="46">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1308" y="219" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>[Fiscal Year] = 2017</Expression>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Operator>=</Operator>
-            <Field>Fiscal Year</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2018-12-20 21:10:04</PeriodDate>
-              <PeriodType>
-              </PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>2017</Operand>
-              <StartDate>2018-12-20 21:10:04</StartDate>
-              <EndDate>2018-12-20 21:10:04</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>[Fiscal Year] = 2017</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
     </Node>
     <Node ToolID="47">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
@@ -528,7 +403,10 @@ Accrued Expenses
 Unearned Revenue
 Long Term Debt
 Other long term liabilities
-Noncontrolling Interests</Value>
+Noncontrolling Interests
+Salaries and Benefits
+Rent and Overhead
+Depreciation Amortization</Value>
           <Value name="FieldType">Double</Value>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -542,9 +420,70 @@ Noncontrolling Interests</Value>
       </Properties>
       <EngineSettings Macro="CReW_EnsureFields.yxmc" />
     </Node>
+    <Node ToolID="52">
+      <GuiSettings>
+        <Position x="939" y="230" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="List Box (11)">"Inventory","Notes Payable","Accrued Expenses","Unearned Revenue","Long Term Debt","Other long term liabilities","Noncontrolling Interests","Registrant","Fiscal Year","Fiscal Period","Unit of Measure","Accounts Payable","Accounts Receivable","Cash","Cost of Goods Sold COGS","Current Liabilities","Deferred revenue and deposits","Depreciation Amortization","Earnings Before Tax","Equity Capital","Gains Losses Not Affecting Retained Earnings","Goodwill","Interest","Operating Earnings","Other Assets","Other Payable","Prepaid expenses","Property Equipment","Rent and Overhead","Retained Earnings","Revenue","Salaries and Benefits","Short Term Investments","Taxes","Total Assets","Total Current Assets"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">False</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1388" y="228" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[[Fiscal Period] = "FY" ]]></Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Fiscal Period</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2018-12-26 16:07:28</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>FY</Operand>
+              <StartDate>2018-12-26 16:07:28</StartDate>
+              <EndDate>2018-12-26 16:07:28</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[[Fiscal Period] = "FY" ]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
     <Node ToolID="31">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="938" y="178" width="243" height="222" />
+        <Position x="1013" y="180" width="289" height="220" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -562,31 +501,32 @@ Noncontrolling Interests</Value>
       <ChildNodes>
         <Node ToolID="17">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="963" y="224" />
+            <Position x="1038" y="224" />
           </GuiSettings>
           <Properties>
             <Configuration>
               <FormulaFields>
-                <FormulaField expression="[Cash] + [Accounts Receivable] + [Prepaid expenses] + [Inventory]" field="Total Current Assets" size="8" type="Double" />
-                <FormulaField expression="[Total Current Assets] + [Property Equipment] + [Goodwill]" field="Total Assets" size="8" type="Double" />
-                <FormulaField expression="[Accounts Payable] + [Accrued expenses] + [Notes Payable] + [Unearned revenue] &#xA;" field="Total Current Liabilities" size="8" type="Int64" />
-                <FormulaField expression="[Total current liabilities] + [Long term debt] + [Other long term liabilities] " field="Total Liabilities" size="8" type="Int64" />
-                <FormulaField expression="[Equity Capital] + [Noncontrolling Interests] + [Retained Earnings] &#xA;" field="Shareholder's Equity" size="8" type="Int64" />
+                <FormulaField expression="[Total Current Assets]" field="Total Current Assets" size="8" type="Double" />
+                <FormulaField expression="[Total Assets]" field="Total Assets" size="8" type="Double" />
+                <FormulaField expression="[Current Liabilities] + [Noncurrent Liabilities]" field="Total Liabilities" size="8" type="Int64" />
+                <FormulaField expression="[Equity Capital]" field="Shareholder's Equity" size="8" type="Int64" />
                 <FormulaField expression="[Total Liabilities] + [Shareholder's Equity]" field="Total Liabilities &amp; Shareholder's Equity" size="8" type="Int64" />
                 <FormulaField expression="[Revenue] - [Cost of Goods Sold COGS]" field="Gross Profit" size="8" type="Double" />
                 <FormulaField expression="[Gross Profit] - SUM([Salaries and Benefits],[Rent and Overhead],[Depreciation Amortization])" field="Operating Earnings" size="8" type="Double" />
                 <FormulaField expression="[Operating Earnings] - [Interest] &#xA;" field="Earnings Before Tax" size="8" type="Double" />
                 <FormulaField expression="[Earnings Before Tax] - [Taxes] &#xA;" field="Net Earnings" size="8" type="Double" />
-                <FormulaField expression="0.29" field="Tax Rate" size="8" type="Double" />
+                <FormulaField expression="[Taxes]/[Earnings Before Tax]" field="Tax Rate" size="8" type="Double" />
                 <FormulaField expression="[Operating Earnings] * (1-[Tax Rate])" field="NOPAT" size="8" type="Int64" />
                 <FormulaField expression="[Notes Payable] + [Long term debt]&#xA;" field="Book Value of Debt" size="8" type="Int64" />
                 <FormulaField expression="[Total Assets]-[Total Liabilities]" field="Book Value of Equity" size="8" type="Int64" />
-                <FormulaField expression="[Book Value of Debt] + [Book Value of Equity] - [Goodwill] - [Cash]" field="Book Value of Invested Capital" size="8" type="Int64" />
+                <FormulaField expression="[Book Value of Debt] + [Book Value of Equity] - [Cash]" field="Book Value of Invested Capital" size="8" type="Int64" />
               </FormulaFields>
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText>Total Current Assets = [Cash] + [Accounts Receivable] + [Prepaid expenses] + [In...</DefaultAnnotationText>
+              <DefaultAnnotationText>Total Current Assets = [Total Current Assets]
+Total Assets = [Total Assets]
+Tota...</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
           </Properties>
@@ -594,7 +534,7 @@ Noncontrolling Interests</Value>
         </Node>
         <Node ToolID="18">
           <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
-            <Position x="1062" y="222" />
+            <Position x="1175" y="228" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -605,12 +545,14 @@ Noncontrolling Interests</Value>
               <CreateField_Size>8</CreateField_Size>
               <OtherRows>Empty</OtherRows>
               <NumRows value="1" />
-              <Expression>ToString(100*[NOPAT]/[Row-1:Book Value of Invested Capital],2) + "%"</Expression>
-              <GroupByFields />
+              <Expression>ToString(100*[NOPAT]/[Book Value of Invested Capital],2) + "%"</Expression>
+              <GroupByFields>
+                <Field field="Fiscal Period" />
+              </GroupByFields>
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText>ToString(100*[NOPAT]/[Row-1:Book Value of Invested Capital],2...</DefaultAnnotationText>
+              <DefaultAnnotationText>ToString(100*[NOPAT]/[Book Value of Invested Capital],2) + "%"</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
           </Properties>
@@ -1053,12 +995,12 @@ ELSEIF [F2] = "Income St...</DefaultAnnotationText>
       <Destination ToolID="33" Connection="Right" />
     </Connection>
     <Connection>
-      <Origin ToolID="25" Connection="Output" />
-      <Destination ToolID="37" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="33" Connection="Join" />
       <Destination ToolID="41" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="33" Connection="Left" />
+      <Destination ToolID="37" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
@@ -1066,19 +1008,11 @@ ELSEIF [F2] = "Income St...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="35" Connection="Output" />
-      <Destination ToolID="36" Connection="Input2" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="36" Connection="Output26" />
       <Destination ToolID="51" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="37" Connection="True" />
       <Destination ToolID="47" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="39" Connection="Output" />
-      <Destination ToolID="46" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="41" Connection="Output26" />
@@ -1094,6 +1028,10 @@ ELSEIF [F2] = "Income St...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="52" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="52" Connection="Output26" />
       <Destination ToolID="17" Connection="Input" />
     </Connection>
     <Connection>
@@ -1102,7 +1040,7 @@ ELSEIF [F2] = "Income St...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="18" Connection="Output" />
-      <Destination ToolID="39" Connection="Input" />
+      <Destination ToolID="53" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="1" Connection="Output" />
