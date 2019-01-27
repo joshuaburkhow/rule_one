@@ -1,0 +1,574 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="1" />
+          <Fields>
+            <Field name="url" />
+          </Fields>
+          <Data>
+            <r>
+              <c>https://www.reuters.com/finance/stocks/financial-highlights/WGO</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="155" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>url</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="353" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <Delimeters value="|" />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="254" y="56" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([DownloadData], '&lt;div class=&quot;column1', '|&lt;div class=&quot;column1')" field="DownloadData" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DownloadData = Replace([DownloadData], '&lt;div class="column1', '|&lt;div class="colu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="469" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Contains([DownloadData],&quot;Revenue &amp; Earnings&quot;) THEN &quot;TEST&quot; ELSE &quot;&quot; ENDIF" field="Test" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Test = IF Contains([DownloadData],"Revenue &amp; Earnings") THEN "TEST" ELSE "" ENDI...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="563" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsEmpty([Test])</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNotEmpty</Operator>
+            <Field>Test</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-01-17 21:08:42</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2019-01-17 21:08:42</StartDate>
+              <EndDate>2019-01-17 21:08:42</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsEmpty([Test])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="826" y="44" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&#xA;REGEX_Replace([DownloadData],'&lt;/tr&gt;','|')" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="&#xA;REGEX_Replace([DownloadData],'&lt;/td&gt;','|')" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData], &quot;&amp;nbsp;&quot;,&quot; &quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot;/th&gt; ~ P/E Ratio (TTM)&quot;, &quot;| ~ P/E Ratio (TTM)&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot;/th&gt; &quot;,&quot;|&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot; ~   Note: Units in Millions of US Dollarsdiv class='moreLink'&gt; &amp;#187; View Financial Statements/div&gt;   &quot;,&quot;&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot;&lt;div class='footnote'&gt;Note:: Rank is a percentile that ranges from 0 to 99, with 99 = best./div&gt; &lt;div class='module'&gt; &lt;div class='moduleHeader'&gt; &lt;h3&gt; &lt;a href='/finance/stocks/companyNews?symbol=WGO' &gt; Winnebago Industries Inc News&lt;div class='moduleBody'&gt; &lt;div class='moreLink'&gt; &lt;a href='/finance/stocks/companyNews?symbol=WGO'&gt;&amp;#187; More WGO News/div&gt;&lt;script&gt; var topStoryGrid = $(&quot;,&quot;&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot;#topStory').find('.grid8'); if (topStoryGrid.hasClass('grid8')) { if ($('#latestHeadlines')) { $('#latestHeadlines').remove(); } }; &lt;div class='module'&gt; &lt;div class='moduleHeader'&gt; &lt;h3&gt;&quot;, &quot;&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData], &quot; /div&gt;&quot;,'')" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="//will remove all but /td and /tr&#xA;REGEX_Replace([DownloadData],'&lt;[t][^&gt;]*&gt;\W{0,1}|&lt;\/[^t][^&gt;]*&gt;\W{0,1}|Null&gt;','') &#xA;" field="DownloadData" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DownloadData = 
+REGEX_Replace([DownloadData],'&lt;/tr&gt;','|')
+DownloadData = 
+REGEX_...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="915" y="43" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <Delimeters value="|" />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="27">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+        <Position x="1014" y="42" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>First</Mode>
+          <N>1</N>
+          <GroupFields orderChanged="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>First 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+    </Node>
+    <Node ToolID="28">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
+        <Position x="1014" y="106" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Skip</Mode>
+          <N>1</N>
+          <GroupFields orderChanged="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Skip 1st 1</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSample" />
+    </Node>
+    <Node ToolID="29">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1113" y="107" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name>Test</UpdateField_Name>
+          <CreateField_Name>Lookup</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="1" />
+          <Expression>IF IsEmpty([DownloadData]) THEN [Row-1:Lookup] + 1 ELSE [Row-1:Lookup]ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF IsEmpty([DownloadData]) THEN [Row-1:Lookup] + 1 ELSE [Row-...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="30">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="1212" y="105" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields>
+            <Field field="Lookup" />
+          </GroupFields>
+          <HeaderField field="Test" />
+          <DataField field="DownloadData" />
+          <Methods>
+            <Method method="Concat" />
+            <Separator>|</Separator>
+            <FieldSize value="2048" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="Formula: IF IsEmpty([DownloadData]) THEN [Row-1:Lookup] + 1 ELSE [Row-1:Lookup]ENDIF" name="Lookup" source="CrossTab:Group:Concat:" type="Int32" />
+            <Field name="TEST" size="2048" source="CrossTab:Header:Test:TEST:Concat:" type="V_WString" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Lookup" order="Asc" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+    <Node ToolID="31">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1311" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([TEST], &quot;~~&quot;, &quot;~&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST], &quot;~ &quot;, &quot;&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST], &quot;Sales and Profit Figures in US Dollar (USD);    &quot;, &quot;&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],&quot; nbsp; strong&gt;&quot;, &quot;|&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],&quot;/th&gt; strong&gt;&quot;, &quot;|&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],' td colspan=&quot;5&quot;&gt;', &quot;&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],&quot; nbsp;&quot;, &quot;|&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],&quot;strong&gt;&quot;,&quot;&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],&quot;    gatherAd('div_gpt_stock_sp1', [[620,641],[620,534],[620,200]], TR3.extractDartZone(), 'no', 'BizDev_Stock_SP1'); /div&gt;   gatherAd('div_gpt_mpu', [[300,250],[1,1],[300,600],[300,1050]], TR3.extractDartZone(), 'yes', 'mpu'); /div&gt;    &quot;,&quot;&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],'   Note: Units in Millions of US Dollarsdiv class=&quot;moreLink&quot;&gt; &amp;#187; View Financial Statements/div&gt;   ', &quot;&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],&quot;PeriodActualS&amp;P 500IndustryRank&quot;,&quot;Period|% Actual|% vs. S&amp;P 500|Rank In Industry|Industry Rank&quot;)" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="TrimLeft([TEST],'| ')" field="TEST" size="2048" type="V_WString" />
+            <FormulaField expression="Replace([TEST],'| | ',&quot;&quot;)" field="TEST" size="2048" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>TEST = Replace([TEST], "~~", "~")
+TEST = Replace([TEST], "~ ", "")
+TEST = Replac...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="32">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="1410" y="102" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>TEST</Field>
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>TEST</RootName>
+          <Delimeters value="|" />
+          <NumFields value="6" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="33">
+      <GuiSettings>
+        <Position x="1509" y="101" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="List Box (11)">"TEST1","TEST2","TEST3","TEST4","TEST5","TEST6"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="34">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="915" y="168" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21764_9239e474f99643d998fa05b39f45f954_\Engine_22560_f4930bcab7954589aaa9227dbceeb8a3_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings>
+        <Position x="667" y="44" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="List Box (11)">"url","DownloadData","DownloadHeaders","Test"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">True</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="36">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="747.3" y="149" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21764_9239e474f99643d998fa05b39f45f954_\Engine_22560_29787603503f4a9f972210fa9c192b81_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="True" />
+      <Destination ToolID="35" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="34" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="27" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="28" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="28" Connection="Output" />
+      <Destination ToolID="29" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="29" Connection="Output" />
+      <Destination ToolID="30" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="30" Connection="Output" />
+      <Destination ToolID="31" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="31" Connection="Output" />
+      <Destination ToolID="32" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="32" Connection="Output" />
+      <Destination ToolID="33" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output26" />
+      <Destination ToolID="36" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output26" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>reuters_financials</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>

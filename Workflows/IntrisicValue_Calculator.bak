@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="437" y="113" />
+        <Position x="554" y="56" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -15,7 +15,7 @@
             <FormulaField expression="IF [VIX] &lt; 13 THEN 5&#xA;ELSEIF [VIX] &lt; 18 THEN 6&#xA;ELSEIF [VIX] &lt; 30 THEN 7&#xA;ELSEIF [VIX] &lt; 45 THEN 8&#xA;ELSE 9&#xA;ENDIF" field="Market_Risk_Premium" size="8" type="Double" />
             <FormulaField expression="[TYX]/10" field="Risk_Free_Rate" size="8" type="Double" />
             <FormulaField expression="[Risk_Free_Rate] + ([Market_Risk_Premium]*[beta])" field="Expected_Annualized_RoR" size="8" type="Double" />
-            <FormulaField expression="[ttmEPS]*pow(1+[Reduced_Proj_EPS_GR]/100,[Years_Growth])*[Reduced_Proj_PE]/pow((1+[Expected_Annualized_RoR]/100),[Years_Growth])" field="Intrisic_Value" size="8" type="Double" />
+            <FormulaField expression="Round(COALESCE([ttmEPS],[EPS_TTM])*pow(1+[Reduced_Proj_EPS_GR]/100,[Years_Growth])*[Reduced_Proj_PE]/pow((1+[Expected_Annualized_RoR]/100),[Years_Growth]),0.1)" field="Intrisic_Value" size="8" type="Double" />
             <FormulaField expression="ToString(Round((100*([Intrisic_Value]-[price])/[Intrisic_Value]),0.1)) + &quot;%&quot;" field="Margin_of_Safety" size="1073741823" type="V_WString" />
           </FormulaFields>
         </Configuration>
@@ -30,7 +30,7 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
     </Node>
     <Node ToolID="3">
       <GuiSettings>
-        <Position x="184" y="180" />
+        <Position x="151" y="125" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -43,9 +43,6 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output12">
           <RecordInfo>
             <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
@@ -106,7 +103,7 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
     </Node>
     <Node ToolID="5">
       <GuiSettings>
-        <Position x="185" y="256" />
+        <Position x="152" y="201" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -119,9 +116,6 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output12">
           <RecordInfo>
             <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
@@ -133,20 +127,20 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
-        <Position x="290" y="114" />
+        <Position x="257" y="59" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <JoinByRecPos value="False" />
           <JoinFields>
-            <JoinInfo connection="#1">
-              <Field field="Symbol" />
-            </JoinInfo>
             <JoinInfo connection="#2">
               <Field field="Ticker" />
             </JoinInfo>
             <JoinInfo connection="#3">
               <Field field="Ticker" />
+            </JoinInfo>
+            <JoinInfo connection="#1">
+              <Field field="Symbol" />
             </JoinInfo>
           </JoinFields>
           <CartesianMode>Error</CartesianMode>
@@ -218,28 +212,129 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
     </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiFieldFormula.MultiFieldFormula">
+        <Position x="455" y="58" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FieldType>Numeric</FieldType>
+          <Fields orderChanged="False">
+            <Field name="*Unknown" />
+          </Fields>
+          <CopyOutput value="False" />
+          <Expression>IF [_CurrentField_]=0 THEN NULL() ELSE [_CurrentField_] ENDIF</Expression>
+          <ChangeFieldType value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [_CurrentField_]=0 THEN NULL() ELSE [_CurrentField_] ENDIF</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiFieldFormula" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings>
+        <Position x="154" y="272" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="Drop Down (19)">financials?period=annual</Value>
+          <Value name="ControlParams"><![CDATA[Control Parameter (10)=Symbol
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output12">
+          <RecordInfo>
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
+            <Field name="reportDate" size="2048" source="CrossTab:Header:Header:reportDate:Concat: (BatchMacro)" type="V_String" />
+            <Field name="cashChange" size="2048" source="CrossTab:Header:Header:cashChange:Concat: (BatchMacro)" type="V_String" />
+            <Field name="cashFlow" size="2048" source="CrossTab:Header:Header:cashFlow:Concat: (BatchMacro)" type="V_String" />
+            <Field name="costOfRevenue" size="2048" source="CrossTab:Header:Header:costOfRevenue:Concat: (BatchMacro)" type="V_String" />
+            <Field name="currentAssets" size="2048" source="CrossTab:Header:Header:currentAssets:Concat: (BatchMacro)" type="V_String" />
+            <Field name="currentCash" size="2048" source="CrossTab:Header:Header:currentCash:Concat: (BatchMacro)" type="V_String" />
+            <Field name="currentDebt" size="2048" source="CrossTab:Header:Header:currentDebt:Concat: (BatchMacro)" type="V_String" />
+            <Field name="grossProfit" size="2048" source="CrossTab:Header:Header:grossProfit:Concat: (BatchMacro)" type="V_String" />
+            <Field name="netIncome" size="2048" source="CrossTab:Header:Header:netIncome:Concat: (BatchMacro)" type="V_String" />
+            <Field name="operatingExpense" size="2048" source="CrossTab:Header:Header:operatingExpense:Concat: (BatchMacro)" type="V_String" />
+            <Field name="operatingGainsLosses" size="2048" source="CrossTab:Header:Header:operatingGainsLosses:Concat: (BatchMacro)" type="V_String" />
+            <Field name="operatingIncome" size="2048" source="CrossTab:Header:Header:operatingIncome:Concat: (BatchMacro)" type="V_String" />
+            <Field name="operatingRevenue" size="2048" source="CrossTab:Header:Header:operatingRevenue:Concat: (BatchMacro)" type="V_String" />
+            <Field name="researchAndDevelopment" size="2048" source="CrossTab:Header:Header:researchAndDevelopment:Concat: (BatchMacro)" type="V_String" />
+            <Field name="shareholderEquity" size="2048" source="CrossTab:Header:Header:shareholderEquity:Concat: (BatchMacro)" type="V_String" />
+            <Field name="totalAssets" size="2048" source="CrossTab:Header:Header:totalAssets:Concat: (BatchMacro)" type="V_String" />
+            <Field name="totalCash" size="2048" source="CrossTab:Header:Header:totalCash:Concat: (BatchMacro)" type="V_String" />
+            <Field name="totalDebt" size="2048" source="CrossTab:Header:Header:totalDebt:Concat: (BatchMacro)" type="V_String" />
+            <Field name="totalLiabilities" size="2048" source="CrossTab:Header:Header:totalLiabilities:Concat: (BatchMacro)" type="V_String" />
+            <Field name="totalRevenue" size="2048" source="CrossTab:Header:Header:totalRevenue:Concat: (BatchMacro)" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="IEX_stocks.yxmc" />
+    </Node>
     <Node ToolID="1">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="87" y="109" />
+        <Position x="54" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="3" />
+          <Fields>
+            <Field name="Symbol" />
+            <Field name="EPS_GR" />
+            <Field name="Industry_PE_Curr_Yr_EPS" />
+            <Field name="EPS_TTM" />
+          </Fields>
+          <Data>
+            <r>
+              <c>WGO</c>
+              <c>23.18</c>
+              <c>10.01</c>
+              <c>40.04</c>
+            </r>
+            <r>
+              <c>ATHM</c>
+              <c>51.63</c>
+              <c>24.11</c>
+              <c>3.16</c>
+            </r>
+            <r>
+              <c>DXC</c>
+              <c>8.14</c>
+              <c>28.13</c>
+              <c>6.38</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="153" y="359" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <NumRows value="1" />
           <Fields>
-            <Field name="Symbol" />
-            <Field name="EPS_GR" />
-            <Field name="Industry_PE_Curr_Yr_EPS" />
             <Field name="VIX" />
             <Field name="TYX" />
             <Field name="Years_Growth" />
           </Fields>
           <Data>
             <r>
-              <c>WGO</c>
-              <c>19.90</c>
-              <c>4.81</c>
-              <c>23.22</c>
-              <c>29.82</c>
+              <c>18.19</c>
+              <c>30.37</c>
               <c>5</c>
             </r>
           </Data>
@@ -252,8 +347,123 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
     </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
+        <Position x="356" y="63" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <CartesianMode>Error</CartesianMode>
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAppendFields" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="680" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="True" />
+          <SelectFields>
+            <SelectField field="grossProfit" selected="False" />
+            <SelectField field="beta" selected="False" />
+            <SelectField field="cash" selected="False" />
+            <SelectField field="companyName" selected="True" />
+            <SelectField field="Symbol" selected="True" />
+            <SelectField field="consensusEPS" selected="False" />
+            <SelectField field="day5ChangePercent" selected="False" />
+            <SelectField field="day30ChangePercent" selected="False" />
+            <SelectField field="day50MovingAvg" selected="False" />
+            <SelectField field="day200MovingAvg" selected="False" />
+            <SelectField field="debt" selected="False" />
+            <SelectField field="dividendRate" selected="False" />
+            <SelectField field="dividendYield" selected="False" />
+            <SelectField field="EBITDA" selected="False" />
+            <SelectField field="EPSSurpriseDollar" selected="False" />
+            <SelectField field="EPSSurprisePercent" selected="False" />
+            <SelectField field="exDividendDate" selected="False" />
+            <SelectField field="float" selected="False" />
+            <SelectField field="insiderPercent" selected="False" />
+            <SelectField field="institutionPercent" selected="False" />
+            <SelectField field="latestEPS" selected="False" />
+            <SelectField field="latestEPSDate" selected="False" />
+            <SelectField field="marketcap" selected="False" />
+            <SelectField field="month1ChangePercent" selected="False" />
+            <SelectField field="month3ChangePercent" selected="False" />
+            <SelectField field="month6ChangePercent" selected="False" />
+            <SelectField field="numberOfEstimates" selected="False" />
+            <SelectField field="peRatioHigh" selected="False" />
+            <SelectField field="peRatioLow" selected="False" />
+            <SelectField field="priceToBook" selected="False" />
+            <SelectField field="priceToSales" selected="False" />
+            <SelectField field="profitMargin" selected="False" />
+            <SelectField field="returnOnAssets" selected="False" />
+            <SelectField field="returnOnCapital" selected="False" />
+            <SelectField field="returnOnEquity" selected="True" />
+            <SelectField field="revenue" selected="False" />
+            <SelectField field="revenuePerEmployee" selected="False" />
+            <SelectField field="revenuePerShare" selected="False" />
+            <SelectField field="sharesOutstanding" selected="False" />
+            <SelectField field="shortDate" selected="False" />
+            <SelectField field="shortInterest" selected="False" />
+            <SelectField field="shortRatio" selected="False" />
+            <SelectField field="ttmEPS" selected="True" />
+            <SelectField field="week52change" selected="False" />
+            <SelectField field="week52high" selected="False" />
+            <SelectField field="week52low" selected="False" />
+            <SelectField field="year1ChangePercent" selected="False" />
+            <SelectField field="year2ChangePercent" selected="False" />
+            <SelectField field="year5ChangePercent" selected="False" />
+            <SelectField field="ytdChangePercent" selected="False" />
+            <SelectField field="price" selected="True" />
+            <SelectField field="EPS_GR" selected="False" />
+            <SelectField field="Industry_PE_Curr_Yr_EPS" selected="False" />
+            <SelectField field="EPS_TTM" selected="False" />
+            <SelectField field="VIX" selected="False" />
+            <SelectField field="TYX" selected="False" />
+            <SelectField field="Years_Growth" selected="False" />
+            <SelectField field="EPS_Discount" selected="False" />
+            <SelectField field="PE_Discount" selected="False" />
+            <SelectField field="Reduced_Proj_EPS_GR" selected="False" />
+            <SelectField field="Reduced_Proj_PE" selected="False" />
+            <SelectField field="Market_Risk_Premium" selected="False" />
+            <SelectField field="Risk_Free_Rate" selected="False" />
+            <SelectField field="Expected_Annualized_RoR" selected="True" />
+            <SelectField field="Intrisic_Value" selected="True" />
+            <SelectField field="Margin_of_Safety" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
   </Nodes>
   <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="11" Connection="Input" />
+    </Connection>
     <Connection name="#2">
       <Origin ToolID="3" Connection="Output12" />
       <Destination ToolID="6" Connection="Input" />
@@ -268,6 +478,14 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="10" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="10" Connection="Source" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="Output" />
       <Destination ToolID="2" Connection="Input" />
     </Connection>
     <Connection>
@@ -277,6 +495,14 @@ ELSEIF [EPS_GR] &gt;= 60 AND [EPS_GR] &lt;6...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="1" Connection="Output" />
       <Destination ToolID="5" Connection="Control" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="8" Connection="Control" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

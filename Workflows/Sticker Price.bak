@@ -1,0 +1,677 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
+        <Position x="52" y="57" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <NumRows value="4" />
+          <Fields>
+            <Field name="Symbol" />
+            <Field name="EPS_GR" />
+          </Fields>
+          <Data>
+            <r>
+              <c>WGO</c>
+              <c>37.08</c>
+            </r>
+            <r>
+              <c>ATHM</c>
+              <c>55.08</c>
+            </r>
+            <r>
+              <c>DXC</c>
+              <c>74.23</c>
+            </r>
+            <r>
+              <c>HDI</c>
+              <c>24</c>
+            </r>
+          </Data>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="727" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="COALESCE([peRatio],[peRatioHigh],[peRatioLow] )" field="PE_Ratio" size="1073741823" type="V_WString" />
+            <FormulaField expression="tonumber([PE_Ratio])*[Future_EPS]" field="Future_Mkt_Price" size="8" type="Double" />
+            <FormulaField expression="[Future_Mkt_Price]/4" field="Sticker_Price" size="8" type="Double" />
+            <FormulaField expression="Round(ToNumber([Sticker_Price]/2),0.01)" field="MOS_Price" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>PE_Ratio = COALESCE([peRatio],[peRatioHigh],[peRatioLow] )
+Future_Mkt_Price = to...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings>
+        <Position x="165" y="56" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="BatchMacroGroupBy" />
+          <Value name="Drop Down (19)">stats</Value>
+          <Value name="ControlParams"><![CDATA[Control Parameter (10)=Symbol
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>IEX Stocks (3)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings Macro="IEX_stocks.yxmc" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="840" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="grossProfit" selected="False" />
+            <SelectField field="beta" selected="False" />
+            <SelectField field="cash" selected="False" />
+            <SelectField field="consensusEPS" selected="False" />
+            <SelectField field="day5ChangePercent" selected="False" />
+            <SelectField field="day30ChangePercent" selected="False" />
+            <SelectField field="day50MovingAvg" selected="False" />
+            <SelectField field="day200MovingAvg" selected="False" />
+            <SelectField field="debt" selected="False" />
+            <SelectField field="dividendRate" selected="False" />
+            <SelectField field="dividendYield" selected="False" />
+            <SelectField field="EBITDA" selected="False" />
+            <SelectField field="EPSSurpriseDollar" selected="False" />
+            <SelectField field="EPSSurprisePercent" selected="False" />
+            <SelectField field="exDividendDate" selected="False" />
+            <SelectField field="float" selected="False" />
+            <SelectField field="insiderPercent" selected="False" />
+            <SelectField field="institutionPercent" selected="False" />
+            <SelectField field="latestEPS" selected="False" />
+            <SelectField field="latestEPSDate" selected="False" />
+            <SelectField field="marketcap" selected="False" />
+            <SelectField field="month1ChangePercent" selected="False" />
+            <SelectField field="month3ChangePercent" selected="False" />
+            <SelectField field="month6ChangePercent" selected="False" />
+            <SelectField field="numberOfEstimates" selected="False" />
+            <SelectField field="peRatioHigh" selected="False" />
+            <SelectField field="peRatioLow" selected="False" />
+            <SelectField field="priceToBook" selected="False" />
+            <SelectField field="priceToSales" selected="False" />
+            <SelectField field="profitMargin" selected="False" />
+            <SelectField field="returnOnAssets" selected="False" />
+            <SelectField field="returnOnCapital" selected="False" />
+            <SelectField field="revenue" selected="False" />
+            <SelectField field="revenuePerEmployee" selected="False" />
+            <SelectField field="revenuePerShare" selected="False" />
+            <SelectField field="sharesOutstanding" selected="False" />
+            <SelectField field="shortDate" selected="False" />
+            <SelectField field="shortInterest" selected="False" />
+            <SelectField field="shortRatio" selected="False" />
+            <SelectField field="week52change" selected="False" />
+            <SelectField field="week52high" selected="False" />
+            <SelectField field="week52low" selected="False" />
+            <SelectField field="year1ChangePercent" selected="False" />
+            <SelectField field="year2ChangePercent" selected="False" />
+            <SelectField field="year5ChangePercent" selected="False" />
+            <SelectField field="ytdChangePercent" selected="False" />
+            <SelectField field="Source_symbol" selected="False" />
+            <SelectField field="Right_Ticker" selected="False" />
+            <SelectField field="Right_companyName" selected="False" />
+            <SelectField field="Right_marketCap" selected="False" />
+            <SelectField field="Right_week52High" selected="False" />
+            <SelectField field="Right_week52Low" selected="False" />
+            <SelectField field="sector" selected="False" />
+            <SelectField field="Right_Source_symbol" selected="False" />
+            <SelectField field="delayedPrice" selected="False" />
+            <SelectField field="delayedPriceTime" selected="False" />
+            <SelectField field="high" selected="False" />
+            <SelectField field="low" selected="False" />
+            <SelectField field="change" selected="False" />
+            <SelectField field="changePercent" selected="False" />
+            <SelectField field="close" selected="False" />
+            <SelectField field="open" selected="False" />
+            <SelectField field="avgTotalVolume" selected="False" />
+            <SelectField field="calculationPrice" selected="False" />
+            <SelectField field="closeTime" selected="False" />
+            <SelectField field="extendedChange" selected="False" />
+            <SelectField field="extendedChangePercent" selected="False" />
+            <SelectField field="extendedPrice" selected="False" />
+            <SelectField field="extendedPriceTime" selected="False" />
+            <SelectField field="iexAskPrice" selected="False" />
+            <SelectField field="iexAskSize" selected="False" />
+            <SelectField field="iexBidPrice" selected="False" />
+            <SelectField field="iexBidSize" selected="False" />
+            <SelectField field="iexLastUpdated" selected="False" />
+            <SelectField field="iexMarketPercent" selected="False" />
+            <SelectField field="iexRealtimePrice" selected="False" />
+            <SelectField field="iexRealtimeSize" selected="False" />
+            <SelectField field="iexVolume" selected="False" />
+            <SelectField field="latestPrice" selected="False" />
+            <SelectField field="latestSource" selected="False" />
+            <SelectField field="latestTime" selected="False" />
+            <SelectField field="latestUpdate" selected="False" />
+            <SelectField field="latestVolume" selected="False" />
+            <SelectField field="openTime" selected="False" />
+            <SelectField field="peRatio" selected="False" />
+            <SelectField field="previousClose" selected="False" />
+            <SelectField field="primaryExchange" selected="False" />
+            <SelectField field="ytdChange" selected="False" />
+            <SelectField field="Right_EPS_GR" selected="False" />
+            <SelectField field="Right_Future_PE" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
+        <Position x="277" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration joinByRecordPos="False">
+          <JoinInfo connection="Left">
+            <Field field="Ticker" />
+          </JoinInfo>
+          <JoinInfo connection="Right">
+            <Field field="Ticker" />
+          </JoinInfo>
+          <SelectConfiguration>
+            <Configuration outputConnection="Join">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Right_Ticker" selected="True" rename="Right_Ticker" input="Right_" />
+                <SelectField field="Right_venue" selected="True" rename="Right_venue" input="Right_" />
+                <SelectField field="Right_venueName" selected="True" rename="Right_venueName" input="Right_" />
+                <SelectField field="Right_volume" selected="True" rename="Right_volume" input="Right_" />
+                <SelectField field="Right_date" selected="True" rename="Right_date" input="Right_" />
+                <SelectField field="Right_avgMarketPercent" selected="True" rename="Right_avgMarketPercent" input="Right_" />
+                <SelectField field="Right_marketPercent" selected="True" rename="Right_marketPercent" input="Right_" />
+                <SelectField field="Right_EPS_GR" selected="True" rename="Right_EPS_GR" input="Right_" />
+                <SelectField field="Right_companyName" selected="True" rename="Right_companyName" input="Right_" />
+                <SelectField field="Right_marketCap" selected="True" rename="Right_marketCap" input="Right_" />
+                <SelectField field="Right_week52High" selected="True" rename="Right_week52High" input="Right_" />
+                <SelectField field="Right_week52Low" selected="True" rename="Right_week52Low" input="Right_" />
+                <SelectField field="Right_Source_symbol" selected="True" rename="Right_Source_symbol" input="Right_" />
+                <SelectField field="Right_Future_PE" selected="True" rename="Right_Future_PE" input="Right_" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
+    </Node>
+    <Node ToolID="16">
+      <GuiSettings>
+        <Position x="164" y="141" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="BatchMacroGroupBy" />
+          <Value name="Drop Down (19)">quote</Value>
+          <Value name="ControlParams"><![CDATA[Control Parameter (10)=Symbol
+]]></Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>IEX Stocks (8)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output12">
+          <RecordInfo>
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat: (BatchMacro)" type="V_String" />
+            <Field name="marketCap" size="2048" source="CrossTab:Header:Header:marketCap:Concat: (BatchMacro)" type="V_String" />
+            <Field name="week52High" size="2048" source="CrossTab:Header:Header:week52High:Concat: (BatchMacro)" type="V_String" />
+            <Field name="week52Low" size="2048" source="CrossTab:Header:Header:week52Low:Concat: (BatchMacro)" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat: (BatchMacro)" type="V_String" />
+            <Field name="Source_symbol" size="2048" source="CrossTab:Header:Header:symbol:Concat: (BatchMacro)" type="V_String" />
+            <Field name="delayedPrice" size="2048" source="CrossTab:Header:Header:delayedPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="delayedPriceTime" size="2048" source="CrossTab:Header:Header:delayedPriceTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat: (BatchMacro)" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat: (BatchMacro)" type="V_String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat: (BatchMacro)" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat: (BatchMacro)" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat: (BatchMacro)" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat: (BatchMacro)" type="V_String" />
+            <Field name="avgTotalVolume" size="2048" source="CrossTab:Header:Header:avgTotalVolume:Concat: (BatchMacro)" type="V_String" />
+            <Field name="calculationPrice" size="2048" source="CrossTab:Header:Header:calculationPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="closeTime" size="2048" source="CrossTab:Header:Header:closeTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="extendedChange" size="2048" source="CrossTab:Header:Header:extendedChange:Concat: (BatchMacro)" type="V_String" />
+            <Field name="extendedChangePercent" size="2048" source="CrossTab:Header:Header:extendedChangePercent:Concat: (BatchMacro)" type="V_String" />
+            <Field name="extendedPrice" size="2048" source="CrossTab:Header:Header:extendedPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="extendedPriceTime" size="2048" source="CrossTab:Header:Header:extendedPriceTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexAskPrice" size="2048" source="CrossTab:Header:Header:iexAskPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexAskSize" size="2048" source="CrossTab:Header:Header:iexAskSize:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexBidPrice" size="2048" source="CrossTab:Header:Header:iexBidPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexBidSize" size="2048" source="CrossTab:Header:Header:iexBidSize:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexLastUpdated" size="2048" source="CrossTab:Header:Header:iexLastUpdated:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexMarketPercent" size="2048" source="CrossTab:Header:Header:iexMarketPercent:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexRealtimePrice" size="2048" source="CrossTab:Header:Header:iexRealtimePrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexRealtimeSize" size="2048" source="CrossTab:Header:Header:iexRealtimeSize:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexVolume" size="2048" source="CrossTab:Header:Header:iexVolume:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestPrice" size="2048" source="CrossTab:Header:Header:latestPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestSource" size="2048" source="CrossTab:Header:Header:latestSource:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestTime" size="2048" source="CrossTab:Header:Header:latestTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestUpdate" size="2048" source="CrossTab:Header:Header:latestUpdate:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestVolume" size="2048" source="CrossTab:Header:Header:latestVolume:Concat: (BatchMacro)" type="V_String" />
+            <Field name="openTime" size="2048" source="CrossTab:Header:Header:openTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="peRatio" size="2048" source="CrossTab:Header:Header:peRatio:Concat: (BatchMacro)" type="V_String" />
+            <Field name="previousClose" size="2048" source="CrossTab:Header:Header:previousClose:Concat: (BatchMacro)" type="V_String" />
+            <Field name="primaryExchange" size="2048" source="CrossTab:Header:Header:primaryExchange:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ytdChange" size="2048" source="CrossTab:Header:Header:ytdChange:Concat: (BatchMacro)" type="V_String" />
+            <Field name="EPS_GR" source="TextInput: (BatchMacro)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="Output59">
+          <RecordInfo>
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
+            <Field name="companyName" size="2048" source="CrossTab:Header:Header:companyName:Concat: (BatchMacro)" type="V_String" />
+            <Field name="marketCap" size="2048" source="CrossTab:Header:Header:marketCap:Concat: (BatchMacro)" type="V_String" />
+            <Field name="week52High" size="2048" source="CrossTab:Header:Header:week52High:Concat: (BatchMacro)" type="V_String" />
+            <Field name="week52Low" size="2048" source="CrossTab:Header:Header:week52Low:Concat: (BatchMacro)" type="V_String" />
+            <Field name="sector" size="2048" source="CrossTab:Header:Header:sector:Concat: (BatchMacro)" type="V_String" />
+            <Field name="Source_symbol" size="2048" source="CrossTab:Header:Header:symbol:Concat: (BatchMacro)" type="V_String" />
+            <Field name="delayedPrice" size="2048" source="CrossTab:Header:Header:delayedPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="delayedPriceTime" size="2048" source="CrossTab:Header:Header:delayedPriceTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="high" size="2048" source="CrossTab:Header:Header:high:Concat: (BatchMacro)" type="V_String" />
+            <Field name="low" size="2048" source="CrossTab:Header:Header:low:Concat: (BatchMacro)" type="V_String" />
+            <Field name="change" size="2048" source="CrossTab:Header:Header:change:Concat: (BatchMacro)" type="V_String" />
+            <Field name="changePercent" size="2048" source="CrossTab:Header:Header:changePercent:Concat: (BatchMacro)" type="V_String" />
+            <Field name="close" size="2048" source="CrossTab:Header:Header:close:Concat: (BatchMacro)" type="V_String" />
+            <Field name="open" size="2048" source="CrossTab:Header:Header:open:Concat: (BatchMacro)" type="V_String" />
+            <Field name="avgTotalVolume" size="2048" source="CrossTab:Header:Header:avgTotalVolume:Concat: (BatchMacro)" type="V_String" />
+            <Field name="calculationPrice" size="2048" source="CrossTab:Header:Header:calculationPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="closeTime" size="2048" source="CrossTab:Header:Header:closeTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="extendedChange" size="2048" source="CrossTab:Header:Header:extendedChange:Concat: (BatchMacro)" type="V_String" />
+            <Field name="extendedChangePercent" size="2048" source="CrossTab:Header:Header:extendedChangePercent:Concat: (BatchMacro)" type="V_String" />
+            <Field name="extendedPrice" size="2048" source="CrossTab:Header:Header:extendedPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="extendedPriceTime" size="2048" source="CrossTab:Header:Header:extendedPriceTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexAskPrice" size="2048" source="CrossTab:Header:Header:iexAskPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexAskSize" size="2048" source="CrossTab:Header:Header:iexAskSize:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexBidPrice" size="2048" source="CrossTab:Header:Header:iexBidPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexBidSize" size="2048" source="CrossTab:Header:Header:iexBidSize:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexLastUpdated" size="2048" source="CrossTab:Header:Header:iexLastUpdated:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexMarketPercent" size="2048" source="CrossTab:Header:Header:iexMarketPercent:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexRealtimePrice" size="2048" source="CrossTab:Header:Header:iexRealtimePrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexRealtimeSize" size="2048" source="CrossTab:Header:Header:iexRealtimeSize:Concat: (BatchMacro)" type="V_String" />
+            <Field name="iexVolume" size="2048" source="CrossTab:Header:Header:iexVolume:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestPrice" size="2048" source="CrossTab:Header:Header:latestPrice:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestSource" size="2048" source="CrossTab:Header:Header:latestSource:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestTime" size="2048" source="CrossTab:Header:Header:latestTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestUpdate" size="2048" source="CrossTab:Header:Header:latestUpdate:Concat: (BatchMacro)" type="V_String" />
+            <Field name="latestVolume" size="2048" source="CrossTab:Header:Header:latestVolume:Concat: (BatchMacro)" type="V_String" />
+            <Field name="openTime" size="2048" source="CrossTab:Header:Header:openTime:Concat: (BatchMacro)" type="V_String" />
+            <Field name="peRatio" size="2048" source="CrossTab:Header:Header:peRatio:Concat: (BatchMacro)" type="V_String" />
+            <Field name="previousClose" size="2048" source="CrossTab:Header:Header:previousClose:Concat: (BatchMacro)" type="V_String" />
+            <Field name="primaryExchange" size="2048" source="CrossTab:Header:Header:primaryExchange:Concat: (BatchMacro)" type="V_String" />
+            <Field name="ytdChange" size="2048" source="CrossTab:Header:Header:ytdChange:Concat: (BatchMacro)" type="V_String" />
+            <Field name="EPS_GR" source="TextInput: (BatchMacro)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="IEX_stocks.yxmc" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
+        <Position x="390" y="57" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Fields>
+            <Field field="Ticker" selected="True" />
+            <Field field="grossProfit" selected="True" />
+            <Field field="beta" selected="True" />
+            <Field field="cash" selected="True" />
+            <Field field="companyName" selected="True" />
+            <Field field="consensusEPS" selected="True" />
+            <Field field="day5ChangePercent" selected="True" />
+            <Field field="day30ChangePercent" selected="True" />
+            <Field field="day50MovingAvg" selected="True" />
+            <Field field="day200MovingAvg" selected="True" />
+            <Field field="debt" selected="True" />
+            <Field field="dividendRate" selected="True" />
+            <Field field="dividendYield" selected="True" />
+            <Field field="EBITDA" selected="True" />
+            <Field field="EPSSurpriseDollar" selected="True" />
+            <Field field="EPSSurprisePercent" selected="True" />
+            <Field field="exDividendDate" selected="True" />
+            <Field field="float" selected="True" />
+            <Field field="insiderPercent" selected="True" />
+            <Field field="institutionPercent" selected="True" />
+            <Field field="latestEPS" selected="True" />
+            <Field field="latestEPSDate" selected="True" />
+            <Field field="marketcap" selected="True" />
+            <Field field="month1ChangePercent" selected="True" />
+            <Field field="month3ChangePercent" selected="True" />
+            <Field field="month6ChangePercent" selected="True" />
+            <Field field="numberOfEstimates" selected="True" />
+            <Field field="peRatioHigh" selected="True" />
+            <Field field="peRatioLow" selected="True" />
+            <Field field="priceToBook" selected="True" />
+            <Field field="priceToSales" selected="True" />
+            <Field field="profitMargin" selected="True" />
+            <Field field="returnOnAssets" selected="True" />
+            <Field field="returnOnCapital" selected="True" />
+            <Field field="returnOnEquity" selected="True" />
+            <Field field="revenue" selected="True" />
+            <Field field="revenuePerEmployee" selected="True" />
+            <Field field="revenuePerShare" selected="True" />
+            <Field field="sharesOutstanding" selected="True" />
+            <Field field="shortDate" selected="True" />
+            <Field field="shortInterest" selected="True" />
+            <Field field="shortRatio" selected="True" />
+            <Field field="ttmEPS" selected="True" />
+            <Field field="week52change" selected="True" />
+            <Field field="week52high" selected="True" />
+            <Field field="week52low" selected="True" />
+            <Field field="year1ChangePercent" selected="True" />
+            <Field field="year2ChangePercent" selected="True" />
+            <Field field="year5ChangePercent" selected="True" />
+            <Field field="ytdChangePercent" selected="True" />
+            <Field field="Source_symbol" selected="True" />
+            <Field field="Right_Ticker" selected="True" />
+            <Field field="Right_companyName" selected="True" />
+            <Field field="Right_marketCap" selected="True" />
+            <Field field="Right_week52High" selected="True" />
+            <Field field="Right_week52Low" selected="True" />
+            <Field field="sector" selected="True" />
+            <Field field="Right_Source_symbol" selected="True" />
+            <Field field="delayedPrice" selected="True" />
+            <Field field="delayedPriceTime" selected="True" />
+            <Field field="high" selected="True" />
+            <Field field="low" selected="True" />
+            <Field field="change" selected="True" />
+            <Field field="changePercent" selected="True" />
+            <Field field="close" selected="True" />
+            <Field field="open" selected="True" />
+            <Field field="avgTotalVolume" selected="True" />
+            <Field field="calculationPrice" selected="True" />
+            <Field field="closeTime" selected="True" />
+            <Field field="extendedChange" selected="True" />
+            <Field field="extendedChangePercent" selected="True" />
+            <Field field="extendedPrice" selected="True" />
+            <Field field="extendedPriceTime" selected="True" />
+            <Field field="iexAskPrice" selected="True" />
+            <Field field="iexAskSize" selected="True" />
+            <Field field="iexBidPrice" selected="True" />
+            <Field field="iexBidSize" selected="True" />
+            <Field field="iexLastUpdated" selected="True" />
+            <Field field="iexMarketPercent" selected="True" />
+            <Field field="iexRealtimePrice" selected="True" />
+            <Field field="iexRealtimeSize" selected="True" />
+            <Field field="iexVolume" selected="True" />
+            <Field field="latestPrice" selected="True" />
+            <Field field="latestSource" selected="True" />
+            <Field field="latestTime" selected="True" />
+            <Field field="latestUpdate" selected="True" />
+            <Field field="latestVolume" selected="True" />
+            <Field field="openTime" selected="True" />
+            <Field field="peRatio" selected="True" />
+            <Field field="previousClose" selected="True" />
+            <Field field="primaryExchange" selected="True" />
+            <Field field="ytdChange" selected="True" />
+            <Field field="*Unknown" selected="True" />
+          </Fields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="4" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
+            <Field name="grossProfit" source="CrossTab:Header:Header:grossProfit:Concat: (BatchMacro)" type="Double" />
+            <Field name="beta" source="CrossTab:Header:Header:beta:Concat: (BatchMacro)" type="Double" />
+            <Field name="cash" source="CrossTab:Header:Header:cash:Concat: (BatchMacro)" type="Double" />
+            <Field name="companyName" size="64" source="CrossTab:Header:Header:companyName:Concat: (BatchMacro)" type="V_String" />
+            <Field name="consensusEPS" source="CrossTab:Header:Header:consensusEPS:Concat: (BatchMacro)" type="Double" />
+            <Field name="day5ChangePercent" source="CrossTab:Header:Header:day5ChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="day30ChangePercent" source="CrossTab:Header:Header:day30ChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="day50MovingAvg" source="CrossTab:Header:Header:day50MovingAvg:Concat: (BatchMacro)" type="Double" />
+            <Field name="day200MovingAvg" source="CrossTab:Header:Header:day200MovingAvg:Concat: (BatchMacro)" type="Double" />
+            <Field name="debt" source="CrossTab:Header:Header:debt:Concat: (BatchMacro)" type="Double" />
+            <Field name="dividendRate" source="CrossTab:Header:Header:dividendRate:Concat: (BatchMacro)" type="Double" />
+            <Field name="dividendYield" source="CrossTab:Header:Header:dividendYield:Concat: (BatchMacro)" type="Double" />
+            <Field name="EBITDA" source="CrossTab:Header:Header:EBITDA:Concat: (BatchMacro)" type="Double" />
+            <Field name="EPSSurpriseDollar" size="1" source="CrossTab:Header:Header:EPSSurpriseDollar:Concat: (BatchMacro)" type="String" />
+            <Field name="EPSSurprisePercent" source="CrossTab:Header:Header:EPSSurprisePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="exDividendDate" size="21" source="CrossTab:Header:Header:exDividendDate:Concat: (BatchMacro)" type="V_String" />
+            <Field name="float" source="CrossTab:Header:Header:float:Concat: (BatchMacro)" type="Double" />
+            <Field name="insiderPercent" size="4" source="CrossTab:Header:Header:insiderPercent:Concat: (BatchMacro)" type="String" />
+            <Field name="institutionPercent" source="CrossTab:Header:Header:institutionPercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="latestEPS" source="CrossTab:Header:Header:latestEPS:Concat: (BatchMacro)" type="Double" />
+            <Field name="latestEPSDate" source="CrossTab:Header:Header:latestEPSDate:Concat: (BatchMacro)" type="Date" />
+            <Field name="marketcap" source="CrossTab:Header:Header:marketcap:Concat: (BatchMacro)" type="Double" />
+            <Field name="month1ChangePercent" source="CrossTab:Header:Header:month1ChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="month3ChangePercent" source="CrossTab:Header:Header:month3ChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="month6ChangePercent" source="CrossTab:Header:Header:month6ChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="numberOfEstimates" source="CrossTab:Header:Header:numberOfEstimates:Concat: (BatchMacro)" type="Double" />
+            <Field name="peRatioHigh" source="CrossTab:Header:Header:peRatioHigh:Concat: (BatchMacro)" type="Double" />
+            <Field name="peRatioLow" source="CrossTab:Header:Header:peRatioLow:Concat: (BatchMacro)" type="Double" />
+            <Field name="priceToBook" source="CrossTab:Header:Header:priceToBook:Concat: (BatchMacro)" type="Double" />
+            <Field name="priceToSales" source="CrossTab:Header:Header:priceToSales:Concat: (BatchMacro)" type="Double" />
+            <Field name="profitMargin" source="CrossTab:Header:Header:profitMargin:Concat: (BatchMacro)" type="Double" />
+            <Field name="returnOnAssets" source="CrossTab:Header:Header:returnOnAssets:Concat: (BatchMacro)" type="Double" />
+            <Field name="returnOnCapital" size="1" source="CrossTab:Header:Header:returnOnCapital:Concat: (BatchMacro)" type="String" />
+            <Field name="returnOnEquity" source="CrossTab:Header:Header:returnOnEquity:Concat: (BatchMacro)" type="Double" />
+            <Field name="revenue" source="CrossTab:Header:Header:revenue:Concat: (BatchMacro)" type="Double" />
+            <Field name="revenuePerEmployee" source="CrossTab:Header:Header:revenuePerEmployee:Concat: (BatchMacro)" type="Double" />
+            <Field name="revenuePerShare" source="CrossTab:Header:Header:revenuePerShare:Concat: (BatchMacro)" type="Double" />
+            <Field name="sharesOutstanding" source="CrossTab:Header:Header:sharesOutstanding:Concat: (BatchMacro)" type="Double" />
+            <Field name="shortDate" source="CrossTab:Header:Header:shortDate:Concat: (BatchMacro)" type="Date" />
+            <Field name="shortInterest" source="CrossTab:Header:Header:shortInterest:Concat: (BatchMacro)" type="Double" />
+            <Field name="shortRatio" source="CrossTab:Header:Header:shortRatio:Concat: (BatchMacro)" type="Double" />
+            <Field name="ttmEPS" source="CrossTab:Header:Header:ttmEPS:Concat: (BatchMacro)" type="Double" />
+            <Field name="week52change" source="CrossTab:Header:Header:week52change:Concat: (BatchMacro)" type="Double" />
+            <Field name="week52high" source="CrossTab:Header:Header:week52high:Concat: (BatchMacro)" type="Double" />
+            <Field name="week52low" source="CrossTab:Header:Header:week52low:Concat: (BatchMacro)" type="Double" />
+            <Field name="year1ChangePercent" source="CrossTab:Header:Header:year1ChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="year2ChangePercent" source="CrossTab:Header:Header:year2ChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="year5ChangePercent" source="CrossTab:Header:Header:year5ChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="ytdChangePercent" source="CrossTab:Header:Header:ytdChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="Source_symbol" size="4" source="CrossTab:Header:Header:symbol:Concat: (BatchMacro)" type="String" />
+            <Field name="EPS_GR" source="TextInput: (BatchMacro)" type="Double" />
+            <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Right_Ticker" size="4" source="Formula: IF ISEMPTY([Ticker]) THEN COALESCE([symbol],[Group By]) ELSE [Ticker] ENDIF (BatchMacro)" type="String" />
+            <Field name="Right_companyName" size="64" source="CrossTab:Header:Header:companyName:Concat: (BatchMacro)" type="V_String" />
+            <Field name="Right_marketCap" source="CrossTab:Header:Header:marketCap:Concat: (BatchMacro)" type="Double" />
+            <Field name="Right_week52High" source="CrossTab:Header:Header:week52High:Concat: (BatchMacro)" type="Double" />
+            <Field name="Right_week52Low" source="CrossTab:Header:Header:week52Low:Concat: (BatchMacro)" type="Double" />
+            <Field name="sector" size="17" source="CrossTab:Header:Header:sector:Concat: (BatchMacro)" type="String" />
+            <Field name="Right_Source_symbol" size="4" source="CrossTab:Header:Header:symbol:Concat: (BatchMacro)" type="String" />
+            <Field name="delayedPrice" source="CrossTab:Header:Header:delayedPrice:Concat: (BatchMacro)" type="Double" />
+            <Field name="delayedPriceTime" source="CrossTab:Header:Header:delayedPriceTime:Concat: (BatchMacro)" type="Double" />
+            <Field name="high" source="CrossTab:Header:Header:high:Concat: (BatchMacro)" type="Double" />
+            <Field name="low" source="CrossTab:Header:Header:low:Concat: (BatchMacro)" type="Double" />
+            <Field name="change" source="CrossTab:Header:Header:change:Concat: (BatchMacro)" type="Double" />
+            <Field name="changePercent" source="CrossTab:Header:Header:changePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="close" source="CrossTab:Header:Header:close:Concat: (BatchMacro)" type="Double" />
+            <Field name="open" source="CrossTab:Header:Header:open:Concat: (BatchMacro)" type="Double" />
+            <Field name="avgTotalVolume" source="CrossTab:Header:Header:avgTotalVolume:Concat: (BatchMacro)" type="Double" />
+            <Field name="calculationPrice" size="5" source="CrossTab:Header:Header:calculationPrice:Concat: (BatchMacro)" type="String" />
+            <Field name="closeTime" source="CrossTab:Header:Header:closeTime:Concat: (BatchMacro)" type="Double" />
+            <Field name="extendedChange" source="CrossTab:Header:Header:extendedChange:Concat: (BatchMacro)" type="Double" />
+            <Field name="extendedChangePercent" source="CrossTab:Header:Header:extendedChangePercent:Concat: (BatchMacro)" type="Double" />
+            <Field name="extendedPrice" source="CrossTab:Header:Header:extendedPrice:Concat: (BatchMacro)" type="Double" />
+            <Field name="extendedPriceTime" source="CrossTab:Header:Header:extendedPriceTime:Concat: (BatchMacro)" type="Double" />
+            <Field name="iexAskPrice" size="1" source="CrossTab:Header:Header:iexAskPrice:Concat: (BatchMacro)" type="String" />
+            <Field name="iexAskSize" size="1" source="CrossTab:Header:Header:iexAskSize:Concat: (BatchMacro)" type="String" />
+            <Field name="iexBidPrice" size="1" source="CrossTab:Header:Header:iexBidPrice:Concat: (BatchMacro)" type="String" />
+            <Field name="iexBidSize" size="1" source="CrossTab:Header:Header:iexBidSize:Concat: (BatchMacro)" type="String" />
+            <Field name="iexLastUpdated" size="1" source="CrossTab:Header:Header:iexLastUpdated:Concat: (BatchMacro)" type="String" />
+            <Field name="iexMarketPercent" size="1" source="CrossTab:Header:Header:iexMarketPercent:Concat: (BatchMacro)" type="String" />
+            <Field name="iexRealtimePrice" size="1" source="CrossTab:Header:Header:iexRealtimePrice:Concat: (BatchMacro)" type="String" />
+            <Field name="iexRealtimeSize" size="1" source="CrossTab:Header:Header:iexRealtimeSize:Concat: (BatchMacro)" type="String" />
+            <Field name="iexVolume" size="1" source="CrossTab:Header:Header:iexVolume:Concat: (BatchMacro)" type="String" />
+            <Field name="latestPrice" source="CrossTab:Header:Header:latestPrice:Concat: (BatchMacro)" type="Double" />
+            <Field name="latestSource" size="5" source="CrossTab:Header:Header:latestSource:Concat: (BatchMacro)" type="String" />
+            <Field name="latestTime" size="16" source="CrossTab:Header:Header:latestTime:Concat: (BatchMacro)" type="String" />
+            <Field name="latestUpdate" source="CrossTab:Header:Header:latestUpdate:Concat: (BatchMacro)" type="Double" />
+            <Field name="latestVolume" source="CrossTab:Header:Header:latestVolume:Concat: (BatchMacro)" type="Double" />
+            <Field name="openTime" source="CrossTab:Header:Header:openTime:Concat: (BatchMacro)" type="Double" />
+            <Field name="peRatio" source="CrossTab:Header:Header:peRatio:Concat: (BatchMacro)" type="Double" />
+            <Field name="previousClose" source="CrossTab:Header:Header:previousClose:Concat: (BatchMacro)" type="Double" />
+            <Field name="primaryExchange" size="23" source="CrossTab:Header:Header:primaryExchange:Concat: (BatchMacro)" type="String" />
+            <Field name="ytdChange" source="CrossTab:Header:Header:ytdChange:Concat: (BatchMacro)" type="Double" />
+            <Field name="Right_EPS_GR" source="TextInput: (BatchMacro)" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxAutoField" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="502" y="56" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[ttmEPS]" field="Future_EPS" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[Future_EPS = [ttmEPS]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="23">
+      <GuiSettings>
+        <Position x="615" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name>Doubler (19)</Name>
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Doubler.yxmc" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="17" Connection="Control" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="17" Connection="Input57" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="16" Connection="Control" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="16" Connection="Input57" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output59" />
+      <Destination ToolID="9" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="16" Connection="Output59" />
+      <Destination ToolID="9" Connection="Right" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Join" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="Output" />
+      <Destination ToolID="23" Connection="Input6" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="23" Connection="Complete" />
+      <Destination ToolID="4" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Sticker Price</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
