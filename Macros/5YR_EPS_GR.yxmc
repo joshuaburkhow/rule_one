@@ -1,0 +1,1446 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2018.4">
+  <Nodes>
+    <Node ToolID="2">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="256" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>url</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues />
+            <Fields orderChanged="False">
+              <Field name="Symbol" selected="False" />
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>GET</HTTPAction>
+            <QueryStringBodyMode>Compose</QueryStringBodyMode>
+            <ComposeNameValues />
+            <ComposeFields orderChanged="False">
+              <Field name="Symbol" selected="False" />
+              <Field name="url" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </ComposeFields>
+          </Payload>
+          <UserName />
+          <Password />
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="TextInput:" type="String" />
+            <Field name="url" size="2147483647" source="Formula: &quot;https://www.reuters.com/finance/stocks/financial-highlights/&quot; + [Symbol]" type="V_String" />
+            <Field name="DownloadData" size="1073741823" source="Download" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="454" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <Delimeters value="|" />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="TextInput:" type="String" />
+            <Field name="url" size="2147483647" source="Formula: &quot;https://www.reuters.com/finance/stocks/financial-highlights/&quot; + [Symbol]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="355" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace([DownloadData], '&lt;div class=&quot;column1', '|&lt;div class=&quot;column1')" field="DownloadData" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DownloadData = Replace([DownloadData], '&lt;div class="column1', '|&lt;div class="colu...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="TextInput:" type="String" />
+            <Field name="url" size="2147483647" source="Formula: &quot;https://www.reuters.com/finance/stocks/financial-highlights/&quot; + [Symbol]" type="V_String" />
+            <Field name="DownloadData" size="1073741823" source="Formula: Replace([DownloadData], '&lt;div class=&quot;column1', '|&lt;div class=&quot;column1')" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="553" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Contains([DownloadData],&quot;Revenue &amp; Earnings&quot;) THEN &quot;TEST&quot; ELSE &quot;&quot; ENDIF" field="Test" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Test = IF Contains([DownloadData],"Revenue &amp; Earnings") THEN "TEST" ELSE "" ENDI...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="TextInput:" type="String" />
+            <Field name="url" size="2147483647" source="Formula: &quot;https://www.reuters.com/finance/stocks/financial-highlights/&quot; + [Symbol]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Test" size="1073741823" source="Formula: IF Contains([DownloadData],&quot;Revenue &amp; Earnings&quot;) THEN &quot;TEST&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="22">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="652" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>!IsEmpty([Test])</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>IsNotEmpty</Operator>
+            <Field>Test</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-01-17 21:08:42</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2019-01-17 21:08:42</StartDate>
+              <EndDate>2019-01-17 21:08:42</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>!IsEmpty([Test])</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="TextInput:" type="String" />
+            <Field name="url" size="2147483647" source="Formula: &quot;https://www.reuters.com/finance/stocks/financial-highlights/&quot; + [Symbol]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Test" size="1073741823" source="Formula: IF Contains([DownloadData],&quot;Revenue &amp; Earnings&quot;) THEN &quot;TEST&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="TextInput:" type="String" />
+            <Field name="url" size="2147483647" source="Formula: &quot;https://www.reuters.com/finance/stocks/financial-highlights/&quot; + [Symbol]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Download" type="V_String" />
+            <Field name="Test" size="1073741823" source="Formula: IF Contains([DownloadData],&quot;Revenue &amp; Earnings&quot;) THEN &quot;TEST&quot; ELSE &quot;&quot; ENDIF" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="25">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="850" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&#xA;REGEX_Replace([DownloadData],'&lt;/tr&gt;','|')" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="&#xA;REGEX_Replace([DownloadData],'&lt;/td&gt;','|')" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData], &quot;&amp;nbsp;&quot;,&quot; &quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot;/th&gt; ~ P/E Ratio (TTM)&quot;, &quot;| ~ P/E Ratio (TTM)&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot;/th&gt; &quot;,&quot;|&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot; ~   Note: Units in Millions of US Dollarsdiv class='moreLink'&gt; &amp;#187; View Financial Statements/div&gt;   &quot;,&quot;&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot;&lt;div class='footnote'&gt;Note:: Rank is a percentile that ranges from 0 to 99, with 99 = best./div&gt; &lt;div class='module'&gt; &lt;div class='moduleHeader'&gt; &lt;h3&gt; &lt;a href='/finance/stocks/companyNews?symbol=WGO' &gt; Winnebago Industries Inc News&lt;div class='moduleBody'&gt; &lt;div class='moreLink'&gt; &lt;a href='/finance/stocks/companyNews?symbol=WGO'&gt;&amp;#187; More WGO News/div&gt;&lt;script&gt; var topStoryGrid = $(&quot;,&quot;&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData],&quot;#topStory').find('.grid8'); if (topStoryGrid.hasClass('grid8')) { if ($('#latestHeadlines')) { $('#latestHeadlines').remove(); } }; &lt;div class='module'&gt; &lt;div class='moduleHeader'&gt; &lt;h3&gt;&quot;, &quot;&quot;)" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="Replace([DownloadData], &quot; /div&gt;&quot;,'')" field="DownloadData" size="1073741823" type="V_WString" />
+            <FormulaField expression="//will remove all but /td and /tr&#xA;REGEX_Replace([DownloadData],'&lt;[t][^&gt;]*&gt;\W{0,1}|&lt;\/[^t][^&gt;]*&gt;\W{0,1}|Null&gt;','') &#xA;" field="DownloadData" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DownloadData = 
+REGEX_Replace([DownloadData],'&lt;/tr&gt;','|')
+DownloadData = 
+REGEX_...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: //will remove all but /td and /tr&#xA;REGEX_Replace([DownloadData],'&lt;[t][^&gt;]*&gt;\W{0,1}|&lt;\/[^t][^&gt;]*&gt;\W{0,1}|Null&gt;','') &#xA;" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Test" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="26">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="925" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>DownloadData</Field>
+          <Delimeters value="|" />
+          <NumFields value="1" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="TextToColumns: Parsed from DownloadData" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Test" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="35">
+      <GuiSettings>
+        <Position x="751" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="List Box (11)">"url","DownloadData","DownloadHeaders","Test"</Value>
+          <Value name="Check Box (84)">True</Value>
+          <Value name="Check Box (117)">True</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">True</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output26">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Test" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="38">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1123" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="True" />
+          <UpdateField_Name>Test</UpdateField_Name>
+          <CreateField_Name>New Field</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="3" />
+          <Expression><![CDATA[IF Contains([Row-1:DownloadData],"EPS - 5 Yr. Growth Rate") THEN "FILTER" ELSE [Test] ENDIF ]]></Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF Contains([Row-1:DownloadData],"EPS - 5 Yr. Growth Rate") T...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1321" y="68" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Test] = "FILTER"</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Test</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-01-27 19:00:42</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>FILTER</Operand>
+              <StartDate>2019-01-27 19:00:42</StartDate>
+              <EndDate>2019-01-27 19:00:42</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Test] = "FILTER"</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EPS" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EPS" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="156" y="69" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;https://www.reuters.com/finance/stocks/financial-highlights/&quot; + [Symbol]" field="url" size="2147483647" type="V_String" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[url = "https://www.reuters.com/finance/stocks/financial-highlights/" + [Symbol]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="TextInput:" type="String" />
+            <Field name="url" size="2147483647" source="Formula: &quot;https://www.reuters.com/finance/stocks/financial-highlights/&quot; + [Symbol]" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1420" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber([EPS])" field="EPS_GR" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[EPS_GR = ToNumber([EPS])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EPS" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+            <Field name="EPS_GR" source="Formula: ToNumber([EPS])" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1519" y="55" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="SALES_GR" selected="False" />
+            <SelectField field="url" selected="False" />
+            <SelectField field="DownloadData" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="Test" selected="False" />
+            <SelectField field="EPS" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="EPS_GR" source="Formula: ToNumber([EPS])" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxGuiToolkit.Questions.Tab.Tab">
+        <Position x="0" y="0" width="59" height="59" />
+      </GuiSettings>
+      <Properties>
+        <Configuration />
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+    </Node>
+    <Node ToolID="45">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroOutput.MacroOutput">
+        <Position x="1835" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Name>Output45</Name>
+          <Abbrev />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroOutput" />
+    </Node>
+    <Node ToolID="46">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MacroInput.MacroInput">
+        <Position x="54" y="67" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UseFileInput value="False" />
+          <Name>Input46</Name>
+          <Abbrev />
+          <ShowFieldMap value="False" />
+          <Optional value="False" />
+          <TextInput>
+            <Configuration>
+              <NumRows value="3" />
+              <Fields>
+                <Field name="Symbol" />
+              </Fields>
+              <Data>
+                <r>
+                  <c>WGO</c>
+                </r>
+                <r>
+                  <c>ATHM</c>
+                </r>
+                <r>
+                  <c>DXC</c>
+                </r>
+              </Data>
+            </Configuration>
+          </TextInput>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name>Text Input (41)</Name>
+          <DefaultAnnotationText />
+          <Left value="True" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="TextInput:" type="String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMacroInput" />
+    </Node>
+    <Node ToolID="47">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1222" y="66" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name />
+          <CreateField_Name>EPS</CreateField_Name>
+          <CreateField_Type>V_String</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="2" />
+          <Expression>IF [Test] = "FILTER" THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [Test] = "FILTER" THEN COALESCE([DownloadData],[Row+1:Down...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;EPS - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EPS" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="48">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1018" y="69" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" field="DownloadData" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>DownloadData = IF Contains(Left([DownloadData],5), " -") 
+THEN Null() 
+ELSE [Dow...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="Test" size="1073741823" source="Formula: [_CurrentField_]" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="49">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1121" y="229" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="True" />
+          <UpdateField_Name>Test</UpdateField_Name>
+          <CreateField_Name>New Field</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="3" />
+          <Expression><![CDATA[IF Contains([Row-1:DownloadData],"Sales - 5 Yr. Growth Rate") THEN "FILTER" ELSE [Test] ENDIF ]]></Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF Contains([Row-1:DownloadData],"Sales - 5 Yr. Growth Rate")...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="50">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1319" y="229" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Test] = FILTER</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Test</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-01-27 19:00:42</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>FILTER</Operand>
+              <StartDate>2019-01-27 19:00:42</StartDate>
+              <EndDate>2019-01-27 19:00:42</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Test] = FILTER</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="SALES" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="SALES" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="51">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1418" y="216" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber([SALES])" field="SALES_GR" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[SALES_GR = ToNumber([SALES])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="SALES" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+            <Field name="SALES_GR" source="Formula: ToNumber([SALES])" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="52">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1517" y="216" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="EPS_GR" selected="False" />
+            <SelectField field="url" selected="False" />
+            <SelectField field="DownloadData" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="Test" selected="False" />
+            <SelectField field="SALES" selected="False" />
+            <SelectField field="EPS" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="SALES_GR" source="Formula: ToNumber([SALES])" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="53">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1220" y="227" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name />
+          <CreateField_Name>SALES</CreateField_Name>
+          <CreateField_Type>V_String</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="2" />
+          <Expression>IF [Test] = "FILTER" THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [Test] = "FILTER" THEN COALESCE([DownloadData],[Row+1:Down...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Sales - 5 Yr. Growth Rate&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="SALES" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="54">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1118" y="373" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="True" />
+          <UpdateField_Name>Test</UpdateField_Name>
+          <CreateField_Name>New Field</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="3" />
+          <Expression><![CDATA[IF Contains([Row-1:DownloadData],"Return on Investment - 5 Yr. Avg") THEN "FILTER" ELSE [Test] ENDIF ]]></Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF Contains([Row-1:DownloadData],"Return on Investment - 5 Yr...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="55">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1316" y="373" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Test] = FILTER</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Test</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-01-27 19:00:42</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>FILTER</Operand>
+              <StartDate>2019-01-27 19:00:42</StartDate>
+              <EndDate>2019-01-27 19:00:42</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Test] = FILTER</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="ROIC" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="ROIC" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="56">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1415" y="360" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber([ROIC])" field="ROIC_GR" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[ROIC_GR = ToNumber([ROIC])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="ROIC" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+            <Field name="ROIC_GR" source="Formula: ToNumber([ROIC])" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="57">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1514" y="360" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="EPS_GR" selected="False" />
+            <SelectField field="url" selected="False" />
+            <SelectField field="DownloadData" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="Test" selected="False" />
+            <SelectField field="SALES" selected="False" />
+            <SelectField field="EPS" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="ROIC" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+            <Field name="ROIC_GR" source="Formula: ToNumber([ROIC])" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="58">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1217" y="371" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name />
+          <CreateField_Name>ROIC</CreateField_Name>
+          <CreateField_Type>V_String</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="2" />
+          <Expression>IF [Test] = "FILTER" THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [Test] = "FILTER" THEN COALESCE([DownloadData],[Row+1:Down...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Investment - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="ROIC" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="59">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1125" y="528" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="True" />
+          <UpdateField_Name>Test</UpdateField_Name>
+          <CreateField_Name>EQUITY</CreateField_Name>
+          <CreateField_Type>Int32</CreateField_Type>
+          <CreateField_Size>4</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="3" />
+          <Expression><![CDATA[IF Contains([Row-1:DownloadData],"Return on Equity - 5 Yr. Avg") THEN "FILTER" ELSE [Test] ENDIF ]]></Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF Contains([Row-1:DownloadData],"Return on Equity - 5 Yr. Av...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="60">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="1323" y="528" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[Test] = FILTER</Expression>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>Test</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2019-01-27 19:00:42</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>FILTER</Operand>
+              <StartDate>2019-01-27 19:00:42</StartDate>
+              <EndDate>2019-01-27 19:00:42</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[Test] = FILTER</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="True">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EQUITY" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+        <MetaInfo connection="False">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EQUITY" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="61">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="1422" y="515" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="ToNumber([EQUITY])" field="EQUITY_GR" size="8" type="Double" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[EQUITY_GR = ToNumber([EQUITY])
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EQUITY" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+            <Field name="EQUITY_GR" source="Formula: ToNumber([EQUITY])" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="62">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="1521" y="515" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="EPS_GR" selected="False" />
+            <SelectField field="url" selected="False" />
+            <SelectField field="DownloadData" selected="False" />
+            <SelectField field="DownloadHeaders" selected="False" />
+            <SelectField field="Test" selected="False" />
+            <SelectField field="SALES" selected="False" />
+            <SelectField field="EPS" selected="False" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EQUITY" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+            <Field name="EQUITY_GR" source="Formula: ToNumber([EQUITY])" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="63">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.MultiRowFormula.MultiRowFormula">
+        <Position x="1224" y="526" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UpdateField value="False" />
+          <UpdateField_Name />
+          <CreateField_Name>EQUITY</CreateField_Name>
+          <CreateField_Type>V_String</CreateField_Type>
+          <CreateField_Size>8</CreateField_Size>
+          <OtherRows>Empty</OtherRows>
+          <NumRows value="2" />
+          <Expression>IF [Test] = "FILTER" THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF</Expression>
+          <GroupByFields />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>IF [Test] = "FILTER" THEN COALESCE([DownloadData],[Row+1:Down...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="url" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from DownloadData" name="DownloadData" size="1073741823" source="Formula: IF Contains(Left([DownloadData],5), &quot; -&quot;) &#xA;THEN Null() &#xA;ELSE [DownloadData] &#xA;ENDIF" type="V_WString" />
+            <Field name="DownloadHeaders" size="2147483647" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " name="Test" size="1073741823" source="Formula: IF Contains([Row-1:DownloadData],&quot;Return on Equity - 5 Yr. Avg&quot;) THEN &quot;FILTER&quot; ELSE [Test] ENDIF " type="V_WString" />
+            <Field description="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" name="EQUITY" size="8" source="Formula: IF [Test] = &quot;FILTER&quot; THEN COALESCE([DownloadData],[Row+1:DownloadData],[Row+2:DownloadData]) ELSE 0 ENDIF" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxMultiRowFormula" />
+    </Node>
+    <Node ToolID="64">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JoinMultiple.JoinMultiple">
+        <Position x="1655" y="56" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JoinByRecPos value="False" />
+          <JoinFields>
+            <JoinInfo connection="#1">
+              <Field field="Symbol" />
+            </JoinInfo>
+            <JoinInfo connection="#2">
+              <Field field="Symbol" />
+            </JoinInfo>
+            <JoinInfo connection="#3">
+              <Field field="Symbol" />
+            </JoinInfo>
+            <JoinInfo connection="#4">
+              <Field field="Symbol" />
+            </JoinInfo>
+          </JoinFields>
+          <CartesianMode>Error</CartesianMode>
+          <OutputJoinOnly value="False" />
+          <SelectConfiguration>
+            <Configuration outputConnection="Output">
+              <OrderChanged value="False" />
+              <CommaDecimal value="False" />
+              <SelectFields>
+                <SelectField field="Input_#2_Symbol" selected="False" rename="Input_#2_Symbol" />
+                <SelectField field="Input_#3_Symbol" selected="False" rename="Input_#3_Symbol" />
+                <SelectField field="Input_#3_ROIC" selected="False" />
+                <SelectField field="Input_#4_Symbol" selected="False" rename="Input_#4_Symbol" />
+                <SelectField field="Input_#4_EQUITY" selected="False" />
+                <SelectField field="Input_#1_ROIC_GR" selected="False" />
+                <SelectField field="Input_#1_EQUITY_GR" selected="False" />
+                <SelectField field="Input_#2_ROIC_GR" selected="False" rename="Input_#2_ROIC_GR" />
+                <SelectField field="Input_#2_EQUITY_GR" selected="False" rename="Input_#2_EQUITY_GR" />
+                <SelectField field="Input_#3_SALES_GR" selected="False" rename="Input_#3_SALES_GR" />
+                <SelectField field="Input_#3_EQUITY_GR" selected="False" rename="Input_#3_EQUITY_GR" />
+                <SelectField field="Input_#4_SALES_GR" selected="False" rename="Input_#4_SALES_GR" />
+                <SelectField field="Input_#4_ROIC_GR" selected="False" rename="Input_#4_ROIC_GR" />
+                <SelectField field="*Unknown" selected="True" />
+              </SelectFields>
+            </Configuration>
+          </SelectConfiguration>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Symbol" size="4" source="Formula: [_CurrentField_]" type="String" />
+            <Field name="EPS_GR" source="Formula: ToNumber([EPS])" type="Double" />
+            <Field name="SALES_GR" source="Formula: ToNumber([SALES])" type="Double" />
+            <Field name="ROIC_GR" source="Formula: ToNumber([ROIC])" type="Double" />
+            <Field name="EQUITY_GR" source="Formula: ToNumber([EQUITY])" type="Double" />
+          </RecordInfo>
+          <SortInfo>
+            <Field field="Symbol" order="" />
+          </SortInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoinMultiple" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="2" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="20" Connection="Output" />
+      <Destination ToolID="22" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="22" Connection="True" />
+      <Destination ToolID="35" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="25" Connection="Output" />
+      <Destination ToolID="26" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="26" Connection="Output" />
+      <Destination ToolID="48" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="35" Connection="Output26" />
+      <Destination ToolID="25" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="38" Connection="Output" />
+      <Destination ToolID="47" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="True" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
+      <Destination ToolID="2" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
+    </Connection>
+    <Connection name="#1">
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection name="#2">
+      <Origin ToolID="52" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection name="#3">
+      <Origin ToolID="57" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection name="#4">
+      <Origin ToolID="62" Connection="Output" />
+      <Destination ToolID="64" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="46" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="47" Connection="Output" />
+      <Destination ToolID="39" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="49" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="54" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="48" Connection="Output" />
+      <Destination ToolID="59" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="49" Connection="Output" />
+      <Destination ToolID="53" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="50" Connection="True" />
+      <Destination ToolID="51" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="51" Connection="Output" />
+      <Destination ToolID="52" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="53" Connection="Output" />
+      <Destination ToolID="50" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="54" Connection="Output" />
+      <Destination ToolID="58" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="55" Connection="True" />
+      <Destination ToolID="56" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="56" Connection="Output" />
+      <Destination ToolID="57" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="58" Connection="Output" />
+      <Destination ToolID="55" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="59" Connection="Output" />
+      <Destination ToolID="63" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="60" Connection="True" />
+      <Destination ToolID="61" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="61" Connection="Output" />
+      <Destination ToolID="62" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="63" Connection="Output" />
+      <Destination ToolID="60" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="64" Connection="Output" />
+      <Destination ToolID="45" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <Constants>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Output (45)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+      <Constant>
+        <Namespace>Question</Namespace>
+        <Name>Macro Input (46)</Name>
+        <Value />
+        <IsNumeric value="False" />
+      </Constant>
+    </Constants>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>5YR_EPS_GR</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+    <RuntimeProperties>
+      <Actions />
+      <Questions>
+        <Question>
+          <Type>Tab</Type>
+          <Description>Questions</Description>
+          <Name>Tab (44)</Name>
+          <ToolId value="44" />
+          <Questions>
+            <Question>
+              <Type>MacroOutput</Type>
+              <Description>Macro Output (45)</Description>
+              <Name>Macro Output (45)</Name>
+              <ToolId value="45" />
+            </Question>
+            <Question>
+              <Type>MacroInput</Type>
+              <Description>Macro Input (46)</Description>
+              <Name>Macro Input (46)</Name>
+              <ToolId value="46" />
+            </Question>
+          </Questions>
+        </Question>
+      </Questions>
+      <ModuleType>Macro</ModuleType>
+      <MacroCustomHelp value="False" />
+      <MacroDynamicOutputFields value="False" />
+      <MacroImage>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</MacroImage>
+      <MacroInputs />
+      <MacroOutputs />
+      <Wiz_CustomHelp value="False" />
+      <Wiz_CustomGraphic value="False" />
+      <Wiz_ShowOutput value="True" />
+      <Wiz_OpenOutputTools>
+        <Tool ToolId="35" Selected="True" />
+        <Tool ToolId="45" Selected="True" />
+        <Tool ToolId="46" Selected="True" />
+      </Wiz_OpenOutputTools>
+      <Wiz_OutputMessage />
+      <Wiz_NoOutputFilesMessage />
+      <Wiz_ChainRunWizard />
+    </RuntimeProperties>
+  </Properties>
+</AlteryxDocument>
