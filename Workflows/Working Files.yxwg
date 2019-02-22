@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<documents>
+  <document file=".\1_Full_Stock_Pull.yxmd" />
+  <document file=".\2_Sticker_Price.yxmd" />
+  <document file=".\3_Trade Risk and Sizing.yxmd" />
+  <document file=".\4_TD Account Summary.yxmd" />
+</documents>
