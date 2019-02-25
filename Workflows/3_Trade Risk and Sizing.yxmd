@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="69" />
+        <Position x="54" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -35,7 +35,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="253" y="69" />
+        <Position x="253" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -57,7 +57,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
-        <Position x="450" y="69" />
+        <Position x="450" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -106,7 +106,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-        <Position x="351" y="69" />
+        <Position x="351" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -124,7 +124,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="365" y="166" />
+        <Position x="365" y="177" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -148,7 +148,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="549" y="69" />
+        <Position x="549" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -174,7 +174,7 @@
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="743" y="69" />
+        <Position x="882" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -200,7 +200,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="60" y="166" />
+        <Position x="63" y="179" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -234,7 +234,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="161" y="69" />
+        <Position x="161" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -258,7 +258,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="653" y="69" />
+        <Position x="783" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -289,7 +289,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="870" y="68" />
+        <Position x="981" y="79" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -321,11 +321,11 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1079.3" y="43" />
+        <Position x="1179" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_700_207ba3d5959d4ee39dbf49238a814448_\Engine_10196_7bf7753dc8aa4557afc6c99bff3614e2_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21356_2399bc9d5aee4a25b86bfe1b818949a2_\Engine_24408_09a0b06a66ca40229e6099c19ade7820_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -349,11 +349,11 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="970.3" y="109.3" />
+        <Position x="1080" y="120.3" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_700_207ba3d5959d4ee39dbf49238a814448_\Engine_10196_b607de4a4b1f4fc8a0b53e817545e4dc_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21356_2399bc9d5aee4a25b86bfe1b818949a2_\Engine_24408_2e1ff1a094a24c848f3f12ba9d8a360d_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -377,7 +377,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-        <Position x="956" y="43" />
+        <Position x="1080" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -392,6 +392,27 @@ ELSE [Avg Pr...</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="664" y="81" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace(Replace([P/L Open], '&quot;', &quot;&quot;), ',', &quot;&quot;)" field="P/L Open" size="254" type="V_WString" />
+            <FormulaField expression="Replace(Replace([Net Liq], '&quot;', &quot;&quot;), ',', &quot;&quot;)" field="Net Liq" size="254" type="V_WString" />
+            <FormulaField expression="Replace(Replace([Pos Qty], '&quot;', &quot;&quot;), ',', &quot;&quot;)" field="Pos Qty" size="254" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>P/L Open = Replace(Replace([P/L Open], '"', ""), ',', "")
+Net Liq = Replace(Repl...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -421,7 +442,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
-      <Destination ToolID="14" Connection="Input" />
+      <Destination ToolID="19" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="9" Connection="Output" />
@@ -446,6 +467,10 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="18" Connection="Output" />
       <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

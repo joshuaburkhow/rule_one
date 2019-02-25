@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="2">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="54" />
+        <Position x="54" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -35,7 +35,7 @@
     </Node>
     <Node ToolID="4">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
-        <Position x="253" y="54" />
+        <Position x="253" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -57,7 +57,7 @@
     </Node>
     <Node ToolID="5">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
-        <Position x="450" y="54" />
+        <Position x="450" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -106,7 +106,7 @@
     </Node>
     <Node ToolID="6">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Sample.Sample">
-        <Position x="351" y="54" />
+        <Position x="351" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -124,7 +124,7 @@
     </Node>
     <Node ToolID="7">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="365" y="151" />
+        <Position x="365" y="177" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -148,7 +148,7 @@
     </Node>
     <Node ToolID="8">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-        <Position x="549" y="54" />
+        <Position x="549" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -158,6 +158,7 @@
               <OrderChanged value="False" />
               <CommaDecimal value="False" />
               <SelectFields>
+                <SelectField field="Target_Symbol,Description,Last,P/L %,P/L Open,%Change,Net Chng,Net Liq,Pos Qty,Avg Price" selected="False" input="Target_" />
                 <SelectField field="*Unknown" selected="True" />
               </SelectFields>
             </Configuration>
@@ -173,7 +174,7 @@
     </Node>
     <Node ToolID="9">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-        <Position x="743" y="54" />
+        <Position x="882" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -199,7 +200,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="60" y="151" />
+        <Position x="63" y="179" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -233,7 +234,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="13">
       <GuiSettings Plugin="AlteryxBasePluginsGui.FindReplace.FindReplace">
-        <Position x="161" y="54" />
+        <Position x="161" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -257,14 +258,13 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="653" y="54" />
+        <Position x="783" y="80" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
-            <SelectField field="Symbol,Description,Last,P/L %,P/L Open,%Change,Net Chng,Net Liq,Pos Qty,Avg Price" selected="False" />
             <SelectField field="Symbol" selected="True" />
             <SelectField field="Pos Qty" selected="True" type="Double" size="8" />
             <SelectField field="Portfolio Risk" selected="True" />
@@ -289,7 +289,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="870" y="53" />
+        <Position x="981" y="79" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -321,11 +321,11 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="1002" y="39" />
+        <Position x="1179" y="54" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21700_ac32df751f5d4bd3897ca55ea81d188c_\Engine_18372_74c663a557e54552bde81313b7d25e79_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21356_0fa8b0f207744d9696a226254f57a758_\Engine_24408_b63ed20932144878a4abe557900ab147_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -346,6 +346,73 @@ ELSE [Avg Pr...</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
+        <Position x="1080" y="120.3" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_21356_0fa8b0f207744d9696a226254f57a758_\Engine_24408_0c10d4ecf8eb4ea1bfcb79230ae40184_.yxdb</TempFile>
+          <TempFileDataProfiling />
+          <Layout>
+            <ViewMode>Single</ViewMode>
+            <ViewSize value="100" />
+            <View1>
+              <DefaultTab>Profile</DefaultTab>
+              <Hints>
+                <Table />
+              </Hints>
+            </View1>
+            <View2 />
+          </Layout>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="1080" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="Size Gap" order="Ascending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Size Gap - Ascending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="664" y="81" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="Replace(Replace([P/L Open], '&quot;', &quot;&quot;), ',', &quot;&quot;)" field="P/L Open" size="254" type="V_WString" />
+            <FormulaField expression="Replace(Replace([Net Liq], '&quot;', &quot;&quot;), ',', &quot;&quot;)" field="Net Liq" size="254" type="V_WString" />
+            <FormulaField expression="Replace(Replace([Pos Qty], '&quot;', &quot;&quot;), ',', &quot;&quot;)" field="Pos Qty" size="254" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>P/L Open = Replace(Replace([P/L Open], '"', ""), ',', "")
+Net Liq = Replace(Repl...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -375,7 +442,7 @@ ELSE [Avg Pr...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="8" Connection="Output" />
-      <Destination ToolID="14" Connection="Input" />
+      <Destination ToolID="19" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="9" Connection="Output" />
@@ -390,8 +457,20 @@ ELSE [Avg Pr...</DefaultAnnotationText>
       <Destination ToolID="9" Connection="Input" />
     </Connection>
     <Connection>
+      <Origin ToolID="15" Connection="False" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
       <Origin ToolID="15" Connection="True" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
       <Destination ToolID="16" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="Output" />
+      <Destination ToolID="14" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
