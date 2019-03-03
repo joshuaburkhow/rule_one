@@ -230,19 +230,22 @@
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Value name="Radio Button (38)">True</Value>
+          <Value name="Radio Button (38)">False</Value>
           <Value name="Drop Down (14)">Symbol</Value>
           <Value name="Drop Down (15)">Symbol</Value>
           <Value name="Drop Down (13)">A and B (inner join)</Value>
           <Value name="Text Box (35)" />
-          <Value name="Radio Button (39)">False</Value>
-          <Value name="Text Box (40)" />
+          <Value name="Radio Button (39)">True</Value>
+          <Value name="Text Box (40)">[Symbol] = [Input_#2_Symbol]</Value>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText />
           <Left value="False" />
         </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
       </Properties>
       <EngineSettings Macro="Advanced Join.yxmc" />
     </Node>
@@ -317,6 +320,7 @@
             <SelectField field="Input_#2_Price" selected="True" rename="Sell Price" type="Double" size="8" />
             <SelectField field="Input_#2_Net Price" selected="False" />
             <SelectField field="Input_#2_Order Type" selected="False" />
+            <SelectField field="Input_#2_Symbol" selected="True" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -336,13 +340,13 @@
         <Configuration>
           <IsFrom value="False" />
           <InputFieldName>Exec Time</InputFieldName>
-          <Format>MM/dd/yy hh:mm:ss</Format>
+          <Format>MM/dd/yyyy hh:mm:ss</Format>
           <OutputFieldName>Buy DateTime</OutputFieldName>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
           <DefaultAnnotationText>Convert Exec Time From:
-MM/dd/yy hh:mm:ss</DefaultAnnotationText>
+MM/dd/yyyy hh:mm:ss</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -496,11 +500,11 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="502.3" y="399" />
+        <Position x="510.3" y="483" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_18560_a3e4918df0994c7586e52df77eb1b75b_\Engine_24408_7dda0e20c3554906a6c45ae8cc6f6e36_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_1280_a7a415a4533a4576a43307ba4ca454b2_\Engine_7312_344d3978fa604e06ab18945f30849ada_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -528,7 +532,7 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_18560_a3e4918df0994c7586e52df77eb1b75b_\Engine_24408_93f9f37a082f44ad9e2229aa95259c59_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_1280_a7a415a4533a4576a43307ba4ca454b2_\Engine_7312_ce373a645b52449b871e607bc4117d18_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -549,6 +553,25 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="307" y="481" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="([Sell Price]-[Price])/[Price]*100" field="% Gain / Loss" size="19.1" type="FixedDecimal" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[% Gain / Loss = ([Sell Price]-[Price])/[Price]*100
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -622,7 +645,7 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
-      <Destination ToolID="37" Connection="Input" />
+      <Destination ToolID="39" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="35" Connection="Output" />
@@ -631,6 +654,10 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="36" Connection="Output" />
       <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

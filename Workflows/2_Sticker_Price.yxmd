@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="138">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
-        <Position x="54" y="207.0011" />
+        <Position x="54" y="207.0012" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -31,7 +31,7 @@
     </Node>
     <Node ToolID="104">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="256.7999" y="53.99992" width="2128.2" height="398.0001" />
+        <Position x="256.7998" y="54.00008" width="2187.2" height="397.9999" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -49,7 +49,7 @@
       <ChildNodes>
         <Node ToolID="45">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
-            <Position x="470.7999" y="321.0009" />
+            <Position x="470.8" y="321.0009" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -100,7 +100,7 @@
         </Node>
         <Node ToolID="47">
           <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-            <Position x="569.8" y="321.0016" />
+            <Position x="569.8" y="321.0018" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -140,7 +140,7 @@
         </Node>
         <Node ToolID="49">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="767.7999" y="321.0007" />
+            <Position x="767.7999" y="321.0008" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -159,7 +159,7 @@
         </Node>
         <Node ToolID="50">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Tile.Tile">
-            <Position x="371.8" y="321.0007" />
+            <Position x="371.7999" y="321.001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -181,7 +181,7 @@
         </Node>
         <Node ToolID="52">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="668.7999" y="321.0005" />
+            <Position x="668.7999" y="321.0007" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -205,7 +205,7 @@
         </Node>
         <Node ToolID="54">
           <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
-            <Position x="866.7999" y="321.0004" />
+            <Position x="866.7999" y="321.0005" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -256,7 +256,7 @@
         </Node>
         <Node ToolID="55">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
-            <Position x="965.8" y="332.0007" />
+            <Position x="965.8" y="332.0008" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -329,7 +329,7 @@
         </Node>
         <Node ToolID="56">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-            <Position x="1352.8" y="103.0008" />
+            <Position x="1352.8" y="103.0009" />
           </GuiSettings>
           <Properties>
             <Configuration joinByRecordPos="False">
@@ -375,7 +375,7 @@
         </Node>
         <Node ToolID="58">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
-            <Position x="1597.8" y="143.0008" />
+            <Position x="1597.8" y="143.0009" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -435,7 +435,7 @@
         </Node>
         <Node ToolID="59">
           <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-            <Position x="1471.8" y="103.0008" />
+            <Position x="1471.8" y="103.0009" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -455,7 +455,7 @@
         </Node>
         <Node ToolID="60">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="1700.8" y="143.0008" />
+            <Position x="1700.8" y="143.0009" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -485,7 +485,7 @@
         </Node>
         <Node ToolID="61">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-            <Position x="1837.8" y="115.0008" />
+            <Position x="1837.8" y="115.0009" />
           </GuiSettings>
           <Properties>
             <Configuration joinByRecordPos="False">
@@ -560,7 +560,7 @@
         </Node>
         <Node ToolID="62">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-            <Position x="1988.8" y="115.0008" />
+            <Position x="1988.8" y="115.0009" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -578,7 +578,7 @@
         </Node>
         <Node ToolID="4">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="877.7999" y="103.0007" />
+            <Position x="877.7999" y="103.0009" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -601,7 +601,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="7">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="995.8" y="103.0007" />
+            <Position x="995.8" y="103.0008" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -756,7 +756,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="20">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AutoField.AutoField">
-            <Position x="520.8" y="102.9999" />
+            <Position x="520.8" y="103.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -865,7 +865,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
                 <Field name="consensusEPS" source="CrossTab:Header:Header:consensusEPS:Concat:" type="Double" />
                 <Field name="day5ChangePercent" source="CrossTab:Header:Header:day5ChangePercent:Concat:" type="Double" />
                 <Field name="day30ChangePercent" source="CrossTab:Header:Header:day30ChangePercent:Concat:" type="Double" />
-                <Field name="day50MovingAvg" source="CrossTab:Header:Header:day50MovingAvg:Concat:" type="Double" />
+                <Field name="day50MovingAvg" size="6" source="CrossTab:Header:Header:day50MovingAvg:Concat:" type="String" />
                 <Field name="day200MovingAvg" size="6" source="CrossTab:Header:Header:day200MovingAvg:Concat:" type="String" />
                 <Field name="debt" source="CrossTab:Header:Header:debt:Concat:" type="Double" />
                 <Field name="dividendRate" source="CrossTab:Header:Header:dividendRate:Concat:" type="Double" />
@@ -886,7 +886,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
                 <Field name="numberOfEstimates" source="CrossTab:Header:Header:numberOfEstimates:Concat:" type="Double" />
                 <Field name="peRatioHigh" source="CrossTab:Header:Header:peRatioHigh:Concat:" type="Double" />
                 <Field name="peRatioLow" source="CrossTab:Header:Header:peRatioLow:Concat:" type="Double" />
-                <Field name="priceToBook" size="5" source="CrossTab:Header:Header:priceToBook:Concat:" type="String" />
+                <Field name="priceToBook" size="7" source="CrossTab:Header:Header:priceToBook:Concat:" type="String" />
                 <Field name="priceToSales" size="6" source="CrossTab:Header:Header:priceToSales:Concat:" type="String" />
                 <Field name="profitMargin" size="6" source="CrossTab:Header:Header:profitMargin:Concat:" type="String" />
                 <Field name="returnOnAssets" size="7" source="CrossTab:Header:Header:returnOnAssets:Concat:" type="String" />
@@ -894,7 +894,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
                 <Field name="returnOnEquity" size="7" source="CrossTab:Header:Header:returnOnEquity:Concat:" type="String" />
                 <Field name="revenue" source="CrossTab:Header:Header:revenue:Concat:" type="Double" />
                 <Field name="revenuePerEmployee" size="4" source="CrossTab:Header:Header:revenuePerEmployee:Concat:" type="String" />
-                <Field name="revenuePerShare" source="CrossTab:Header:Header:revenuePerShare:Concat:" type="Double" />
+                <Field name="revenuePerShare" size="4" source="CrossTab:Header:Header:revenuePerShare:Concat:" type="String" />
                 <Field name="sharesOutstanding" source="CrossTab:Header:Header:sharesOutstanding:Concat:" type="Double" />
                 <Field name="shortDate" size="10" source="CrossTab:Header:Header:shortDate:Concat:" type="String" />
                 <Field name="shortInterest" source="CrossTab:Header:Header:shortInterest:Concat:" type="Double" />
@@ -913,7 +913,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
                 <Field name="SALES_GR" source="Formula: ToNumber([SALES])" type="Double" />
                 <Field name="ROIC_GR" source="Formula: ToNumber([ROIC])" type="Double" />
                 <Field name="EQUITY_GR" source="Formula: ToNumber([EQUITY])" type="Double" />
-                <Field name="sector" size="18" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
+                <Field name="sector" size="22" source="CrossTab:Header:Header:sector:Concat:" type="V_String" />
                 <Field name="delayedPrice" source="CrossTab:Header:Header:delayedPrice:Concat:" type="Double" />
                 <Field name="delayedPriceTime" source="CrossTab:Header:Header:delayedPriceTime:Concat:" type="Double" />
                 <Field name="high" size="6" source="CrossTab:Header:Header:high:Concat:" type="String" />
@@ -923,7 +923,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
                 <Field name="close" source="CrossTab:Header:Header:close:Concat:" type="Double" />
                 <Field name="open" source="CrossTab:Header:Header:open:Concat:" type="Double" />
                 <Field name="avgTotalVolume" source="CrossTab:Header:Header:avgTotalVolume:Concat:" type="Double" />
-                <Field name="calculationPrice" size="5" source="CrossTab:Header:Header:calculationPrice:Concat:" type="String" />
+                <Field name="calculationPrice" size="13" source="CrossTab:Header:Header:calculationPrice:Concat:" type="V_String" />
                 <Field name="closeTime" source="CrossTab:Header:Header:closeTime:Concat:" type="Double" />
                 <Field name="extendedChange" source="CrossTab:Header:Header:extendedChange:Concat:" type="Double" />
                 <Field name="extendedChangePercent" source="CrossTab:Header:Header:extendedChangePercent:Concat:" type="Double" />
@@ -939,8 +939,8 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
                 <Field name="iexRealtimeSize" source="CrossTab:Header:Header:iexRealtimeSize:Concat:" type="Double" />
                 <Field name="iexVolume" source="CrossTab:Header:Header:iexVolume:Concat:" type="Double" />
                 <Field name="latestPrice" source="CrossTab:Header:Header:latestPrice:Concat:" type="Double" />
-                <Field name="latestSource" size="5" source="CrossTab:Header:Header:latestSource:Concat:" type="String" />
-                <Field name="latestTime" size="17" source="CrossTab:Header:Header:latestTime:Concat:" type="String" />
+                <Field name="latestSource" size="23" source="CrossTab:Header:Header:latestSource:Concat:" type="String" />
+                <Field name="latestTime" size="17" source="CrossTab:Header:Header:latestTime:Concat:" type="V_String" />
                 <Field name="latestUpdate" source="CrossTab:Header:Header:latestUpdate:Concat:" type="Double" />
                 <Field name="latestVolume" source="CrossTab:Header:Header:latestVolume:Concat:" type="Double" />
                 <Field name="openTime" source="CrossTab:Header:Header:openTime:Concat:" type="Double" />
@@ -956,7 +956,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="22">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="639.7999" y="103.0005" />
+            <Position x="639.7997" y="103.0006" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -975,7 +975,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="23">
           <GuiSettings>
-            <Position x="758.7998" y="103.0007" />
+            <Position x="758.7998" y="103.0009" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -989,7 +989,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="39">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-            <Position x="1114.8" y="103.0007" />
+            <Position x="1114.8" y="103.0008" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1007,7 +1007,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="40">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-            <Position x="1233.8" y="103.0007" />
+            <Position x="1233.8" y="103.0008" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1039,7 +1039,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="100">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="1911.8" y="115.0009" />
+            <Position x="1911.8" y="115.001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1060,7 +1060,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="113">
           <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-            <Position x="2254.6" y="118.2007" />
+            <Position x="2313.6" y="113.2008" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1085,7 +1085,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="122">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AppendFields.AppendFields">
-            <Position x="2087.8" y="119.2005" />
+            <Position x="2087.8" y="119.2006" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1110,7 +1110,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="123">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="1901.6" y="232.2006" />
+            <Position x="1901.6" y="232.2007" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1134,7 +1134,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="124">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
-            <Position x="1986.8" y="231.0005" />
+            <Position x="1986.8" y="231.0006" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1153,7 +1153,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="139">
           <GuiSettings>
-            <Position x="283.8002" y="204.9999" />
+            <Position x="283.8002" y="205.0001" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1223,7 +1223,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="140">
           <GuiSettings>
-            <Position x="282.8" y="103.0004" />
+            <Position x="282.8" y="103.0005" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1303,7 +1303,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="141">
           <GuiSettings>
-            <Position x="281.7999" y="320.0011" />
+            <Position x="281.7998" y="320.0011" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -1353,7 +1353,7 @@ Future_Mkt_Price = to...</DefaultAnnotationText>
         </Node>
         <Node ToolID="142">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
-            <Position x="2169" y="115.0001" />
+            <Position x="2169" y="115.0002" />
           </GuiSettings>
           <Properties>
             <Configuration>

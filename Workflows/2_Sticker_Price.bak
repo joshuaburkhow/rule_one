@@ -296,6 +296,34 @@
               <DefaultAnnotationText />
               <Left value="False" />
             </Annotation>
+            <MetaInfo connection="Output">
+              <RecordInfo>
+                <Field description="Formula: COALESCE([_Null_],[Row-1:Ticker])" name="Ticker" size="5" source="CrossTab:Group:Sum:" type="String" />
+                <Field name="cashChange_4YR_GR" source="CrossTab:Header:Name:cashChange:Sum:" type="Double" />
+                <Field name="cashFlow_4YR_GR" source="CrossTab:Header:Name:cashFlow:Sum:" type="Double" />
+                <Field name="costOfRevenue_4YR_GR" source="CrossTab:Header:Name:costOfRevenue:Sum:" type="Double" />
+                <Field name="currentAssets_4YR_GR" source="CrossTab:Header:Name:currentAssets:Sum:" type="Double" />
+                <Field name="currentCash_4YR_GR" source="CrossTab:Header:Name:currentCash:Sum:" type="Double" />
+                <Field name="currentDebt_4YR_GR" source="CrossTab:Header:Name:currentDebt:Sum:" type="Double" />
+                <Field name="grossProfit_4YR_GR" source="CrossTab:Header:Name:grossProfit:Sum:" type="Double" />
+                <Field name="netIncome_4YR_GR" source="CrossTab:Header:Name:netIncome:Sum:" type="Double" />
+                <Field name="operatingExpense_4YR_GR" source="CrossTab:Header:Name:operatingExpense:Sum:" type="Double" />
+                <Field name="operatingGainsLosses_4YR_GR" source="CrossTab:Header:Name:operatingGainsLosses:Sum:" type="Double" />
+                <Field name="operatingIncome_4YR_GR" source="CrossTab:Header:Name:operatingIncome:Sum:" type="Double" />
+                <Field name="operatingRevenue_4YR_GR" source="CrossTab:Header:Name:operatingRevenue:Sum:" type="Double" />
+                <Field name="reportDate_4YR_GR" source="CrossTab:Header:Name:reportDate:Sum:" type="Double" />
+                <Field name="researchAndDevelopment_4YR_GR" source="CrossTab:Header:Name:researchAndDevelopment:Sum:" type="Double" />
+                <Field name="shareholderEquity_4YR_GR" source="CrossTab:Header:Name:shareholderEquity:Sum:" type="Double" />
+                <Field name="totalAssets_4YR_GR" source="CrossTab:Header:Name:totalAssets:Sum:" type="Double" />
+                <Field name="totalCash_4YR_GR" source="CrossTab:Header:Name:totalCash:Sum:" type="Double" />
+                <Field name="totalDebt_4YR_GR" source="CrossTab:Header:Name:totalDebt:Sum:" type="Double" />
+                <Field name="totalLiabilities_4YR_GR" source="CrossTab:Header:Name:totalLiabilities:Sum:" type="Double" />
+                <Field name="totalRevenue_4YR_GR" source="CrossTab:Header:Name:totalRevenue:Sum:" type="Double" />
+              </RecordInfo>
+              <SortInfo>
+                <Field field="Ticker" order="Asc" />
+              </SortInfo>
+            </MetaInfo>
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
         </Node>
@@ -323,39 +351,15 @@
                     <SelectField field="Left_SALES_GR" selected="True" input="Left_" />
                     <SelectField field="Left_ROIC_GR" selected="True" input="Left_" />
                     <SelectField field="Left_EQUITY_GR" selected="True" input="Left_" />
-                    <SelectField field="Right_cashFlow_4YR_GR" selected="True" rename="CASHFLOW_GR" input="Right_" />
                     <SelectField field="Left_Future_Mkt_Price" selected="True" input="Left_" />
                     <SelectField field="Left_Sticker_Price" selected="True" input="Left_" />
                     <SelectField field="Left_MOS_Price" selected="True" input="Left_" />
                     <SelectField field="Left_MOS_Diff_Stock_Price" selected="True" input="Left_" />
                     <SelectField field="Left_returnOnEquity" selected="True" input="Left_" />
                     <SelectField field="Left_ttmEPS" selected="True" input="Left_" />
-                    <SelectField field="Left_Right_SALES_GR" selected="False" input="Left_" />
-                    <SelectField field="Left_Right_ROIC_GR" selected="False" input="Left_" />
-                    <SelectField field="Left_Right_EQUITY_GR" selected="False" input="Left_" />
                     <SelectField field="Left_Future_EPS" selected="True" input="Left_" />
                     <SelectField field="Left_PE_Ratio" selected="True" input="Left_" />
-                    <SelectField field="Right_Ticker" selected="False" rename="Right_Ticker" input="Right_" />
-                    <SelectField field="Right_cashChange_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_costOfRevenue_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_currentAssets_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_currentCash_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_currentDebt_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_grossProfit_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_netIncome_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_operatingExpense_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_operatingGainsLosses_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_operatingIncome_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_operatingRevenue_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_researchAndDevelopment_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_shareholderEquity_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_totalAssets_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_totalCash_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_totalDebt_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_totalLiabilities_4YR_GR" selected="True" input="Right_" />
-                    <SelectField field="Right_totalRevenue_4YR_GR" selected="True" input="Right_" />
                     <SelectField field="Left_RecordID" selected="False" input="Left_" />
-                    <SelectField field="Right_RecordID_4YR_GR" selected="False" input="Right_" />
                     <SelectField field="*Unknown" selected="True" />
                   </SelectFields>
                 </Configuration>
@@ -376,8 +380,50 @@
           <Properties>
             <Configuration>
               <ErrorWarn>Warn</ErrorWarn>
-              <KeyFields />
-              <DataFields />
+              <KeyFields>
+                <Field field="RecordID" />
+                <Field field="Ticker" />
+              </KeyFields>
+              <DataFields>
+                <Field field="RecordID" selected="False" />
+                <Field field="Ticker" selected="False" />
+                <Field field="companyName" selected="False" />
+                <Field field="Stock Price" selected="False" />
+                <Field field="EPS_GR" selected="True" />
+                <Field field="SALES_GR" selected="True" />
+                <Field field="ROIC_GR" selected="True" />
+                <Field field="EQUITY_GR" selected="True" />
+                <Field field="Future_Mkt_Price" selected="False" />
+                <Field field="Sticker_Price" selected="False" />
+                <Field field="MOS_Price" selected="False" />
+                <Field field="MOS_Diff_Stock_Price" selected="False" />
+                <Field field="returnOnEquity" selected="False" />
+                <Field field="ttmEPS" selected="False" />
+                <Field field="Future_EPS" selected="False" />
+                <Field field="PE_Ratio" selected="False" />
+                <Field field="Right_Ticker" selected="False" />
+                <Field field="cashChange_4YR_GR" selected="False" />
+                <Field field="cashFlow_4YR_GR" selected="False" />
+                <Field field="costOfRevenue_4YR_GR" selected="False" />
+                <Field field="currentAssets_4YR_GR" selected="False" />
+                <Field field="currentCash_4YR_GR" selected="False" />
+                <Field field="currentDebt_4YR_GR" selected="False" />
+                <Field field="grossProfit_4YR_GR" selected="False" />
+                <Field field="netIncome_4YR_GR" selected="False" />
+                <Field field="operatingExpense_4YR_GR" selected="False" />
+                <Field field="operatingGainsLosses_4YR_GR" selected="False" />
+                <Field field="operatingIncome_4YR_GR" selected="False" />
+                <Field field="operatingRevenue_4YR_GR" selected="False" />
+                <Field field="reportDate_4YR_GR" selected="False" />
+                <Field field="researchAndDevelopment_4YR_GR" selected="False" />
+                <Field field="shareholderEquity_4YR_GR" selected="False" />
+                <Field field="totalAssets_4YR_GR" selected="False" />
+                <Field field="totalCash_4YR_GR" selected="False" />
+                <Field field="totalDebt_4YR_GR" selected="False" />
+                <Field field="totalLiabilities_4YR_GR" selected="False" />
+                <Field field="totalRevenue_4YR_GR" selected="False" />
+                <Field field="*Unknown" selected="False" />
+              </DataFields>
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
@@ -413,7 +459,7 @@
           </GuiSettings>
           <Properties>
             <Configuration>
-              <Expression>[Value] &gt; 19.99</Expression>
+              <Expression>[Value] &gt; "19.99"</Expression>
               <Mode>Simple</Mode>
               <Simple>
                 <Operator>&gt;</Operator>
@@ -431,7 +477,7 @@
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText>[Value] &gt; 19.99</DefaultAnnotationText>
+              <DefaultAnnotationText>[Value] &gt; "19.99"</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
           </Properties>
@@ -496,6 +542,9 @@
                     <SelectField field="Right_CountNull_Value" selected="False" />
                     <SelectField field="Left_RecordID2" selected="False" input="Left_" />
                     <SelectField field="Left_RecordID_4YR_GR" selected="False" input="Left_" />
+                    <SelectField field="Left_Right_Ticker" selected="True" rename="Left_Right_Ticker" input="Left_" />
+                    <SelectField field="Left_cashFlow_4YR_GR" selected="True" input="Left_" />
+                    <SelectField field="Left_reportDate_4YR_GR" selected="True" input="Left_" />
                     <SelectField field="*Unknown" selected="True" />
                   </SelectFields>
                 </Configuration>

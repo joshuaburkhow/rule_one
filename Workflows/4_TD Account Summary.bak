@@ -25,9 +25,6 @@
           <DefaultAnnotationText>AccountStatement.csv</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
         <MetaInfo connection="Output">
           <RecordInfo>
             <Field name="Field_1" size="254" source="File: C:\Users\jburkhow\Google Drive\Documents\GitHub\rule_one\Files\AccountStatement.csv" type="V_WString" />
@@ -499,11 +496,11 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     </Node>
     <Node ToolID="37">
       <GuiSettings Plugin="AlteryxBasePluginsGui.BrowseV2.BrowseV2">
-        <Position x="502.3" y="399" />
+        <Position x="510.3" y="483" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6400_d586cb09f32a43a88361ea6b7307387d_\Engine_10196_c2a51e741095433db23a26c3426b25f3_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6988_14c597a9627d4b2bb6b1ef8a40957106_\Engine_11836_90c3c309e09f4783b0836f0f2726a41b_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -531,7 +528,7 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6400_d586cb09f32a43a88361ea6b7307387d_\Engine_10196_9494cffd86894960a4566d3a202cc34e_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6988_14c597a9627d4b2bb6b1ef8a40957106_\Engine_11836_b23659e3e6ad44a8beb2e5ab5ead48f7_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -552,6 +549,25 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxBrowseV2" />
+    </Node>
+    <Node ToolID="39">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="307" y="481" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="([Sell Price]-[Price])/[Price]*100" field="% Gain / Loss" size="19.1" type="FixedDecimal" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[% Gain / Loss = ([Sell Price]-[Price])/[Price]*100
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
     </Node>
   </Nodes>
   <Connections>
@@ -625,7 +641,7 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
-      <Destination ToolID="37" Connection="Input" />
+      <Destination ToolID="39" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="35" Connection="Output" />
@@ -634,6 +650,10 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     <Connection>
       <Origin ToolID="36" Connection="Output" />
       <Destination ToolID="38" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="37" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>

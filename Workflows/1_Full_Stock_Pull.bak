@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
-<AlteryxDocument yxmdVer="2018.4">
+<AlteryxDocument yxmdVer="2019.1">
   <Nodes>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1147" y="146" />
+        <Position x="1136" y="98" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -20,15 +20,12 @@
           <DefaultAnnotationText>Stocks_GT_20pct.yxdb</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
-        <Dependencies>
-          <Implicit />
-        </Dependencies>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="830" y="146" />
+        <Position x="819" y="98" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -48,7 +45,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1041" y="146" />
+        <Position x="1030" y="98" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -121,7 +118,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
-        <Position x="948.8" y="250.9994" />
+        <Position x="937.8" y="202.9994" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -150,7 +147,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1047.8" y="249.9999" />
+        <Position x="1036.8" y="201.9999" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -180,7 +177,7 @@
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="936" y="146" />
+        <Position x="925" y="98" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -212,7 +209,7 @@
     </Node>
     <Node ToolID="19">
       <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-        <Position x="133" y="335" />
+        <Position x="122" y="287" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -57021,7 +57018,7 @@
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="65" y="102" width="637" height="215.7997" />
+        <Position x="54" y="49" width="637" height="220.7996" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -57039,7 +57036,7 @@
       <ChildNodes>
         <Node ToolID="4">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Throttle.Throttle">
-            <Position x="513" y="146" />
+            <Position x="502" y="98" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -57055,7 +57052,7 @@
         </Node>
         <Node ToolID="5">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="407" y="146" />
+            <Position x="396" y="98" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -57076,7 +57073,7 @@
         </Node>
         <Node ToolID="6">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-            <Position x="196" y="146" />
+            <Position x="185" y="98" />
           </GuiSettings>
           <Properties>
             <Configuration joinByRecordPos="False">
@@ -57111,7 +57108,7 @@
         </Node>
         <Node ToolID="7">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-            <Position x="301" y="146" />
+            <Position x="290" y="98" />
           </GuiSettings>
           <Properties>
             <Configuration joinByRecordPos="False">
@@ -57146,7 +57143,7 @@
         </Node>
         <Node ToolID="8">
           <GuiSettings>
-            <Position x="618" y="146" />
+            <Position x="607" y="98" />
           </GuiSettings>
           <Properties>
             <Configuration />
@@ -57160,7 +57157,7 @@
         </Node>
         <Node ToolID="9">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="289" y="233.7996" />
+            <Position x="278" y="185.7996" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -57184,7 +57181,7 @@
         </Node>
         <Node ToolID="10">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="188" y="222.7995" />
+            <Position x="177" y="174.7995" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -57208,7 +57205,7 @@
         </Node>
         <Node ToolID="1">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="90.00002" y="146" />
+            <Position x="79.00002" y="98" />
           </GuiSettings>
           <Properties>
             <Configuration>
