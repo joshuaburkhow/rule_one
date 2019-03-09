@@ -226,17 +226,17 @@
     </Node>
     <Node ToolID="27">
       <GuiSettings>
-        <Position x="226" y="209" />
+        <Position x="542" y="212" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Value name="Radio Button (38)">True</Value>
+          <Value name="Radio Button (38)">False</Value>
           <Value name="Drop Down (14)">Symbol</Value>
           <Value name="Drop Down (15)">Symbol</Value>
           <Value name="Drop Down (13)">A and B (inner join)</Value>
           <Value name="Text Box (35)" />
-          <Value name="Radio Button (39)">False</Value>
-          <Value name="Text Box (40)" />
+          <Value name="Radio Button (39)">True</Value>
+          <Value name="Text Box (40)">[Symbol] = [Input_#2_Symbol]</Value>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
@@ -248,11 +248,11 @@
     </Node>
     <Node ToolID="28">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="605" y="209" />
+        <Position x="715" y="211" />
       </GuiSettings>
       <Properties>
         <Configuration>
-          <Expression>[Side] != [Sell Side] AND [Side] = "Buy"</Expression>
+          <Expression>[Buy Side] != [Sell Side] AND [Buy Side] = "Buy"</Expression>
           <Mode>Custom</Mode>
           <Simple>
             <Operator>=</Operator>
@@ -273,7 +273,7 @@
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>[Side] != [Sell Side] AND [Side] = "Buy"</DefaultAnnotationText>
+          <DefaultAnnotationText>[Buy Side] != [Sell Side] AND [Buy Side] = "Buy"</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -281,42 +281,25 @@
     </Node>
     <Node ToolID="29">
       <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-        <Position x="308" y="209" />
+        <Position x="624" y="212" />
       </GuiSettings>
       <Properties>
         <Configuration>
           <OrderChanged value="True" />
           <CommaDecimal value="False" />
           <SelectFields>
-            <SelectField field=",Exec Time,Spread,Side,Qty,Pos Effect,Symbol,Exp,Strike,Type,Price,Net Price,Order Type" selected="False" />
-            <SelectField field="Account Trade History" selected="False" />
-            <SelectField field="Field_16" selected="False" />
             <SelectField field="Symbol" selected="True" />
-            <SelectField field="Exec Time" selected="True" />
-            <SelectField field="Spread" selected="False" />
-            <SelectField field="Side" selected="True" />
-            <SelectField field="Qty" selected="True" type="Double" size="8" />
-            <SelectField field="Pos Effect" selected="False" />
-            <SelectField field="Exp" selected="False" />
-            <SelectField field="Strike" selected="False" />
-            <SelectField field="Type" selected="False" />
-            <SelectField field="Price" selected="True" type="Double" size="8" />
-            <SelectField field="Net Price" selected="False" />
-            <SelectField field="Order Type" selected="False" />
-            <SelectField field="Input_#2_,Exec Time,Spread,Side,Qty,Pos Effect,Symbol,Exp,Strike,Type,Price,Net Price,Order Type" selected="False" />
-            <SelectField field="Input_#2_Account Trade History" selected="False" />
-            <SelectField field="Input_#2_Field_16" selected="False" />
-            <SelectField field="Input_#2_Exec Time" selected="True" rename="Sell Date" />
-            <SelectField field="Input_#2_Spread" selected="False" />
+            <SelectField field="Side" selected="True" rename="Buy Side" />
+            <SelectField field="Input_#2_Symbol" selected="False" />
+            <SelectField field="Date" selected="True" rename="Buy Date" />
+            <SelectField field="Sum_Qty" selected="True" rename="Buy Qty" />
+            <SelectField field="Avg_Price" selected="True" rename="Buy Avg Price" />
+            <SelectField field="# of Trades" selected="True" rename="# of Buy Trades" />
             <SelectField field="Input_#2_Side" selected="True" rename="Sell Side" />
-            <SelectField field="Input_#2_Qty" selected="True" rename="Sell Qty" type="Double" size="8" />
-            <SelectField field="Input_#2_Pos Effect" selected="False" />
-            <SelectField field="Input_#2_Exp" selected="False" />
-            <SelectField field="Input_#2_Strike" selected="False" />
-            <SelectField field="Input_#2_Type" selected="False" />
-            <SelectField field="Input_#2_Price" selected="True" rename="Sell Price" type="Double" size="8" />
-            <SelectField field="Input_#2_Net Price" selected="False" />
-            <SelectField field="Input_#2_Order Type" selected="False" />
+            <SelectField field="Input_#2_Date" selected="True" rename="Sell Date" />
+            <SelectField field="Input_#2_Sum_Qty" selected="True" rename="Sell Qty" />
+            <SelectField field="Input_#2_Avg_Price" selected="True" rename="Sell Avg Price" />
+            <SelectField field="Input_#2_# of Trades" selected="True" rename="# of Sell Trades" />
             <SelectField field="*Unknown" selected="True" />
           </SelectFields>
         </Configuration>
@@ -328,111 +311,6 @@
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
     </Node>
-    <Node ToolID="30">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
-        <Position x="407" y="209" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <IsFrom value="False" />
-          <InputFieldName>Exec Time</InputFieldName>
-          <Format>MM/dd/yy hh:mm:ss</Format>
-          <OutputFieldName>Buy DateTime</OutputFieldName>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Convert Exec Time From:
-MM/dd/yy hh:mm:ss</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
-    </Node>
-    <Node ToolID="31">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
-        <Position x="506" y="209" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <IsFrom value="False" />
-          <InputFieldName>Sell Date</InputFieldName>
-          <Format>MM/dd/yy hh:mm:ss</Format>
-          <OutputFieldName>Sell Datetime</OutputFieldName>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>Convert Sell Date From:
-MM/dd/yy hh:mm:ss</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
-    </Node>
-    <Node ToolID="32">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="719" y="209" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>[Buy DateTime] &lt; [Sell Datetime]</Expression>
-          <Mode>Custom</Mode>
-          <Simple>
-            <Operator>&lt;</Operator>
-            <Field>Buy DateTime</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2019-02-20 21:31:42</PeriodDate>
-              <PeriodType>days</PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>2019-02-20</Operand>
-              <StartDate>2019-02-20 21:31:42</StartDate>
-              <EndDate>2019-02-20 21:31:42</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <DefaultAnnotationText>[Buy DateTime] &lt; [Sell Datetime]</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
-    <Node ToolID="33">
-      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="58" y="331" />
-      </GuiSettings>
-      <Properties>
-        <Configuration>
-          <Expression>[Symbol] != "ATRA"</Expression>
-          <Mode>Simple</Mode>
-          <Simple>
-            <Operator>!=</Operator>
-            <Field>Symbol</Field>
-            <Operands>
-              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
-              <DateType>fixed</DateType>
-              <PeriodDate>2019-02-20 21:34:52</PeriodDate>
-              <PeriodType>
-              </PeriodType>
-              <PeriodCount>0</PeriodCount>
-              <Operand>ATRA</Operand>
-              <StartDate>2019-02-20 21:34:52</StartDate>
-              <EndDate>2019-02-20 21:34:52</EndDate>
-            </Operands>
-          </Simple>
-        </Configuration>
-        <Annotation DisplayMode="0">
-          <Name />
-          <AnnotationText>[Symbol] != "ATRA"
-Need to find a better way to allocate multiple trades and partial sells</AnnotationText>
-          <DefaultAnnotationText>[Symbol] != "ATRA"</DefaultAnnotationText>
-          <Left value="False" />
-        </Annotation>
-      </Properties>
-      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
-    </Node>
     <Node ToolID="34">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
         <Position x="166" y="331" />
@@ -440,14 +318,15 @@ Need to find a better way to allocate multiple trades and partial sells</Annotat
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField expression="([Sell Price]-[Price])*[Qty] - 6.95" field="Dollar GainLoss" size="19.2" type="FixedDecimal" />
-            <FormulaField expression="DateTimeDiff([Sell Datetime],[Buy DateTime],'day')" field="Days" size="4" type="Int32" />
+            <FormulaField expression="([Sell Avg Price]-[Buy Avg Price])*[Buy Qty] - 6.95" field="Dollar GainLoss" size="19.2" type="FixedDecimal" />
+            <FormulaField expression="DateTimeDiff([Sell Date],[Buy Date],'day')" field="Days" size="4" type="Int32" />
+            <FormulaField expression="IF [Dollar GainLoss] &gt; 0 THEN 'WIN' ELSE 'LOSS' ENDIF" field="WinOrLoss" size="8" type="V_String" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText>Dollar GainLoss = ([Sell Price]-[Price])*[Qty] - 6.95
-Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
+          <DefaultAnnotationText>Dollar GainLoss = ([Sell Avg Price]-[Buy Avg Price])*[Buy Qty] - 6.95
+Days = Dat...</DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
@@ -460,10 +339,11 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
       <Properties>
         <Configuration>
           <SummarizeFields>
-            <SummarizeField field="Buy DateTime" action="Min" rename="Buy" />
-            <SummarizeField field="Sell Datetime" action="Max" rename="Sell" />
+            <SummarizeField field="Buy Date" action="Min" rename="Buy" />
+            <SummarizeField field="Sell Date" action="Max" rename="Sell" />
             <SummarizeField field="Symbol" action="Count" rename="# of Trades" />
             <SummarizeField field="Dollar GainLoss" action="Sum" rename="Dollar Gain / Loss" />
+            <SummarizeField field="WinOrLoss" action="GroupBy" rename="WinOrLoss" />
           </SummarizeFields>
         </Configuration>
         <Annotation DisplayMode="0">
@@ -500,7 +380,7 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6988_14c597a9627d4b2bb6b1ef8a40957106_\Engine_11836_90c3c309e09f4783b0836f0f2726a41b_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6588_8b4cba3c6b5d483b822749aa4522b02a_\Engine_21156_2f65cf86e4c44570b4fff7ef71e0bd74_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -528,7 +408,7 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
       </GuiSettings>
       <Properties>
         <Configuration>
-          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6988_14c597a9627d4b2bb6b1ef8a40957106_\Engine_11836_b23659e3e6ad44a8beb2e5ab5ead48f7_.yxdb</TempFile>
+          <TempFile>C:\ProgramData\Alteryx\Engine\Engine_6588_8b4cba3c6b5d483b822749aa4522b02a_\Engine_21156_f3c98207641b44b381fe2d233a4a377d_.yxdb</TempFile>
           <TempFileDataProfiling />
           <Layout>
             <ViewMode>Single</ViewMode>
@@ -557,17 +437,137 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
       <Properties>
         <Configuration>
           <FormulaFields>
-            <FormulaField expression="([Sell Price]-[Price])/[Price]*100" field="% Gain / Loss" size="19.1" type="FixedDecimal" />
+            <FormulaField expression="([Sell Avg Price]-[Buy Avg Price])/[Buy Avg Price]*100" field="% Gain / Loss" size="19.1" type="FixedDecimal" />
           </FormulaFields>
         </Configuration>
         <Annotation DisplayMode="0">
           <Name />
-          <DefaultAnnotationText><![CDATA[% Gain / Loss = ([Sell Price]-[Price])/[Price]*100
+          <DefaultAnnotationText><![CDATA[% Gain / Loss = ([Sell Avg Price]-[Buy Avg Price])/[Buy Avg Price]*100
 ]]></DefaultAnnotationText>
           <Left value="False" />
         </Annotation>
       </Properties>
       <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="40">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Sort.Sort">
+        <Position x="413" y="485" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SortInfo locale="0">
+            <Field field="Sell Date" order="Descending" />
+          </SortInfo>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Sell Date - Descending</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSort" />
+    </Node>
+    <Node ToolID="42">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="328.6" y="209" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="True" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field=",Exec Time,Spread,Side,Qty,Pos Effect,Symbol,Exp,Strike,Type,Price,Net Price,Order Type" selected="False" />
+            <SelectField field="Account Trade History" selected="False" />
+            <SelectField field="Field_16" selected="False" />
+            <SelectField field="Symbol" selected="True" />
+            <SelectField field="Exec Time" selected="True" />
+            <SelectField field="Spread" selected="True" />
+            <SelectField field="Side" selected="True" />
+            <SelectField field="Qty" selected="True" type="Double" size="8" />
+            <SelectField field="Pos Effect" selected="False" />
+            <SelectField field="Exp" selected="False" />
+            <SelectField field="Strike" selected="False" />
+            <SelectField field="Type" selected="False" />
+            <SelectField field="Price" selected="True" type="FixedDecimal" size="19.2" />
+            <SelectField field="Net Price" selected="False" type="Double" size="8" />
+            <SelectField field="Order Type" selected="False" />
+            <SelectField field="Exec Time1" selected="False" />
+            <SelectField field="Exec Time2" selected="True" type="Time" size="8" />
+            <SelectField field="Date" selected="True" />
+            <SelectField field="*Unknown" selected="True" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="43">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DateTime.DateTime">
+        <Position x="259.6" y="209" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <IsFrom value="False" />
+          <InputFieldName>Exec Time1</InputFieldName>
+          <Format>MM-dd-yy</Format>
+          <OutputFieldName>Date</OutputFieldName>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Convert Exec Time1 From:
+MM-dd-yy</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDateTime" />
+    </Node>
+    <Node ToolID="44">
+      <GuiSettings Plugin="AlteryxSpatialPluginsGui.Summarize.Summarize">
+        <Position x="415.9" y="209" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <SummarizeFields>
+            <SummarizeField field="Symbol" action="GroupBy" rename="Symbol" />
+            <SummarizeField field="Date" action="Min" rename="Date" />
+            <SummarizeField field="Side" action="GroupBy" rename="Side" />
+            <SummarizeField field="Qty" action="Sum" rename="Sum_Qty" />
+            <SummarizeField field="Price" action="Avg" rename="Avg_Price" />
+            <SummarizeField field="Symbol" action="Count" rename="# of Trades" />
+          </SummarizeFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxSpatialPluginsEngine.dll" EngineDllEntryPoint="AlteryxSummarize" />
+    </Node>
+    <Node ToolID="41">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="159.3" y="209" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>Exec Time</Field>
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>Exec Time</RootName>
+          <Delimeters value=" " />
+          <NumFields value="2" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
     </Node>
   </Nodes>
   <Connections>
@@ -597,11 +597,7 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="19" Connection="Output" />
-      <Destination ToolID="27" Connection="Input3" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="19" Connection="Output" />
-      <Destination ToolID="27" Connection="Input4" />
+      <Destination ToolID="41" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="20" Connection="Output" />
@@ -613,27 +609,11 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="28" Connection="True" />
-      <Destination ToolID="32" Connection="Input" />
+      <Destination ToolID="34" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="29" Connection="Output" />
-      <Destination ToolID="30" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="30" Connection="Output" />
-      <Destination ToolID="31" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="31" Connection="Output" />
       <Destination ToolID="28" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="32" Connection="True" />
-      <Destination ToolID="33" Connection="Input" />
-    </Connection>
-    <Connection>
-      <Origin ToolID="33" Connection="True" />
-      <Destination ToolID="34" Connection="Input" />
     </Connection>
     <Connection>
       <Origin ToolID="34" Connection="Output" />
@@ -653,7 +633,31 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     </Connection>
     <Connection>
       <Origin ToolID="39" Connection="Output" />
+      <Destination ToolID="40" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="40" Connection="Output" />
       <Destination ToolID="37" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="42" Connection="Output" />
+      <Destination ToolID="44" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="43" Connection="Output" />
+      <Destination ToolID="42" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="27" Connection="Input4" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="44" Connection="Output" />
+      <Destination ToolID="27" Connection="Input3" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="41" Connection="Output" />
+      <Destination ToolID="43" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
@@ -669,7 +673,7 @@ Days = DateTimeDiff([Sell ...</DefaultAnnotationText>
     <DisableAllOutput value="False" />
     <ShowAllMacroMessages value="False" />
     <ShowConnectionStatusIsOn value="True" />
-    <ShowConnectionStatusOnlyWhenRunning value="False" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
     <ZoomLevel value="0" />
     <LayoutType>Horizontal</LayoutType>
     <MetaInfo>

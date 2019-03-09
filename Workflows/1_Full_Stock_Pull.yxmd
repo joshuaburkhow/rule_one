@@ -3,7 +3,7 @@
   <Nodes>
     <Node ToolID="12">
       <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
-        <Position x="1136" y="103" />
+        <Position x="1170" y="97.99997" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -25,7 +25,7 @@
     </Node>
     <Node ToolID="14">
       <GuiSettings Plugin="AlteryxBasePluginsGui.RecordID.RecordID">
-        <Position x="819" y="103" />
+        <Position x="824" y="111" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -45,7 +45,7 @@
     </Node>
     <Node ToolID="15">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-        <Position x="1030" y="103" />
+        <Position x="1035" y="111" />
       </GuiSettings>
       <Properties>
         <Configuration joinByRecordPos="False">
@@ -118,7 +118,7 @@
     </Node>
     <Node ToolID="16">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Transpose.Transpose">
-        <Position x="937.8" y="207.9994" />
+        <Position x="942.8" y="215.9994" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -147,7 +147,7 @@
     </Node>
     <Node ToolID="17">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="1036.8" y="206.9999" />
+        <Position x="1041.8" y="214.9998" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -177,7 +177,7 @@
     </Node>
     <Node ToolID="18">
       <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
-        <Position x="925" y="103" />
+        <Position x="930" y="111" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -209,7 +209,7 @@
     </Node>
     <Node ToolID="20">
       <GuiSettings Plugin="AlteryxGuiToolkit.ToolContainer.ToolContainer">
-        <Position x="54" y="54" width="637" height="220.7996" />
+        <Position x="54" y="54" width="642" height="232.7994" />
       </GuiSettings>
       <Properties>
         <Configuration>
@@ -227,15 +227,15 @@
       <ChildNodes>
         <Node ToolID="4">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Throttle.Throttle">
-            <Position x="502" y="103" />
+            <Position x="507" y="111" />
           </GuiSettings>
           <Properties>
             <Configuration>
-              <RecordsPerMinute>2000</RecordsPerMinute>
+              <RecordsPerMinute>10000</RecordsPerMinute>
             </Configuration>
             <Annotation DisplayMode="0">
               <Name />
-              <DefaultAnnotationText>2000 Records per minute</DefaultAnnotationText>
+              <DefaultAnnotationText>10000 Records per minute</DefaultAnnotationText>
               <Left value="False" />
             </Annotation>
           </Properties>
@@ -243,7 +243,7 @@
         </Node>
         <Node ToolID="5">
           <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
-            <Position x="396" y="103" />
+            <Position x="401" y="111" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -264,7 +264,7 @@
         </Node>
         <Node ToolID="6">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-            <Position x="185" y="103" />
+            <Position x="190" y="111" />
           </GuiSettings>
           <Properties>
             <Configuration joinByRecordPos="False">
@@ -299,7 +299,7 @@
         </Node>
         <Node ToolID="7">
           <GuiSettings Plugin="AlteryxBasePluginsGui.Join.Join">
-            <Position x="290" y="103" />
+            <Position x="295" y="111" />
           </GuiSettings>
           <Properties>
             <Configuration joinByRecordPos="False">
@@ -332,23 +332,9 @@
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJoin" />
         </Node>
-        <Node ToolID="8">
-          <GuiSettings>
-            <Position x="607" y="103" />
-          </GuiSettings>
-          <Properties>
-            <Configuration />
-            <Annotation DisplayMode="0">
-              <Name />
-              <DefaultAnnotationText />
-              <Left value="False" />
-            </Annotation>
-          </Properties>
-          <EngineSettings Macro="5YR_EPS_GR.yxmc" />
-        </Node>
         <Node ToolID="9">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="278" y="190.7996" />
+            <Position x="283" y="198.7996" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -372,7 +358,7 @@
         </Node>
         <Node ToolID="10">
           <GuiSettings Plugin="AlteryxBasePluginsGui.TextInput.TextInput">
-            <Position x="177" y="179.7995" />
+            <Position x="175" y="202.7995" />
           </GuiSettings>
           <Properties>
             <Configuration>
@@ -28206,6 +28192,20 @@
           </Properties>
           <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextInput" />
         </Node>
+        <Node ToolID="21">
+          <GuiSettings>
+            <Position x="612" y="111" />
+          </GuiSettings>
+          <Properties>
+            <Configuration />
+            <Annotation DisplayMode="0">
+              <Name>5YR_EPS_GR (8)</Name>
+              <DefaultAnnotationText />
+              <Left value="False" />
+            </Annotation>
+          </Properties>
+          <EngineSettings Macro="5YR_EPS_GR.yxmc" />
+        </Node>
       </ChildNodes>
     </Node>
   </Nodes>
@@ -28236,7 +28236,7 @@
     </Connection>
     <Connection>
       <Origin ToolID="4" Connection="Output" />
-      <Destination ToolID="8" Connection="Input46" />
+      <Destination ToolID="21" Connection="Input46" />
     </Connection>
     <Connection>
       <Origin ToolID="5" Connection="Output" />
@@ -28255,16 +28255,16 @@
       <Destination ToolID="5" Connection="Input" />
     </Connection>
     <Connection>
-      <Origin ToolID="8" Connection="Output45" />
-      <Destination ToolID="14" Connection="Input" />
-    </Connection>
-    <Connection>
       <Origin ToolID="10" Connection="Output" />
       <Destination ToolID="6" Connection="Right" />
     </Connection>
     <Connection>
       <Origin ToolID="1" Connection="Output" />
       <Destination ToolID="6" Connection="Left" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="21" Connection="Output45" />
+      <Destination ToolID="14" Connection="Input" />
     </Connection>
   </Connections>
   <Properties>
